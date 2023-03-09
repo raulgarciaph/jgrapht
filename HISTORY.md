@@ -23,7 +23,7 @@ Changes to JGraphT in each version:
     - Added `ApBetweennessCentrality` using new dependency on apfloat library (contributed by Dimitrios Michail)
     - Added `UndirectedModularityMeasurer` (contributed by Dimitrios Michail)
     - Added callback API to `DirectedSimpleCycles` interface (contributed by Sérgio Faria)
-    - Upgraded commons-text to 1.10.0 and antlr4-runtime to 4.9.3 (contributed by Rene Leonhardt)
+    - Upgraded commons-text to 1.10.0 and antlr4-runtime to 4.10.1 (contributed by Rene Leonhardt)
 
 - **version 1.5.1** (18-Mar-2021)
     - Prepared release cycle 1.5.1: removed deprecated code, updated dependencies (contributed by Joris Kinable)
