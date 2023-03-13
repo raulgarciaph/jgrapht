@@ -151,6 +151,7 @@ JGraphT wouldn't be the library it is today without the source contributions and
 - [Frans van Buul](https://github.com/fransvanbuul)
 - [Sérgio Faria](https://github.com/sergio91pt)
 - [Rene Leonhardt](https://github.com/reneleonhardt)
+- [DelfinSR](https://github.com/DelfinSR)
 
 (If we have missed your name on this list, please email us to get it fixed.)
 
