@@ -9,11 +9,11 @@
 
 <img src="https://raw.githubusercontent.com/jgrapht/jgrapht/master/etc/logo/jgrapht-logo-transparent-cropped.png" width="361" height="200" align="right" />
 
-Released: March 18, 2021</p>
+Released: May 1, 2023</p>
 
 Written by [Barak Naveh](mailto:barak_naveh@users.sourceforge.net) and Contributors
 
-(C) Copyright 2003-2021, by Barak Naveh and Contributors. All rights
+(C) Copyright 2003-2023, by Barak Naveh and Contributors. All rights
 reserved.
 
 Please address all contributions, suggestions, and inquiries to the [user mailing list](https://lists.sourceforge.net/lists/listinfo/jgrapht-users)
@@ -100,7 +100,7 @@ Starting from 0.9.0, every JGraphT release is published to the Maven Central Rep
 ```xml
 <groupId>org.jgrapht</groupId>
 <artifactId>jgrapht-core</artifactId>
-<version>1.5.1</version>
+<version>1.5.2</version>
 ```
 
 We have also started auto-publishing SNAPSHOT builds for every successful commit to master.  To use the bleeding edge:
@@ -108,7 +108,7 @@ We have also started auto-publishing SNAPSHOT builds for every successful commit
 ```xml
 <groupId>org.jgrapht</groupId>
 <artifactId>jgrapht-core</artifactId>
-<version>1.5.2-SNAPSHOT</version>
+<version>1.5.3-SNAPSHOT</version>
 ```
 
 and make sure the snapshot repository is enabled:

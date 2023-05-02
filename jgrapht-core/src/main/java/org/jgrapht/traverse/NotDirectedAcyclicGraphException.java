@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2021-2021, by Kaiichiro Ota and Contributors.
+ * (C) Copyright 2021-2023, by Kaiichiro Ota and Contributors.
  *
  * JGraphT : a free Java graph-theory library
  *
