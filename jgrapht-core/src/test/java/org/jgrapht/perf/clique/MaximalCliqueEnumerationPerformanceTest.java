@@ -77,8 +77,7 @@ public class MaximalCliqueEnumerationPerformanceTest
     }
 
     public static class BronKerboschRandomGraphBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
         @Override
         Iterable<Set<Integer>> createSolver(Graph<Integer, DefaultEdge> graph)
@@ -88,8 +87,7 @@ public class MaximalCliqueEnumerationPerformanceTest
     }
 
     public static class PivotBronKerboschRandomGraphBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
         @Override
         Iterable<Set<Integer>> createSolver(Graph<Integer, DefaultEdge> graph)
@@ -99,8 +97,7 @@ public class MaximalCliqueEnumerationPerformanceTest
     }
 
     public static class DegeneracyBronKerboschRandomGraphBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
         @Override
         Iterable<Set<Integer>> createSolver(Graph<Integer, DefaultEdge> graph)

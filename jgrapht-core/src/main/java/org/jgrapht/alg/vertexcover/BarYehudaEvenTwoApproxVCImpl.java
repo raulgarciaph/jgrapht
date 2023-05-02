@@ -47,8 +47,7 @@ import java.util.stream.*;
  * @author Joris Kinable
  */
 public class BarYehudaEvenTwoApproxVCImpl<V, E>
-    implements
-    VertexCoverAlgorithm<V>
+    implements VertexCoverAlgorithm<V>
 {
 
     private final Graph<V, E> graph;

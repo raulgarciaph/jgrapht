@@ -27,8 +27,7 @@ import java.util.*;
 import static org.junit.Assert.fail;
 
 public class EdmondsKarpMFImplTest
-    extends
-    MaximumFlowAlgorithmTest
+    extends MaximumFlowAlgorithmTest
 {
     @Override
     MaximumFlowAlgorithm<Integer, DefaultWeightedEdge> createSolver(

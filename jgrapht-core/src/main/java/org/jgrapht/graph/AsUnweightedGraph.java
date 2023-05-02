@@ -38,11 +38,8 @@ import java.util.*;
  * @param <E> the graph edge type
  */
 public class AsUnweightedGraph<V, E>
-    extends
-    GraphDelegator<V, E>
-    implements
-    Serializable,
-    Graph<V, E>
+    extends GraphDelegator<V, E>
+    implements Serializable, Graph<V, E>
 {
 
     private static final long serialVersionUID = -5186421272597767751L;

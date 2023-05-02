@@ -43,8 +43,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class SmallestDegreeLastColoring<V, E>
-    extends
-    GreedyColoring<V, E>
+    extends GreedyColoring<V, E>
 {
     /**
      * Construct a new coloring algorithm.

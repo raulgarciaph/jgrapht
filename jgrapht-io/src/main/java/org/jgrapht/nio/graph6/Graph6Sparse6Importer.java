@@ -69,10 +69,8 @@ import java.util.function.*;
  * @param <E> graph edge type
  */
 public class Graph6Sparse6Importer<V, E>
-    extends
-    BaseEventDrivenImporter<V, E>
-    implements
-    GraphImporter<V, E>
+    extends BaseEventDrivenImporter<V, E>
+    implements GraphImporter<V, E>
 {
     /**
      * Default key used for vertex ID.

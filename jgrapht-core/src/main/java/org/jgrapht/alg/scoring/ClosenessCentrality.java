@@ -60,8 +60,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class ClosenessCentrality<V, E>
-    implements
-    VertexScoringAlgorithm<V, Double>
+    implements VertexScoringAlgorithm<V, Double>
 {
     /**
      * Underlying graph

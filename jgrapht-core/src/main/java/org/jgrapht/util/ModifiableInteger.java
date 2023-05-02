@@ -39,10 +39,8 @@ package org.jgrapht.util;
  * @author Barak Naveh
  */
 public class ModifiableInteger
-    extends
-    Number
-    implements
-    Comparable<ModifiableInteger>
+    extends Number
+    implements Comparable<ModifiableInteger>
 {
     private static final long serialVersionUID = 3618698612851422261L;
 

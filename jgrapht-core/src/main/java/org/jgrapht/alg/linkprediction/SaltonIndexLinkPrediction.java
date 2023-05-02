@@ -51,8 +51,7 @@ import org.jgrapht.alg.util.Pair;
  * @author Dimitrios Michail
  */
 public class SaltonIndexLinkPrediction<V, E>
-    implements
-    LinkPredictionAlgorithm<V, E>
+    implements LinkPredictionAlgorithm<V, E>
 {
     private Graph<V, E> graph;
 

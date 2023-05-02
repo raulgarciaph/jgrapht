@@ -44,10 +44,8 @@ import java.util.function.*;
  * @author Dimitrios Michail
  */
 public class GmlExporter<V, E>
-    extends
-    BaseExporter<V, E>
-    implements
-    GraphExporter<V, E>
+    extends BaseExporter<V, E>
+    implements GraphExporter<V, E>
 {
     private static final String CREATOR = "JGraphT GML Exporter";
     private static final String VERSION = "1";

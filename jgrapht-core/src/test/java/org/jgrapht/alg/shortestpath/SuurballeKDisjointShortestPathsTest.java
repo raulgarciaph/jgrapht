@@ -27,8 +27,7 @@ import org.jgrapht.alg.interfaces.*;
  * @author Assaf Mizrachi
  */
 public class SuurballeKDisjointShortestPathsTest
-    extends
-    KDisjointShortestPathsTestCase
+    extends KDisjointShortestPathsTestCase
 {
 
     @Override

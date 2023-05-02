@@ -22,8 +22,7 @@ import org.jgrapht.alg.interfaces.*;
 import org.jgrapht.graph.*;
 
 public class PrimMinimumSpanningTreeTest
-    extends
-    MinimumSpanningTreeTest
+    extends MinimumSpanningTreeTest
 {
 
     @Override

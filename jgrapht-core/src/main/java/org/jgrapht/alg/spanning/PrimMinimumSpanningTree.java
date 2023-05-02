@@ -42,8 +42,7 @@ import java.util.*;
  * @author Alexey Kudinkin
  */
 public class PrimMinimumSpanningTree<V, E>
-    implements
-    SpanningTreeAlgorithm<E>
+    implements SpanningTreeAlgorithm<E>
 {
     private final Graph<V, E> g;
 

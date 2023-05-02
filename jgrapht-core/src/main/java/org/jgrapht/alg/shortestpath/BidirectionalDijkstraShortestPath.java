@@ -45,8 +45,7 @@ import java.util.function.*;
  * @see DijkstraShortestPath
  */
 public final class BidirectionalDijkstraShortestPath<V, E>
-    extends
-    BaseBidirectionalShortestPathAlgorithm<V, E>
+    extends BaseBidirectionalShortestPathAlgorithm<V, E>
 {
     private double radius;
     private final Supplier<AddressableHeap<Double, Pair<V, E>>> heapSupplier;
@@ -214,8 +213,7 @@ public final class BidirectionalDijkstraShortestPath<V, E>
      * @param <E> edges type
      */
     static class DijkstraSearchFrontier<V, E>
-        extends
-        BaseSearchFrontier<V, E>
+        extends BaseSearchFrontier<V, E>
     {
 
         final AddressableHeap<Double, Pair<V, E>> heap;

@@ -32,8 +32,7 @@ import static org.junit.Assert.*;
  * @author John V. Sichi
  */
 public class BellmanFordShortestPathTest
-    extends
-    ShortestPathTestCase
+    extends ShortestPathTestCase
 {
     // ~ Methods ----------------------------------------------------------------
 

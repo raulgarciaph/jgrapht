@@ -45,8 +45,7 @@ import org.jgrapht.alg.util.Pair;
  * @param <E> the graph edge type
  */
 public class TwoLayeredBipartiteLayout2D<V, E>
-    implements
-    LayoutAlgorithm2D<V, E>
+    implements LayoutAlgorithm2D<V, E>
 {
     protected Comparator<V> vertexComparator;
     protected boolean vertical;

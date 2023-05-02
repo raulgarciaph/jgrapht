@@ -45,8 +45,7 @@ import java.util.*;
  * @author Nikolay Ognyanov
  */
 public class PatonCycleBase<V, E>
-    implements
-    CycleBasisAlgorithm<V, E>
+    implements CycleBasisAlgorithm<V, E>
 {
     private Graph<V, E> graph;
 

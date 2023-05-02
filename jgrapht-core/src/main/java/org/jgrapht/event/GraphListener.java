@@ -32,8 +32,7 @@ package org.jgrapht.event;
  * @see VertexSetListener
  */
 public interface GraphListener<V, E>
-    extends
-    VertexSetListener<V>
+    extends VertexSetListener<V>
 {
     /**
      * Notifies that an edge has been added to the graph.

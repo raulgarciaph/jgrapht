@@ -30,8 +30,7 @@ import java.util.function.*;
  * @param <E> the graph edge type
  */
 public class DirectedMultigraph<V, E>
-    extends
-    AbstractBaseGraph<V, E>
+    extends AbstractBaseGraph<V, E>
 {
     private static final long serialVersionUID = 2919338637676573948L;
 

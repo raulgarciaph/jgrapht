@@ -69,10 +69,8 @@ import java.util.function.*;
  * @author Dimitrios Michail
  */
 public class CSVImporter<V, E>
-    extends
-    BaseEventDrivenImporter<V, E>
-    implements
-    GraphImporter<V, E>
+    extends BaseEventDrivenImporter<V, E>
+    implements GraphImporter<V, E>
 {
     private static final char DEFAULT_DELIMITER = ',';
     private static final String DEFAULT_VERTEX_ID_KEY = "ID";
@@ -235,17 +233,14 @@ public class CSVImporter<V, E>
         CSVEventDrivenImporter genericImporter = new CSVEventDrivenImporter();
         genericImporter.setDelimiter(delimiter);
         genericImporter.setFormat(format);
-        genericImporter
-            .setParameter(
-                CSVFormat.Parameter.EDGE_WEIGHTS, isParameter(CSVFormat.Parameter.EDGE_WEIGHTS));
-        genericImporter
-            .setParameter(
-                CSVFormat.Parameter.MATRIX_FORMAT_NODEID,
-                isParameter(CSVFormat.Parameter.MATRIX_FORMAT_NODEID));
-        genericImporter
-            .setParameter(
-                CSVFormat.Parameter.MATRIX_FORMAT_ZERO_WHEN_NO_EDGE,
-                isParameter(CSVFormat.Parameter.MATRIX_FORMAT_ZERO_WHEN_NO_EDGE));
+        genericImporter.setParameter(
+            CSVFormat.Parameter.EDGE_WEIGHTS, isParameter(CSVFormat.Parameter.EDGE_WEIGHTS));
+        genericImporter.setParameter(
+            CSVFormat.Parameter.MATRIX_FORMAT_NODEID,
+            isParameter(CSVFormat.Parameter.MATRIX_FORMAT_NODEID));
+        genericImporter.setParameter(
+            CSVFormat.Parameter.MATRIX_FORMAT_ZERO_WHEN_NO_EDGE,
+            isParameter(CSVFormat.Parameter.MATRIX_FORMAT_ZERO_WHEN_NO_EDGE));
 
         Consumers consumers = new Consumers(graph);
         genericImporter.addVertexConsumer(consumers.vertexConsumer);

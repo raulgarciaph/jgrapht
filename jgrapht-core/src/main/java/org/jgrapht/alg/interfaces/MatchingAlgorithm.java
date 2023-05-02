@@ -50,8 +50,7 @@ public interface MatchingAlgorithm<V, E>
      * @param <E> the graph edge type
      */
     interface Matching<V, E>
-        extends
-        Iterable<E>
+        extends Iterable<E>
     {
         /**
          * Returns the graph over which this matching is defined.
@@ -118,9 +117,7 @@ public interface MatchingAlgorithm<V, E>
      * @param <E> the graph edge type
      */
     class MatchingImpl<V, E>
-        implements
-        Matching<V, E>,
-        Serializable
+        implements Matching<V, E>, Serializable
     {
         private static final long serialVersionUID = 4767675421846527768L;
 

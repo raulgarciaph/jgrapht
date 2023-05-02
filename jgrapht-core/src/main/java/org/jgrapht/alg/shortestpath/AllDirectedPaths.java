@@ -55,9 +55,9 @@ public class AllDirectedPaths<V, E>
     /**
      * Create a new instance with given {@code pathValidator}.
      *
-     * If non-{@code null}, the {@code pathValidator} will be used while searching for paths, validating the addition
-     * of any edge to a partial path. Zero-length paths will therefore not be subject to {@code pathValidator};
-     * length-1 paths will.
+     * If non-{@code null}, the {@code pathValidator} will be used while searching for paths,
+     * validating the addition of any edge to a partial path. Zero-length paths will therefore not
+     * be subject to {@code pathValidator}; length-1 paths will.
      *
      * @param graph the input graph
      * @param pathValidator validator for computed paths; may be null
@@ -242,13 +242,16 @@ public class AllDirectedPaths<V, E>
             for (E edge : graph.outgoingEdgesOf(source)) {
                 assert graph.getEdgeSource(edge).equals(source);
 
-                if (pathValidator == null || pathValidator.isValidPath(GraphWalk.emptyWalk(graph), edge)) {
+                if (pathValidator == null
+                    || pathValidator.isValidPath(GraphWalk.emptyWalk(graph), edge))
+                {
                     if (targetVertices.contains(graph.getEdgeTarget(edge))) {
                         completePaths.add(makePath(Collections.singletonList(edge)));
                     }
 
                     if (edgeMinDistancesFromTargets.containsKey(edge)
-                            && (maxPathLength == null || maxPathLength > 1)) {
+                        && (maxPathLength == null || maxPathLength > 1))
+                    {
                         List<E> path = Collections.singletonList(edge);
                         incompletePaths.add(path);
                     }
@@ -277,8 +280,9 @@ public class AllDirectedPaths<V, E>
             for (E outEdge : graph.outgoingEdgesOf(leafNode)) {
                 // Proceed if the outgoing edge is marked and the mark
                 // is sufficiently small
-                if (edgeMinDistancesFromTargets.containsKey(outEdge) && ((maxPathLength == null)
-                    || ((edgeMinDistancesFromTargets.get(outEdge) + lengthSoFar) <= maxPathLength)))
+                if (edgeMinDistancesFromTargets.containsKey(outEdge)
+                    && ((maxPathLength == null) || ((edgeMinDistancesFromTargets.get(outEdge)
+                        + lengthSoFar) <= maxPathLength)))
                 {
                     List<E> newPath = new ArrayList<>(incompletePath);
                     newPath.add(outEdge);
@@ -289,7 +293,9 @@ public class AllDirectedPaths<V, E>
                     }
 
                     // If requested, validate the path
-                    if (pathValidator != null && !pathValidator.isValidPath(makePath(incompletePath), outEdge)) {
+                    if (pathValidator != null
+                        && !pathValidator.isValidPath(makePath(incompletePath), outEdge))
+                    {
                         continue;
                     }
 

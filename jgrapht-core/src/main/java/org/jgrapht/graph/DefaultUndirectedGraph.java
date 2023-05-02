@@ -31,8 +31,7 @@ import java.util.function.*;
  * @param <E> the graph edge type
  */
 public class DefaultUndirectedGraph<V, E>
-    extends
-    AbstractBaseGraph<V, E>
+    extends AbstractBaseGraph<V, E>
 {
     private static final long serialVersionUID = -2066644490824847621L;
 

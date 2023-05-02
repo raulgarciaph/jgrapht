@@ -37,8 +37,7 @@ import static org.jgrapht.GraphTests.isEmpty;
  * @author Alexandru Valeanu
  */
 public class BipartitePartitioning<V, E>
-    implements
-    PartitioningAlgorithm<V>
+    implements PartitioningAlgorithm<V>
 {
 
     /* Input graph */

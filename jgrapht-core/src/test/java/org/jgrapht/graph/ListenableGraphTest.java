@@ -277,8 +277,7 @@ public class ListenableGraphTest
      * @author Barak Naveh
      */
     private class MyGraphListener<E>
-        implements
-        GraphListener<Object, E>
+        implements GraphListener<Object, E>
     {
         @Override
         public void edgeAdded(GraphEdgeChangeEvent<Object, E> e)
@@ -315,8 +314,7 @@ public class ListenableGraphTest
      * A listener on the tested graph.
      */
     private class SimpleVertexListener<V>
-        implements
-        VertexSetListener<V>
+        implements VertexSetListener<V>
     {
         private V lastVertex;
 

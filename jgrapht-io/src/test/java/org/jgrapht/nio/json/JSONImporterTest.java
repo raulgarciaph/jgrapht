@@ -676,5 +676,5 @@ public class JSONImporterTest
         assertTrue(g.containsEdge("1", "2"));
         assertTrue(g.containsEdge("1", "3"));
     }
-    
+
 }

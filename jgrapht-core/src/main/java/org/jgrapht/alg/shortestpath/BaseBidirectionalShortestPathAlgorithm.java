@@ -31,8 +31,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public abstract class BaseBidirectionalShortestPathAlgorithm<V, E>
-    extends
-    BaseShortestPathAlgorithm<V, E>
+    extends BaseShortestPathAlgorithm<V, E>
 {
 
     /**

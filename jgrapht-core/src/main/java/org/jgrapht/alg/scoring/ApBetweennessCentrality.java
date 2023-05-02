@@ -56,11 +56,11 @@ import org.jheaps.tree.PairingHeap;
  *
  * Note that this running time assumes that arithmetic is performed between numbers whose
  * representation needs a number of bits which is logarithmic in the instance size. There are
- * instances where this is not true, and thus it is not safe to assume that arithmetic takes 
+ * instances where this is not true, and thus it is not safe to assume that arithmetic takes
  * constant time.
  * 
- * This class uses arbitrary precision arithmetic (except for the execution of Dijkstra's algorithm). 
- * The precision can be adjusted by the constructor parameters.  
+ * This class uses arbitrary precision arithmetic (except for the execution of Dijkstra's
+ * algorithm). The precision can be adjusted by the constructor parameters.
  * 
  * @param <V> the graph vertex type
  * @param <E> the graph edge type
@@ -68,8 +68,7 @@ import org.jheaps.tree.PairingHeap;
  * @author Assaf Mizrachi
  */
 public class ApBetweennessCentrality<V, E>
-    implements
-    VertexScoringAlgorithm<V, Apfloat>
+    implements VertexScoringAlgorithm<V, Apfloat>
 {
     /**
      * Underlying graph
@@ -249,14 +248,9 @@ public class ApBetweennessCentrality<V, E>
         while (!stack.isEmpty()) {
             V w = stack.pop();
             for (V v : predecessors.get(w)) {
-                dependency
-                    .put(
-                        v,
-                        dependency
-                            .get(v).add(
-                                sigma
-                                    .get(v).divide(sigma.get(w))
-                                    .multiply(dependency.get(w).add(one))));
+                dependency.put(
+                    v, dependency.get(v).add(
+                        sigma.get(v).divide(sigma.get(w)).multiply(dependency.get(w).add(one))));
             }
             if (!w.equals(s)) {
                 scores.put(w, scores.get(w).add(dependency.get(w)));
@@ -276,8 +270,7 @@ public class ApBetweennessCentrality<V, E>
     }
 
     private class WeightedQueue
-        implements
-        MyQueue<V, Double>
+        implements MyQueue<V, Double>
     {
 
         AddressableHeap<Double, V> delegate = new PairingHeap<>();
@@ -314,8 +307,7 @@ public class ApBetweennessCentrality<V, E>
     }
 
     private class UnweightedQueue
-        implements
-        MyQueue<V, Double>
+        implements MyQueue<V, Double>
     {
 
         Queue<V> delegate = new ArrayDeque<>();

@@ -34,8 +34,7 @@ import static org.junit.Assert.assertTrue;
  * @author Joris Kinable
  */
 public class GusfieldEquivalentFlowTreeTest
-    extends
-    GusfieldTreeAlgorithmsTestBase
+    extends GusfieldTreeAlgorithmsTestBase
 {
     @Override
     public void validateAlgorithm(SimpleWeightedGraph<Integer, DefaultWeightedEdge> network)

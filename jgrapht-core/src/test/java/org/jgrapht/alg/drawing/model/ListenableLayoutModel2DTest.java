@@ -89,8 +89,7 @@ public class ListenableLayoutModel2DTest
     }
 
     private static class CountListener
-        implements
-        BiConsumer<String, Point2D>
+        implements BiConsumer<String, Point2D>
     {
 
         private int called = 0;

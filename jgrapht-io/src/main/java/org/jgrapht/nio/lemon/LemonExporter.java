@@ -38,10 +38,8 @@ import java.util.function.*;
  * @author Dimitrios Michail
  */
 public class LemonExporter<V, E>
-    extends
-    BaseExporter<V, E>
-    implements
-    GraphExporter<V, E>
+    extends BaseExporter<V, E>
+    implements GraphExporter<V, E>
 {
     private static final String CREATOR = "JGraphT Lemon (LGF) Exporter";
     private static final String VERSION = "1";

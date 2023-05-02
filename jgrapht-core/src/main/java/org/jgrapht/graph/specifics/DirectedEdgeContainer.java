@@ -35,8 +35,7 @@ import java.util.*;
  * @author Barak Naveh
  */
 public class DirectedEdgeContainer<V, E>
-    implements
-    Serializable
+    implements Serializable
 {
     private static final long serialVersionUID = 7494242245729767106L;
     Set<E> incoming;

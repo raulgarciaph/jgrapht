@@ -44,8 +44,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class QueueBFSFundamentalCycleBasis<V, E>
-    extends
-    AbstractFundamentalCycleBasis<V, E>
+    extends AbstractFundamentalCycleBasis<V, E>
 {
     /**
      * Constructor

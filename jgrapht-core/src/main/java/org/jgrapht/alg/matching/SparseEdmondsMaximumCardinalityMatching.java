@@ -80,8 +80,7 @@ import java.util.*;
  * @author Joris Kinable
  */
 public class SparseEdmondsMaximumCardinalityMatching<V, E>
-    implements
-    MatchingAlgorithm<V, E>
+    implements MatchingAlgorithm<V, E>
 {
     private final Graph<V, E> graph;
     private MatchingAlgorithm<V, E> initializer;

@@ -45,8 +45,7 @@ import java.util.*;
  * @param <E> the graph edge type
  */
 public class KSpanningTreeClustering<V, E>
-    implements
-    ClusteringAlgorithm<V>
+    implements ClusteringAlgorithm<V>
 {
     private Graph<V, E> graph;
     private int k;

@@ -64,8 +64,7 @@ import java.util.*;
  * @param <E> the graph edge type
  */
 public class WattsStrogatzGraphGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     private static final boolean DEFAULT_ADD_INSTEAD_OF_REWIRE = false;
 

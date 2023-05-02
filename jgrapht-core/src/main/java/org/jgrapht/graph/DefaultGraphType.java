@@ -38,9 +38,7 @@ import java.io.*;
  * @author Dimitrios Michail
  */
 public class DefaultGraphType
-    implements
-    GraphType,
-    Serializable
+    implements GraphType, Serializable
 {
     private static final long serialVersionUID = 4291049312119347474L;
 

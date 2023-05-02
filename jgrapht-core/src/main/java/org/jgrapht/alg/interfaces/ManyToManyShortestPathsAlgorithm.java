@@ -29,8 +29,7 @@ import java.util.*;
  * @author Semen Chudakov
  */
 public interface ManyToManyShortestPathsAlgorithm<V, E>
-    extends
-    ShortestPathAlgorithm<V, E>
+    extends ShortestPathAlgorithm<V, E>
 {
 
     /**
@@ -98,8 +97,7 @@ public interface ManyToManyShortestPathsAlgorithm<V, E>
      * @param <E> the graph edge type
      */
     abstract class BaseManyToManyShortestPathsImpl<V, E>
-        implements
-        ManyToManyShortestPaths<V, E>
+        implements ManyToManyShortestPaths<V, E>
     {
         /**
          * Set of source vertices.

@@ -72,9 +72,7 @@ import java.util.*;
  * @author Assaf Lehr
  */
 public class PrefetchIterator<E>
-    implements
-    Iterator<E>,
-    Enumeration<E>
+    implements Iterator<E>, Enumeration<E>
 {
     private NextElementFunctor<E> innerEnum;
     private E getNextLastResult;

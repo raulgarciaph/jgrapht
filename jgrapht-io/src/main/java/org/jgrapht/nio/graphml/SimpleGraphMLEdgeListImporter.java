@@ -98,10 +98,8 @@ import java.util.function.*;
  * @author Dimitrios Michail
  */
 public class SimpleGraphMLEdgeListImporter
-    extends
-    BaseEventDrivenImporter<Integer, Triple<Integer, Integer, Double>>
-    implements
-    EventDrivenImporter<Integer, Triple<Integer, Integer, Double>>
+    extends BaseEventDrivenImporter<Integer, Triple<Integer, Integer, Double>>
+    implements EventDrivenImporter<Integer, Triple<Integer, Integer, Double>>
 {
     private static final String EDGE_WEIGHT_DEFAULT_ATTRIBUTE_NAME = "weight";
 

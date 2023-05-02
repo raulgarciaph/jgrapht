@@ -34,8 +34,7 @@ import java.util.*;
  * @see Graph
  */
 public abstract class AbstractGraph<V, E>
-    implements
-    Graph<V, E>
+    implements Graph<V, E>
 {
     /**
      * Construct a new empty graph object.

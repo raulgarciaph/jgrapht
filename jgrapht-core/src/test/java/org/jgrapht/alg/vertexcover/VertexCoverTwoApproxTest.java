@@ -32,8 +32,7 @@ import static org.junit.Assert.assertTrue;
  * @author Linda Buisman
  */
 public abstract class VertexCoverTwoApproxTest
-    implements
-    VertexCoverTest
+    implements VertexCoverTest
 {
 
     // ------- Approximation algorithms ------

@@ -231,8 +231,7 @@ class BlossomVEdge
      * direction is 0. This feature is needed to setup the blossomSibling references correctly
      */
     public static class BlossomNodesIterator
-        implements
-        Iterator<BlossomVNode>
+        implements Iterator<BlossomVNode>
     {
         /**
          * Blossom's root

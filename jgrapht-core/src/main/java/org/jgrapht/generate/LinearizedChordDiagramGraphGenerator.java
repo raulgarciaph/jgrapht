@@ -50,8 +50,7 @@ import java.util.*;
  * @param <E> the graph edge type
  */
 public class LinearizedChordDiagramGraphGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     private final Random rng;
     private final int m;

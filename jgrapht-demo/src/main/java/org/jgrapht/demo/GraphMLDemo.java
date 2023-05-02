@@ -147,8 +147,7 @@ public final class GraphMLDemo
      * A custom vertex supplier which gives each vertex a random color.
      */
     static class CustomVertexSupplier
-        implements
-        Supplier<CustomVertex>
+        implements Supplier<CustomVertex>
     {
 
         private int id = 0;

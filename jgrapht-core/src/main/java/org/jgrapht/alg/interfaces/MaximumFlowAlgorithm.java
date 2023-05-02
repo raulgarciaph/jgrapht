@@ -31,8 +31,7 @@ import java.util.*;
  *
  */
 public interface MaximumFlowAlgorithm<V, E>
-    extends
-    FlowAlgorithm<V, E>
+    extends FlowAlgorithm<V, E>
 {
 
     /**
@@ -68,8 +67,7 @@ public interface MaximumFlowAlgorithm<V, E>
      * @param <E> the graph edge type
      */
     interface MaximumFlow<E>
-        extends
-        Flow<E>
+        extends Flow<E>
     {
         /**
          * Returns value of the maximum-flow for the given network
@@ -85,10 +83,8 @@ public interface MaximumFlowAlgorithm<V, E>
      * @param <E> the graph edge type
      */
     class MaximumFlowImpl<E>
-        extends
-        FlowImpl<E>
-        implements
-        MaximumFlow<E>
+        extends FlowImpl<E>
+        implements MaximumFlow<E>
     {
         private Double value;
 

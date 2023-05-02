@@ -46,8 +46,7 @@ import java.util.*;
  * @author Joris Kinable
  */
 public class BlockCutpointGraph<V, E>
-    extends
-    SimpleGraph<Graph<V, E>, DefaultEdge>
+    extends SimpleGraph<Graph<V, E>, DefaultEdge>
 {
     private static final long serialVersionUID = -9101341117013163934L;
 

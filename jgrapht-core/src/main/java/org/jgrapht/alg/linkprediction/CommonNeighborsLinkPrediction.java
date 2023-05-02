@@ -49,8 +49,7 @@ import org.jgrapht.alg.interfaces.LinkPredictionAlgorithm;
  * @author Dimitrios Michail
  */
 public class CommonNeighborsLinkPrediction<V, E>
-    implements
-    LinkPredictionAlgorithm<V, E>
+    implements LinkPredictionAlgorithm<V, E>
 {
     private Graph<V, E> graph;
 

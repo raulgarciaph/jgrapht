@@ -329,8 +329,7 @@ public class AsSynchronizedGraphTest
     }
 
     private class AddV
-        implements
-        Order
+        implements Order
     {
         int vertex;
 
@@ -347,8 +346,7 @@ public class AsSynchronizedGraphTest
     }
 
     private class AddE
-        implements
-        Order
+        implements Order
     {
         DefaultEdge e;
         int s, t;
@@ -368,8 +366,7 @@ public class AsSynchronizedGraphTest
     }
 
     private class SetCache
-        implements
-        Order
+        implements Order
     {
         @Override
         public void execute()
@@ -381,8 +378,7 @@ public class AsSynchronizedGraphTest
     }
 
     private class RmV
-        implements
-        Order
+        implements Order
     {
         int v;
 
@@ -399,8 +395,7 @@ public class AsSynchronizedGraphTest
     }
 
     private class RmE
-        implements
-        Order
+        implements Order
     {
         int s, t;
 
@@ -428,8 +423,7 @@ public class AsSynchronizedGraphTest
     }
 
     public class TestThread
-        extends
-        TestCase
+        extends TestCase
     {
         public TestThread(String s)
         {

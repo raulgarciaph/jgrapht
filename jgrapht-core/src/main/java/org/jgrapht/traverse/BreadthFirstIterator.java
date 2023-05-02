@@ -35,8 +35,7 @@ import java.util.*;
  * @author Barak Naveh
  */
 public class BreadthFirstIterator<V, E>
-    extends
-    CrossComponentIterator<V, E, BreadthFirstIterator.SearchNodeData<E>>
+    extends CrossComponentIterator<V, E, BreadthFirstIterator.SearchNodeData<E>>
 {
     private Deque<V> queue = new ArrayDeque<>();
 

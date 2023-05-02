@@ -28,8 +28,7 @@ import java.util.Comparator;
  * @param <T> the element type
  */
 public class ElementOrderMethod<T>
-    implements
-    Serializable
+    implements Serializable
 {
     private static final long serialVersionUID = 6774881812704056362L;
 

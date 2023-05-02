@@ -95,8 +95,7 @@ import java.util.stream.*;
  * @author Andre Immig
  */
 public abstract class GoldbergMaximumDensitySubgraphAlgorithmBase<V, E>
-    implements
-    MaximumDensitySubgraphAlgorithm<V, E>
+    implements MaximumDensitySubgraphAlgorithm<V, E>
 {
 
     private double lower, upper, epsilon;
@@ -184,12 +183,10 @@ public abstract class GoldbergMaximumDensitySubgraphAlgorithmBase<V, E>
      */
     private double getMinimalCapacity()
     {
-        DoubleStream sourceWeights = this.graph
-            .vertexSet().stream()
-            .mapToDouble(v -> currentNetwork.getEdgeWeight(currentNetwork.getEdge(v, t)));
-        DoubleStream sinkWeights = this.graph
-            .vertexSet().stream()
-            .mapToDouble(v -> currentNetwork.getEdgeWeight(currentNetwork.getEdge(s, v)));
+        DoubleStream sourceWeights = this.graph.vertexSet().stream().mapToDouble(
+            v -> currentNetwork.getEdgeWeight(currentNetwork.getEdge(v, t)));
+        DoubleStream sinkWeights = this.graph.vertexSet().stream().mapToDouble(
+            v -> currentNetwork.getEdgeWeight(currentNetwork.getEdge(s, v)));
         OptionalDouble min = DoubleStream.concat(sourceWeights, sinkWeights).min();
         return min.isPresent() ? min.getAsDouble() : 0;
     }

@@ -32,8 +32,7 @@ import static org.junit.Assert.assertTrue;
  * @author Joris Kinable
  */
 public abstract class MinimumSourceSinkCutTest
-    extends
-    MaximumFlowMinimumCutAlgorithmTestBase
+    extends MaximumFlowMinimumCutAlgorithmTestBase
 {
 
     public static final int NR_RANDOM_TESTS = 500;
@@ -53,10 +52,9 @@ public abstract class MinimumSourceSinkCutTest
         Set<Integer> sinkPartition = mc.getSinkPartition();
         Set<DefaultWeightedEdge> cutEdges = mc.getCutEdges();
 
-        this
-            .verifyDirected(
-                network, source, sink, expectedCutWeight, cutWeight, sourcePartition, sinkPartition,
-                cutEdges);
+        this.verifyDirected(
+            network, source, sink, expectedCutWeight, cutWeight, sourcePartition, sinkPartition,
+            cutEdges);
     }
 
     void verifyDirected(
@@ -94,10 +92,9 @@ public abstract class MinimumSourceSinkCutTest
         Set<Integer> sinkPartition = mc.getSinkPartition();
         Set<DefaultWeightedEdge> cutEdges = mc.getCutEdges();
 
-        this
-            .verifyUndirected(
-                network, source, sink, expectedCutWeight, cutWeight, sourcePartition, sinkPartition,
-                cutEdges);
+        this.verifyUndirected(
+            network, source, sink, expectedCutWeight, cutWeight, sourcePartition, sinkPartition,
+            cutEdges);
     }
 
     void verifyUndirected(

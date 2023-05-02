@@ -58,8 +58,7 @@ import org.jheaps.tree.PairingHeap;
  * @author Dimitrios Michail
  */
 public class EdgeBetweennessCentrality<V, E>
-    implements
-    EdgeScoringAlgorithm<E, Double>
+    implements EdgeScoringAlgorithm<E, Double>
 {
     private final Graph<V, E> graph;
     private final Iterable<V> startVertices;
@@ -261,8 +260,7 @@ public class EdgeBetweennessCentrality<V, E>
      * Weighted variant where shortest paths are computed using edge weights.
      */
     private class WeightedAlgorithm
-        extends
-        Algorithm
+        extends Algorithm
     {
         @Override
         protected void singleVertexUpdate(V source)

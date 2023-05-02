@@ -33,8 +33,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public interface IntrusiveEdgesSpecifics<V, E>
-    extends
-    Serializable
+    extends Serializable
 {
     /**
      * Get the source vertex of an edge.

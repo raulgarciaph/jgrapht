@@ -51,10 +51,8 @@ import java.io.*;
  * @author Joris Kinable
  */
 public class Graph6Sparse6EventDrivenImporter
-    extends
-    BaseEventDrivenImporter<Integer, Pair<Integer, Integer>>
-    implements
-    EventDrivenImporter<Integer, Pair<Integer, Integer>>
+    extends BaseEventDrivenImporter<Integer, Pair<Integer, Integer>>
+    implements EventDrivenImporter<Integer, Pair<Integer, Integer>>
 {
     private static final String GRAPH_STRING_SEEMS_TO_BE_CORRUPT_INVALID_NUMBER_OF_VERTICES =
         "Graph string seems to be corrupt. Invalid number of vertices.";

@@ -30,8 +30,7 @@ import static junit.framework.TestCase.assertTrue;
  * {@link org.jgrapht.alg.interfaces.AStarAdmissibleHeuristic#isConsistent(Graph)} method.
  */
 public class AStarAdmissibleHeuristicTest
-    extends
-    BaseHeuristicSearchTest
+    extends BaseHeuristicSearchTest
 {
 
     @Test(expected = IllegalArgumentException.class)
@@ -86,8 +85,7 @@ public class AStarAdmissibleHeuristicTest
      * Does not override {@link AStarAdmissibleHeuristic#isConsistent(Graph)} method.
      */
     public static class ManhattanDistance
-        implements
-        AStarAdmissibleHeuristic<Node>
+        implements AStarAdmissibleHeuristic<Node>
     {
         @Override
         public double getCostEstimate(Node sourceVertex, Node targetVertex)
@@ -101,16 +99,14 @@ public class AStarAdmissibleHeuristicTest
      * Does not override {@link AStarAdmissibleHeuristic#isConsistent(Graph)} method.
      */
     public static class EuclideanDistance
-        implements
-        AStarAdmissibleHeuristic<Node>
+        implements AStarAdmissibleHeuristic<Node>
     {
         @Override
         public double getCostEstimate(Node sourceVertex, Node targetVertex)
         {
-            return Math
-                .sqrt(
-                    Math.pow(sourceVertex.x - targetVertex.x, 2)
-                        + Math.pow(sourceVertex.y - targetVertex.y, 2));
+            return Math.sqrt(
+                Math.pow(sourceVertex.x - targetVertex.x, 2)
+                    + Math.pow(sourceVertex.y - targetVertex.y, 2));
         }
     }
 

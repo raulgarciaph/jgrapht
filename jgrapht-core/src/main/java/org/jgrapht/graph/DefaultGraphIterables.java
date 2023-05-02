@@ -32,8 +32,7 @@ import org.jgrapht.GraphIterables;
  * @param <E> the graph edge type
  */
 public class DefaultGraphIterables<V, E>
-    implements
-    GraphIterables<V, E>
+    implements GraphIterables<V, E>
 {
     /**
      * The underlying graph

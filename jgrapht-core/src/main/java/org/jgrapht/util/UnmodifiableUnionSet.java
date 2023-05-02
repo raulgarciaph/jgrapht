@@ -28,10 +28,8 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class UnmodifiableUnionSet<E>
-    extends
-    AbstractSet<E>
-    implements
-    Serializable
+    extends AbstractSet<E>
+    implements Serializable
 {
     private static final long serialVersionUID = -1937327799873331354L;
 
@@ -115,8 +113,7 @@ public class UnmodifiableUnionSet<E>
     }
 
     private class UnionIterator
-        implements
-        Iterator<E>
+        implements Iterator<E>
     {
         private SetSizeOrdering ordering;
         private boolean inBiggerSet;

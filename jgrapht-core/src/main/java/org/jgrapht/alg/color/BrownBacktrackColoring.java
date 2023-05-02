@@ -32,8 +32,7 @@ import java.util.*;
  * @author Michael Behrisch
  */
 public class BrownBacktrackColoring<V, E>
-    implements
-    VertexColoringAlgorithm<V>
+    implements VertexColoringAlgorithm<V>
 {
     private final List<V> vertexList; // list of all vertices
     private final int[][] neighbors; // for every vertex v, neighbors[v] stores the neighbors of v
@@ -99,10 +98,9 @@ public class BrownBacktrackColoring<V, E>
                     recursiveColor(pos + 1);
                 } else { // Otherwise we have found a feasible coloring
                     chi = colorCount[pos];
-                    System
-                        .arraycopy(
-                            partialColorAssignment, 0, completeColorAssignment, 0,
-                            partialColorAssignment.length);
+                    System.arraycopy(
+                        partialColorAssignment, 0, completeColorAssignment, 0,
+                        partialColorAssignment.length);
                 }
             }
         }
@@ -114,10 +112,9 @@ public class BrownBacktrackColoring<V, E>
                 recursiveColor(pos + 1);
             } else {
                 chi = colorCount[pos];
-                System
-                    .arraycopy(
-                        partialColorAssignment, 0, completeColorAssignment, 0,
-                        partialColorAssignment.length);
+                System.arraycopy(
+                    partialColorAssignment, 0, completeColorAssignment, 0,
+                    partialColorAssignment.length);
             }
         }
         partialColorAssignment[pos] = 0;

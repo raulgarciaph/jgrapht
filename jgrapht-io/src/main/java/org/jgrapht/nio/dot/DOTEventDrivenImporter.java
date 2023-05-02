@@ -43,10 +43,8 @@ import java.util.Map.Entry;
  * @author Dimitrios Michail
  */
 public class DOTEventDrivenImporter
-    extends
-    BaseEventDrivenImporter<String, Pair<String, String>>
-    implements
-    EventDrivenImporter<String, Pair<String, String>>
+    extends BaseEventDrivenImporter<String, Pair<String, String>>
+    implements EventDrivenImporter<String, Pair<String, String>>
 {
     /**
      * Default key used for the graph ID.
@@ -133,8 +131,7 @@ public class DOTEventDrivenImporter
      * Common error listener for both lexer and parser which throws an exception.
      */
     private class ThrowingErrorListener
-        extends
-        BaseErrorListener
+        extends BaseErrorListener
     {
         @Override
         public void syntaxError(
@@ -152,8 +149,7 @@ public class DOTEventDrivenImporter
      * grammar.
      */
     private class NotifyDOTListener
-        extends
-        DOTBaseListener
+        extends DOTBaseListener
     {
         private Set<String> vertices;
 

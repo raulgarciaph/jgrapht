@@ -59,8 +59,7 @@ import java.util.*;
  * @author Timofey Chudakov
  */
 public class BoykovKolmogorovMFImpl<V, E>
-    extends
-    MaximumFlowAlgorithmBase<V, E>
+    extends MaximumFlowAlgorithmBase<V, E>
 {
 
     /**
@@ -287,10 +286,8 @@ public class BoykovKolmogorovMFImpl<V, E>
                         } else if (target.isFreeVertex()) {
                             // found a node which can be added to the source tree
                             if (DEBUG) {
-                                System.out
-                                    .printf(
-                                        "Growing source tree: %s -> %s\n\n", edge,
-                                        target.prototype);
+                                System.out.printf(
+                                    "Growing source tree: %s -> %s\n\n", edge, target.prototype);
                             }
 
                             target.parentEdge = edge;
@@ -330,9 +327,8 @@ public class BoykovKolmogorovMFImpl<V, E>
                             return edge;
                         } else if (source.isFreeVertex()) {
                             if (DEBUG) {
-                                System.out
-                                    .printf(
-                                        "Growing sink tree: %s -> %s\n\n", source.prototype, edge);
+                                System.out.printf(
+                                    "Growing sink tree: %s -> %s\n\n", source.prototype, edge);
                             }
 
                             source.parentEdge = edge;
@@ -528,10 +524,9 @@ public class BoykovKolmogorovMFImpl<V, E>
                 } else {
 
                     if (DEBUG) {
-                        System.out
-                            .printf(
-                                "Vertex %s get's adopted via %s\n\n", currentVertex.prototype,
-                                newParentEdge);
+                        System.out.printf(
+                            "Vertex %s get's adopted via %s\n\n", currentVertex.prototype,
+                            newParentEdge);
                     }
                     // adopt this vertex
                     makeCheckedInThisIteration(currentVertex);
@@ -585,10 +580,9 @@ public class BoykovKolmogorovMFImpl<V, E>
                 } else {
 
                     if (DEBUG) {
-                        System.out
-                            .printf(
-                                "Vertex %s get's adopted via %s\n\n", currentVertex.prototype,
-                                newParentEdge);
+                        System.out.printf(
+                            "Vertex %s get's adopted via %s\n\n", currentVertex.prototype,
+                            newParentEdge);
                     }
                     // adopt this vertex
                     makeCheckedInThisIteration(currentVertex);
@@ -776,8 +770,7 @@ public class BoykovKolmogorovMFImpl<V, E>
      * Network vertex extension used to store auxiliary vertex information.
      */
     private class VertexExtension
-        extends
-        VertexExtensionBase
+        extends VertexExtensionBase
     {
 
         /**
@@ -869,16 +862,12 @@ public class BoykovKolmogorovMFImpl<V, E>
         @Override
         public String toString()
         {
-            return String
-                .format(
-                    "{%s}: parent_edge = %s, tree_status = %s, distance = %d, timestamp = %d",
-                    prototype,
-                    parentEdge == null ? "null"
-                        : String
-                            .format(
-                                "(%s, %s)", parentEdge.getSource().prototype,
-                                parentEdge.getTarget().prototype),
-                    treeStatus, distance, timestamp);
+            return String.format(
+                "{%s}: parent_edge = %s, tree_status = %s, distance = %d, timestamp = %d",
+                prototype,
+                parentEdge == null ? "null" : String.format(
+                    "(%s, %s)", parentEdge.getSource().prototype, parentEdge.getTarget().prototype),
+                treeStatus, distance, timestamp);
 
         }
     }

@@ -55,12 +55,8 @@ import java.util.function.*;
  * @param <E> the graph edge type
  */
 public class MutableNetworkAdapter<V, E>
-    extends
-    BaseNetworkAdapter<V, E, MutableNetwork<V, E>>
-    implements
-    Graph<V, E>,
-    Cloneable,
-    Serializable
+    extends BaseNetworkAdapter<V, E, MutableNetwork<V, E>>
+    implements Graph<V, E>, Cloneable, Serializable
 {
     private static final long serialVersionUID = 7450826703235510224L;
 
@@ -264,8 +260,7 @@ public class MutableNetworkAdapter<V, E>
 
     @SuppressWarnings("unchecked")
     private void readObject(ObjectInputStream ois)
-        throws ClassNotFoundException,
-        IOException
+        throws ClassNotFoundException, IOException
     {
         ois.defaultReadObject();
 

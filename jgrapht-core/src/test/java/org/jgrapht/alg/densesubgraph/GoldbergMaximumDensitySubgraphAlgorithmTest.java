@@ -36,8 +36,7 @@ import static java.util.Arrays.asList;
  */
 
 public class GoldbergMaximumDensitySubgraphAlgorithmTest
-    extends
-    GoldbergMaximumDensitySubgraphTestBase<Integer, DefaultEdge>
+    extends GoldbergMaximumDensitySubgraphTestBase<Integer, DefaultEdge>
 {
 
     @Override

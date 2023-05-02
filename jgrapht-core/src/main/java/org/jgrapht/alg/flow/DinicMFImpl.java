@@ -49,8 +49,7 @@ import java.util.*;
  */
 
 public class DinicMFImpl<V, E>
-    extends
-    MaximumFlowAlgorithmBase<V, E>
+    extends MaximumFlowAlgorithmBase<V, E>
 {
 
     /**
@@ -248,8 +247,7 @@ public class DinicMFImpl<V, E>
      * Extension for vertex class.
      */
     class VertexExtension
-        extends
-        VertexExtensionBase
+        extends VertexExtensionBase
     {
 
         /**

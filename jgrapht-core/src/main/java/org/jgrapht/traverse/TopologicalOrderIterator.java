@@ -49,8 +49,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class TopologicalOrderIterator<V, E>
-    extends
-    AbstractGraphIterator<V, E>
+    extends AbstractGraphIterator<V, E>
 {
     private Queue<V> queue;
     private Map<V, ModifiableInteger> inDegreeMap;

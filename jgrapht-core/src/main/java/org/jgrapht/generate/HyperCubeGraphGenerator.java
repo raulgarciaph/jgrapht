@@ -33,8 +33,7 @@ import java.util.*;
  * @author Andrew Newell
  */
 public class HyperCubeGraphGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     private int dim;
 

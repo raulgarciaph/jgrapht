@@ -31,8 +31,7 @@ import static org.junit.Assert.assertEquals;
  * @author John V. Sichi, Patrick Sharp
  */
 public class ClosestFirstIteratorTest
-    extends
-    CrossComponentIteratorTest
+    extends CrossComponentIteratorTest
 {
     // ~ Methods ----------------------------------------------------------------
 

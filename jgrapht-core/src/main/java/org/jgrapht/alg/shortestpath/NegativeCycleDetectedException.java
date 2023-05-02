@@ -26,8 +26,7 @@ import org.jgrapht.*;
  * @author Dimitrios Michail
  */
 public class NegativeCycleDetectedException
-    extends
-    RuntimeException
+    extends RuntimeException
 {
     private static final long serialVersionUID = -8064609917721881630L;
 

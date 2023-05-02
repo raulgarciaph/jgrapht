@@ -30,8 +30,7 @@ import static org.junit.Assert.*;
  * @author Joris Kinable
  */
 public class AStarShortestPathTest
-    extends
-    BaseHeuristicSearchTest
+    extends BaseHeuristicSearchTest
 {
 
     /**

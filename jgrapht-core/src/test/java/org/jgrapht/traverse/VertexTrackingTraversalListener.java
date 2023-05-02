@@ -29,8 +29,7 @@ import static org.junit.Assert.assertTrue;
  * TraversalListener for testing basic graph traversal invariants
  */
 public class VertexTrackingTraversalListener<V, E>
-    extends
-    TraversalListenerAdapter<V, E>
+    extends TraversalListenerAdapter<V, E>
 {
     private Set<V> verticesTraversed = new HashSet<>();
     private Set<V> verticesFinished = new HashSet<>();

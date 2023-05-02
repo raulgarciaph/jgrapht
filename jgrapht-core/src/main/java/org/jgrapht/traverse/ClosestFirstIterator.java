@@ -42,8 +42,7 @@ import java.util.function.*;
  * @author John V. Sichi
  */
 public class ClosestFirstIterator<V, E>
-    extends
-    CrossComponentIterator<V, E,
+    extends CrossComponentIterator<V, E,
         AddressableHeap.Handle<Double, ClosestFirstIterator.QueueEntry<V, E>>>
 {
     /**

@@ -59,8 +59,7 @@ import java.util.function.*;
  * @see PathValidator
  */
 public class YenShortestPathIterator<V, E>
-    implements
-    Iterator<GraphPath<V, E>>
+    implements Iterator<GraphPath<V, E>>
 {
     /**
      * Underlying graph.
@@ -547,8 +546,7 @@ public class YenShortestPathIterator<V, E>
      * and appended to the candidate paths
      */
     class YenShortestPathsTree
-        extends
-        TreeSingleSourcePathsImpl<V, E>
+        extends TreeSingleSourcePathsImpl<V, E>
     {
         /**
          * Vertices which are masked in the {@code g}.

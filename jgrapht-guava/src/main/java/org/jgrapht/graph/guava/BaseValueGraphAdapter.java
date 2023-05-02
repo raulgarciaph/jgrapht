@@ -41,12 +41,8 @@ import static java.util.stream.Collectors.toSet;
  * @param <VG> type of the underlying Guava's value graph
  */
 public abstract class BaseValueGraphAdapter<V, W, VG extends ValueGraph<V, W>>
-    extends
-    AbstractGraph<V, EndpointPair<V>>
-    implements
-    Graph<V, EndpointPair<V>>,
-    Cloneable,
-    Serializable
+    extends AbstractGraph<V, EndpointPair<V>>
+    implements Graph<V, EndpointPair<V>>, Cloneable, Serializable
 {
     private static final long serialVersionUID = 3833510139696864917L;
 

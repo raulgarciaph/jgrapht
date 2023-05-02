@@ -57,8 +57,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class GreedyMultiplicativeSpanner<V, E>
-    implements
-    SpannerAlgorithm<E>
+    implements SpannerAlgorithm<E>
 {
     private final Graph<V, E> graph;
     private final int k;
@@ -138,8 +137,7 @@ public class GreedyMultiplicativeSpanner<V, E>
     }
 
     private class UnweightedSpannerAlgorithm
-        extends
-        SpannerAlgorithmBase
+        extends SpannerAlgorithmBase
     {
         protected Graph<V, E> spanner;
         protected Map<V, Integer> vertexDistance;
@@ -215,8 +213,7 @@ public class GreedyMultiplicativeSpanner<V, E>
     }
 
     private class WeightedSpannerAlgorithm
-        extends
-        SpannerAlgorithmBase
+        extends SpannerAlgorithmBase
     {
         protected Graph<V, DefaultWeightedEdge> spanner;
         protected AddressableHeap<Double, V> heap;

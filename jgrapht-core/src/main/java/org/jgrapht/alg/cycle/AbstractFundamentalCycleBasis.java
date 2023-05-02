@@ -47,8 +47,7 @@ import java.util.stream.*;
  * @author Dimitrios Michail
  */
 public abstract class AbstractFundamentalCycleBasis<V, E>
-    implements
-    CycleBasisAlgorithm<V, E>
+    implements CycleBasisAlgorithm<V, E>
 {
     protected Graph<V, E> graph;
 

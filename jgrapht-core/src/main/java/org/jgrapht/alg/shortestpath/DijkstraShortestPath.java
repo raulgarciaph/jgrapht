@@ -34,8 +34,7 @@ import java.util.function.*;
  * @author John V. Sichi
  */
 public final class DijkstraShortestPath<V, E>
-    extends
-    BaseShortestPathAlgorithm<V, E>
+    extends BaseShortestPathAlgorithm<V, E>
 {
     private final double radius;
     private final Supplier<AddressableHeap<Double, Pair<V, E>>> heapSupplier;

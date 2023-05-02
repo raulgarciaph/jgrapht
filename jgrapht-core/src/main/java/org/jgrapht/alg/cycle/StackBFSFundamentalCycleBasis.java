@@ -42,8 +42,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class StackBFSFundamentalCycleBasis<V, E>
-    extends
-    AbstractFundamentalCycleBasis<V, E>
+    extends AbstractFundamentalCycleBasis<V, E>
 {
     /**
      * Constructor

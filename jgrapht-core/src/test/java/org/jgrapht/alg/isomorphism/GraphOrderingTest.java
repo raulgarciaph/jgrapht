@@ -181,7 +181,6 @@ public class GraphOrderingTest
             v3o = g1Ordering.getVertexNumber(v3), v4o = g1Ordering.getVertexNumber(v4),
             v5o = g1Ordering.getVertexNumber(v5);
 
-
         int[] v1OutsExpected = { v2o };
         int[] v1Outs = g1Ordering.getOutEdges(v1o);
         Arrays.sort(v1OutsExpected);

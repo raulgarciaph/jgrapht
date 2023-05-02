@@ -67,8 +67,7 @@ import static org.jgrapht.alg.shortestpath.ContractionHierarchyPrecomputation.*;
  * @see DijkstraManyToManyShortestPaths
  */
 public class CHManyToManyShortestPaths<V, E>
-    extends
-    BaseManyToManyShortestPaths<V, E>
+    extends BaseManyToManyShortestPaths<V, E>
 {
     /**
      * Contraction hierarchy of {@code graph}.
@@ -341,8 +340,7 @@ public class CHManyToManyShortestPaths<V, E>
      * trees corresponding to source and target vertices.
      */
     private class CHManyToManyShortestPathsImpl
-        extends
-        BaseManyToManyShortestPathsImpl<V, E>
+        extends BaseManyToManyShortestPathsImpl<V, E>
     {
         /**
          * The underlying graph.

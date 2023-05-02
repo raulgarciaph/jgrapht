@@ -22,8 +22,7 @@ import org.jgrapht.alg.interfaces.*;
 import org.jgrapht.graph.*;
 
 public class KruskalMinimumSpanningTreeTest
-    extends
-    MinimumSpanningTreeTest
+    extends MinimumSpanningTreeTest
 {
 
     @Override

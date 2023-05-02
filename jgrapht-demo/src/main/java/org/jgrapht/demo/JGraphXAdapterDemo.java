@@ -34,8 +34,7 @@ import java.awt.*;
  *
  */
 public class JGraphXAdapterDemo
-    extends
-    JApplet
+    extends JApplet
 {
     private static final long serialVersionUID = 2202072534703043194L;
 

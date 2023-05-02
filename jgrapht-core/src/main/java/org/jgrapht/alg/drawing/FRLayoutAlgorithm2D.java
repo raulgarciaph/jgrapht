@@ -42,8 +42,7 @@ import java.util.function.*;
  * @param <E> the edge type
  */
 public class FRLayoutAlgorithm2D<V, E>
-    extends
-    BaseLayoutAlgorithm2D<V, E>
+    extends BaseLayoutAlgorithm2D<V, E>
 {
     /**
      * Default number of iterations
@@ -224,22 +223,20 @@ public class FRLayoutAlgorithm2D<V, E>
                 // limit by temperature
                 Point2D vDisp = Points
                     .add(repulsiveDisp.get(v), attractiveDisp.getOrDefault(v, Point2D.of(0d, 0d)));
-                
+
                 if (comparator.compare(vDisp.getX(), 0d) != 0
                     || comparator.compare(vDisp.getY(), 0d) != 0)
                 {
                     double vDispLen = Points.length(vDisp);
-                    Point2D vPos = Points
-                        .add(
-                            model.get(v),
-                            Points.scalarMultiply(vDisp, Math.min(vDispLen, temp) / vDispLen));
-    
+                    Point2D vPos = Points.add(
+                        model.get(v),
+                        Points.scalarMultiply(vDisp, Math.min(vDispLen, temp) / vDispLen));
+
                     // limit by frame
-                    vPos = Point2D
-                        .of(
-                            Math.min(minX + width, Math.max(minX, vPos.getX())),
-                            Math.min(minY + height, Math.max(minY, vPos.getY())));
-    
+                    vPos = Point2D.of(
+                        Math.min(minX + width, Math.max(minX, vPos.getX())),
+                        Math.min(minY + height, Math.max(minY, vPos.getY())));
+
                     // store result
                     model.put(v, vPos);
                 }
@@ -332,13 +329,9 @@ public class FRLayoutAlgorithm2D<V, E>
                 double deltaLen = Points.length(delta);
                 Point2D dispContribution =
                     Points.scalarMultiply(delta, attractiveForce(deltaLen) / deltaLen);
-                disp
-                    .put(
-                        v,
-                        Points
-                            .add(
-                                disp.getOrDefault(v, Point2D.of(0d, 0d)),
-                                Points.negate(dispContribution)));
+                disp.put(
+                    v, Points.add(
+                        disp.getOrDefault(v, Point2D.of(0d, 0d)), Points.negate(dispContribution)));
                 disp.put(u, Points.add(disp.getOrDefault(u, Point2D.of(0d, 0d)), dispContribution));
             }
         }
@@ -369,8 +362,7 @@ public class FRLayoutAlgorithm2D<V, E>
      * An inverse linear temperature model.
      */
     protected class InverseLinearTemperatureModel
-        implements
-        TemperatureModel
+        implements TemperatureModel
     {
         private double a;
         private double b;

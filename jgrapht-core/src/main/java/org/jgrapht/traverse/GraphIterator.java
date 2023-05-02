@@ -30,8 +30,7 @@ import java.util.*;
  * @author Barak Naveh
  */
 public interface GraphIterator<V, E>
-    extends
-    Iterator<V>
+    extends Iterator<V>
 {
     /**
      * Test whether this iterator is set to traverse the graph across connected components.

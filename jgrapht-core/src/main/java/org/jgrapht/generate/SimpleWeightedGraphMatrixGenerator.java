@@ -28,8 +28,7 @@ import java.util.*;
  * @param <E> the graph edge type
  */
 public class SimpleWeightedGraphMatrixGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     protected List<V> vertices;
     protected double[][] weights;
@@ -82,9 +81,8 @@ public class SimpleWeightedGraphMatrixGenerator<V, E>
 
             for (int j = 0; j < vertices.size(); ++j) {
                 if (i != j) {
-                    target
-                        .setEdgeWeight(
-                            target.addEdge(vertices.get(i), vertices.get(j)), weights[i][j]);
+                    target.setEdgeWeight(
+                        target.addEdge(vertices.get(i), vertices.get(j)), weights[i][j]);
                 }
             }
         }

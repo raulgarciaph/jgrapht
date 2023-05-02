@@ -30,8 +30,7 @@ import static org.junit.Assert.assertEquals;
  * @author Joris Kinable
  */
 public class PushRelabelMinimumSTCutTest
-    extends
-    MinimumSourceSinkCutTest
+    extends MinimumSourceSinkCutTest
 {
     @Override
     MinimumSTCutAlgorithm<Integer, DefaultWeightedEdge> createSolver(
@@ -95,10 +94,9 @@ public class PushRelabelMinimumSTCutTest
             Set<Integer> sinkPartition = prSolver.getSinkPartition();
             Set<DefaultWeightedEdge> cutEdges = prSolver.getCutEdges();
 
-            this
-                .verifyDirected(
-                    network, source, sink, expectedCutWeight, cutWeight, sourcePartition,
-                    sinkPartition, cutEdges);
+            this.verifyDirected(
+                network, source, sink, expectedCutWeight, cutWeight, sourcePartition, sinkPartition,
+                cutEdges);
         }
     }
 
@@ -122,10 +120,9 @@ public class PushRelabelMinimumSTCutTest
             Set<Integer> sinkPartition = prSolver.getSinkPartition();
             Set<DefaultWeightedEdge> cutEdges = prSolver.getCutEdges();
 
-            this
-                .verifyUndirected(
-                    network, source, sink, expectedCutWeight, cutWeight, sourcePartition,
-                    sinkPartition, cutEdges);
+            this.verifyUndirected(
+                network, source, sink, expectedCutWeight, cutWeight, sourcePartition, sinkPartition,
+                cutEdges);
         }
     }
 }

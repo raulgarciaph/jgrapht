@@ -53,11 +53,8 @@ import java.util.function.*;
  * @param <E> the graph edge type
  */
 public class AsWeightedGraph<V, E>
-    extends
-    GraphDelegator<V, E>
-    implements
-    Serializable,
-    Graph<V, E>
+    extends GraphDelegator<V, E>
+    implements Serializable, Graph<V, E>
 {
 
     private static final long serialVersionUID = -6838132233557L;

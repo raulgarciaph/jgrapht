@@ -65,8 +65,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class GreedyWeightedMatching<V, E>
-    implements
-    MatchingAlgorithm<V, E>
+    implements MatchingAlgorithm<V, E>
 {
     private final Graph<V, E> graph;
     private final Comparator<Double> comparator;
@@ -118,15 +117,12 @@ public class GreedyWeightedMatching<V, E>
                     + graph.degreeOf(graph.getEdgeTarget(e1));
                 double degreeE2 = graph.degreeOf(graph.getEdgeSource(e2))
                     + graph.degreeOf(graph.getEdgeTarget(e2));
-                return comparator
-                    .compare(
-                        graph.getEdgeWeight(e2) / degreeE2, graph.getEdgeWeight(e1) / degreeE1);
+                return comparator.compare(
+                    graph.getEdgeWeight(e2) / degreeE2, graph.getEdgeWeight(e1) / degreeE1);
             });
         } else {
-            allEdges
-                .sort(
-                    (e1, e2) -> comparator
-                        .compare(graph.getEdgeWeight(e2), graph.getEdgeWeight(e1)));
+            allEdges.sort(
+                (e1, e2) -> comparator.compare(graph.getEdgeWeight(e2), graph.getEdgeWeight(e1)));
         }
 
         double matchingWeight = 0d;

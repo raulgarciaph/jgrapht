@@ -34,8 +34,7 @@ import static org.junit.Assert.assertTrue;
  * @author Linda Buisman
  */
 public abstract class VertexCoverExactTest
-    implements
-    VertexCoverTest
+    implements VertexCoverTest
 {
 
     // ------- Exact algorithms ------

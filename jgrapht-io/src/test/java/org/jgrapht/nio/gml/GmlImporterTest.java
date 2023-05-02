@@ -466,9 +466,7 @@ public class GmlImporterTest
 
     @Test
     public void testExportImport()
-        throws ImportException,
-        ExportException,
-        UnsupportedEncodingException
+        throws ImportException, ExportException, UnsupportedEncodingException
     {
         DirectedWeightedPseudograph<String, DefaultWeightedEdge> g1 =
             new DirectedWeightedPseudograph<>(DefaultWeightedEdge.class);

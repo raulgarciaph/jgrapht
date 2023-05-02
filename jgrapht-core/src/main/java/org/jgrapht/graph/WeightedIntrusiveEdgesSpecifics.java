@@ -33,10 +33,8 @@ import java.util.*;
  * @param <E> the graph edge type
  */
 public class WeightedIntrusiveEdgesSpecifics<V, E>
-    extends
-    BaseIntrusiveEdgesSpecifics<V, E, IntrusiveWeightedEdge>
-    implements
-    IntrusiveEdgesSpecifics<V, E>
+    extends BaseIntrusiveEdgesSpecifics<V, E, IntrusiveWeightedEdge>
+    implements IntrusiveEdgesSpecifics<V, E>
 {
     private static final long serialVersionUID = 5327226615635500554L;
 

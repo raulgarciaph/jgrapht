@@ -53,8 +53,7 @@ import java.util.*;
  * @since July 11, 2018
  */
 public class AhujaOrlinSharmaCapacitatedMinimumSpanningTree<V, E>
-    extends
-    AbstractCapacitatedMinimumSpanningTree<V, E>
+    extends AbstractCapacitatedMinimumSpanningTree<V, E>
 {
 
     /**
@@ -274,10 +273,8 @@ public class AhujaOrlinSharmaCapacitatedMinimumSpanningTree<V, E>
                     currentSolution, subtrees, partitionSpanningTrees, affected.getFirst());
             }
 
-            improvementGraph
-                .updateImprovementGraph(
-                    currentSolution, subtrees, partitionSpanningTrees, affected.getFirst(),
-                    tabuList);
+            improvementGraph.updateImprovementGraph(
+                currentSolution, subtrees, partitionSpanningTrees, affected.getFirst(), tabuList);
 
             AhujaOrlinSharmaCyclicExchangeLocalAugmentation<
                 Pair<Integer, ImprovementGraphVertexType>,
@@ -538,10 +535,9 @@ public class AhujaOrlinSharmaCapacitatedMinimumSpanningTree<V, E>
         for (Integer label : affectedLabels) {
             Set<V> set = currentSolution.getPartitionSet(label);
             currentSolution.getPartitionSet(label).add(root);
-            partitionSpanningTrees
-                .put(
-                    label,
-                    new PrimMinimumSpanningTree<>(new AsSubgraph<>(graph, set)).getSpanningTree());
+            partitionSpanningTrees.put(
+                label,
+                new PrimMinimumSpanningTree<>(new AsSubgraph<>(graph, set)).getSpanningTree());
             currentSolution.getPartitionSet(label).remove(root);
         }
         return partitionSpanningTrees;
@@ -1147,12 +1143,8 @@ public class AhujaOrlinSharmaCapacitatedMinimumSpanningTree<V, E>
                                 newCapacity = Double.NaN;
                                 newWeight = Double.NaN;
                             }
-                            updateImprovementGraphEdge(
-                                vertexOfV1Single,
-                                Pair
-                                    .of(
-                                        initialVertexMapping.get(v2),
-                                        ImprovementGraphVertexType.SUBTREE),
+                            updateImprovementGraphEdge(vertexOfV1Single, Pair.of(
+                                initialVertexMapping.get(v2), ImprovementGraphVertexType.SUBTREE),
                                 newCapacity, newWeight - oldWeight);
                             modifiableSet.addAll(subtrees.get(v2).getFirst());
                         }
@@ -1251,12 +1243,8 @@ public class AhujaOrlinSharmaCapacitatedMinimumSpanningTree<V, E>
                             newCapacity = Double.NaN;
                             newWeight = Double.NaN;
                         }
-                        updateImprovementGraphEdge(
-                            vertexOfV1Subtree,
-                            Pair
-                                .of(
-                                    initialVertexMapping.get(v2),
-                                    ImprovementGraphVertexType.SINGLE),
+                        updateImprovementGraphEdge(vertexOfV1Subtree, Pair.of(
+                            initialVertexMapping.get(v2), ImprovementGraphVertexType.SINGLE),
                             newCapacity, newWeight - oldWeight);
                         modifiableSet.add(v2);
                     }
@@ -1461,9 +1449,8 @@ public class AhujaOrlinSharmaCapacitatedMinimumSpanningTree<V, E>
                 {
                     if (key instanceof Pair) {
                         if (improvementGraphVertexMapping.containsKey(((Pair) key).getFirst())) {
-                            return capacitatedSpanningTreeSolutionRepresentation
-                                .getLabel(
-                                    improvementGraphVertexMapping.get(((Pair) key).getFirst()));
+                            return capacitatedSpanningTreeSolutionRepresentation.getLabel(
+                                improvementGraphVertexMapping.get(((Pair) key).getFirst()));
                         }
                         if (key.equals(origin)) {
                             return originVertexLabel;
@@ -1530,26 +1517,23 @@ public class AhujaOrlinSharmaCapacitatedMinimumSpanningTree<V, E>
                         Integer label = capacitatedSpanningTreeSolutionRepresentation
                             .getLabel(improvementGraphVertexMapping.get(i));
                         if (useVertexOperation) {
-                            entrySet
-                                .add(
-                                    new AbstractMap.SimpleEntry<>(
-                                        Pair.of(i, ImprovementGraphVertexType.SINGLE), label));
+                            entrySet.add(
+                                new AbstractMap.SimpleEntry<>(
+                                    Pair.of(i, ImprovementGraphVertexType.SINGLE), label));
                         }
                         if (useSubtreeOperation) {
-                            entrySet
-                                .add(
-                                    new AbstractMap.SimpleEntry<>(
-                                        Pair.of(i, ImprovementGraphVertexType.SUBTREE), label));
+                            entrySet.add(
+                                new AbstractMap.SimpleEntry<>(
+                                    Pair.of(i, ImprovementGraphVertexType.SUBTREE), label));
                         }
                     }
                     for (Pair<Integer,
                         ImprovementGraphVertexType> pseudoVertex : pathExchangeVertexMapping
                             .keySet())
                     {
-                        entrySet
-                            .add(
-                                new AbstractMap.SimpleEntry<>(
-                                    pseudoVertex, pathExchangeVertexMapping.get(pseudoVertex)));
+                        entrySet.add(
+                            new AbstractMap.SimpleEntry<>(
+                                pseudoVertex, pathExchangeVertexMapping.get(pseudoVertex)));
                     }
                     entrySet.add(new AbstractMap.SimpleEntry<>(origin, originVertexLabel));
                     return entrySet;

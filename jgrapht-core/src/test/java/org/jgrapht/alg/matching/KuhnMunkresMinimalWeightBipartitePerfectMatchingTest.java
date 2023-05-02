@@ -37,8 +37,7 @@ public class KuhnMunkresMinimalWeightBipartitePerfectMatchingTest
      * First partition
      */
     private enum FirstPartition
-        implements
-        V
+        implements V
     {
         A,
         B,
@@ -70,8 +69,7 @@ public class KuhnMunkresMinimalWeightBipartitePerfectMatchingTest
      * Second partition
      */
     private enum SecondPartition
-        implements
-        V
+        implements V
     {
         A,
         B,

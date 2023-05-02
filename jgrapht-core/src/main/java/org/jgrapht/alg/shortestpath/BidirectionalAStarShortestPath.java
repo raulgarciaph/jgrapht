@@ -55,8 +55,7 @@ import java.util.function.*;
  * @see AStarShortestPath
  */
 public class BidirectionalAStarShortestPath<V, E>
-    extends
-    BaseBidirectionalShortestPathAlgorithm<V, E>
+    extends BaseBidirectionalShortestPathAlgorithm<V, E>
 {
     /**
      * Heuristic used for forward search.
@@ -178,8 +177,7 @@ public class BidirectionalAStarShortestPath<V, E>
                 frontier.updateDistance(successor, edge, tentativeGScore, fScore);
 
                 // check if best path can be updated
-                double pathDistance =
-                    gScore + edgeWeight + otherFrontier.getDistance(successor);
+                double pathDistance = gScore + edgeWeight + otherFrontier.getDistance(successor);
                 if (pathDistance < bestPath) {
                     bestPath = pathDistance;
                     bestPathCommonVertex = successor;
@@ -209,8 +207,7 @@ public class BidirectionalAStarShortestPath<V, E>
      * Maintains search frontier during shortest path computation.
      */
     class AStarSearchFrontier
-        extends
-        BaseSearchFrontier<V, E>
+        extends BaseSearchFrontier<V, E>
     {
         /**
          * End vertex of the frontier.
@@ -300,8 +297,7 @@ public class BidirectionalAStarShortestPath<V, E>
      * Helper class for backward search, since it should operate on the reversed graph.
      */
     class ReversedGraphHeuristic
-        implements
-        AStarAdmissibleHeuristic<V>
+        implements AStarAdmissibleHeuristic<V>
     {
 
         private final AStarAdmissibleHeuristic<V> heuristic;
@@ -345,8 +341,7 @@ public class BidirectionalAStarShortestPath<V, E>
      * Termination criterion for the consistent heuristics.
      */
     class ConsistentTerminationCriterion
-        extends
-        TerminationCriterion
+        extends TerminationCriterion
     {
         final double sourceTargetEstimate;
 
@@ -370,8 +365,7 @@ public class BidirectionalAStarShortestPath<V, E>
      * Termination criterion for the inconsistent heuristics.
      */
     class InconsistentTerminationCriterion
-        extends
-        TerminationCriterion
+        extends TerminationCriterion
     {
         InconsistentTerminationCriterion(AStarSearchFrontier forward, AStarSearchFrontier backward)
         {
@@ -382,10 +376,9 @@ public class BidirectionalAStarShortestPath<V, E>
         boolean stop(double bestPath)
         {
             return forward.openList.isEmpty() || backward.openList.isEmpty()
-                || Math
-                    .max(
-                        forward.openList.findMin().getKey(),
-                        backward.openList.findMin().getKey()) >= bestPath;
+                || Math.max(
+                    forward.openList.findMin().getKey(),
+                    backward.openList.findMin().getKey()) >= bestPath;
         }
     }
 }

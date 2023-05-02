@@ -43,8 +43,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class BoruvkaMinimumSpanningTree<V, E>
-    implements
-    SpanningTreeAlgorithm<E>
+    implements SpanningTreeAlgorithm<E>
 {
     private final Graph<V, E> graph;
     private final Comparator<Double> comparator;

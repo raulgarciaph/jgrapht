@@ -30,8 +30,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class Triple<A, B, C>
-    implements
-    Serializable
+    implements Serializable
 {
     private static final long serialVersionUID = -7076291895521537427L;
 

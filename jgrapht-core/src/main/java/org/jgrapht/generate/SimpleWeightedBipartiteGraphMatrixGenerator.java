@@ -28,8 +28,7 @@ import java.util.*;
  * @param <E> the graph edge type
  */
 public class SimpleWeightedBipartiteGraphMatrixGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     protected List<V> first;
     protected List<V> second;

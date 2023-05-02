@@ -100,8 +100,7 @@ public interface PlanarityTestingAlgorithm<V, E>
      * @param <E> the graph edge type
      */
     class EmbeddingImpl<V, E>
-        implements
-        Embedding<V, E>
+        implements Embedding<V, E>
     {
         /**
          * The underlying {@code graph}

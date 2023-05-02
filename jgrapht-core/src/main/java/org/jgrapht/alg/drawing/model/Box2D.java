@@ -27,8 +27,7 @@ import java.util.*;
  *
  */
 public class Box2D
-    implements
-    Serializable
+    implements Serializable
 {
     private static final long serialVersionUID = -1855277817131669241L;
 

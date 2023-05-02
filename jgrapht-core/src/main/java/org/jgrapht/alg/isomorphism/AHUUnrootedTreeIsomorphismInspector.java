@@ -56,8 +56,7 @@ import java.util.*;
  * @author Alexandru Valeanu
  */
 public class AHUUnrootedTreeIsomorphismInspector<V, E>
-    implements
-    IsomorphismInspector<V, E>
+    implements IsomorphismInspector<V, E>
 {
 
     private final Graph<V, E> tree1;

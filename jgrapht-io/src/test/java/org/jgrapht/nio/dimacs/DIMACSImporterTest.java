@@ -144,10 +144,9 @@ public class DIMACSImporterTest
         DIMACSImporter<Integer, DefaultWeightedEdge> importer = new DIMACSImporter<>();
         importer.setVertexFactory(id -> id + 100);
         try {
-            importer
-                .importGraph(
-                    graph, new InputStreamReader(
-                        new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8)), "UTF-8"));
+            importer.importGraph(
+                graph, new InputStreamReader(
+                    new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8)), "UTF-8"));
         } catch (UnsupportedEncodingException e) {
             // cannot happen
         }

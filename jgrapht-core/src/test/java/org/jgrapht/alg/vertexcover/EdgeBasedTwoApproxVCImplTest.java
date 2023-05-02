@@ -21,8 +21,7 @@ import org.jgrapht.*;
 import org.jgrapht.alg.interfaces.*;
 
 public class EdgeBasedTwoApproxVCImplTest
-    extends
-    VertexCoverTwoApproxTest
+    extends VertexCoverTwoApproxTest
 {
     @Override
     public <V, E> VertexCoverAlgorithm<V> createSolver(Graph<V, E> graph)

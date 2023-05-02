@@ -87,8 +87,7 @@ public class TransitiveReductionTest
         {
             int[][] transitivelyReducedMatrix = new int[n][n];
             {
-                System
-                    .arraycopy(pathMatrix, 0, transitivelyReducedMatrix, 0, pathMatrix.length);
+                System.arraycopy(pathMatrix, 0, transitivelyReducedMatrix, 0, pathMatrix.length);
 
                 final BitSet[] transitivelyReducedMatrixAsBitSetArray =
                     asBitSetArray(transitivelyReducedMatrix);
@@ -102,8 +101,7 @@ public class TransitiveReductionTest
             // + " transitive reduction");
 
             Assert
-                .assertArrayEquals(
-                    EXPECTED_TRANSITIVELY_REDUCED_MATRIX, transitivelyReducedMatrix);
+                .assertArrayEquals(EXPECTED_TRANSITIVELY_REDUCED_MATRIX, transitivelyReducedMatrix);
         }
     }
 

@@ -43,8 +43,7 @@ import static org.jgrapht.alg.matching.blossom.v5.ObjectiveSense.MAXIMIZE;
  * @see KolmogorovWeightedPerfectMatching
  */
 public class KolmogorovWeightedMatching<V, E>
-    implements
-    MatchingAlgorithm<V, E>
+    implements MatchingAlgorithm<V, E>
 {
     /**
      * The graph we are matching on
@@ -159,11 +158,10 @@ public class KolmogorovWeightedMatching<V, E>
             duplicatedVertices.put(v, graphCopy.addVertex());
         }
         for (E edge : initialGraph.edgeSet()) {
-            Graphs
-                .addEdgeWithVertices(
-                    graphCopy, duplicatedVertices.get(initialGraph.getEdgeSource(edge)),
-                    duplicatedVertices.get(initialGraph.getEdgeTarget(edge)),
-                    initialGraph.getEdgeWeight(edge));
+            Graphs.addEdgeWithVertices(
+                graphCopy, duplicatedVertices.get(initialGraph.getEdgeSource(edge)),
+                duplicatedVertices.get(initialGraph.getEdgeTarget(edge)),
+                initialGraph.getEdgeWeight(edge));
         }
         Map<E, Double> zeroWeightFunction = new HashMap<>();
         for (Map.Entry<V, V> entry : duplicatedVertices.entrySet()) {

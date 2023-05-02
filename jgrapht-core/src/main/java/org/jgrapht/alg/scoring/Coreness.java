@@ -53,8 +53,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public final class Coreness<V, E>
-    implements
-    VertexScoringAlgorithm<V, Integer>
+    implements VertexScoringAlgorithm<V, Integer>
 {
     private final Graph<V, E> g;
     private Map<V, Integer> scores;

@@ -42,11 +42,8 @@ import java.util.*;
  * @see VertexSetListener
  */
 public class DefaultListenableGraph<V, E>
-    extends
-    GraphDelegator<V, E>
-    implements
-    ListenableGraph<V, E>,
-    Cloneable
+    extends GraphDelegator<V, E>
+    implements ListenableGraph<V, E>, Cloneable
 {
     private static final long serialVersionUID = -1156773351121025002L;
 
@@ -395,8 +392,7 @@ public class DefaultListenableGraph<V, E>
      * @author Barak Naveh
      */
     private static class FlyweightEdgeEvent<VV, EE>
-        extends
-        GraphEdgeChangeEvent<VV, EE>
+        extends GraphEdgeChangeEvent<VV, EE>
     {
         private static final long serialVersionUID = 3907207152526636089L;
 
@@ -450,8 +446,7 @@ public class DefaultListenableGraph<V, E>
      * @author Barak Naveh
      */
     private static class FlyweightVertexEvent<VV>
-        extends
-        GraphVertexChangeEvent<VV>
+        extends GraphVertexChangeEvent<VV>
     {
         private static final long serialVersionUID = 3257848787857585716L;
 

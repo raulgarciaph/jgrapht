@@ -34,8 +34,7 @@ import static org.junit.Assert.assertTrue;
  * @author Joris Kinable
  */
 public class GusfieldGomoryHuCutTreeTest
-    extends
-    GusfieldTreeAlgorithmsTestBase
+    extends GusfieldTreeAlgorithmsTestBase
 {
 
     @Override

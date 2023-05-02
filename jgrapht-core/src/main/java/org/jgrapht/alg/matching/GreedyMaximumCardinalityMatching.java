@@ -41,8 +41,7 @@ import java.util.*;
  * @author Joris Kinable
  */
 public class GreedyMaximumCardinalityMatching<V, E>
-    implements
-    MatchingAlgorithm<V, E>
+    implements MatchingAlgorithm<V, E>
 {
     private final Graph<V, E> graph;
     private final boolean sort;
@@ -107,8 +106,7 @@ public class GreedyMaximumCardinalityMatching<V, E>
     }
 
     private class EdgeDegreeComparator
-        implements
-        Comparator<E>
+        implements Comparator<E>
     {
         @Override
         public int compare(E e1, E e2)

@@ -58,8 +58,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public final class PageRank<V, E>
-    implements
-    VertexScoringAlgorithm<V, Double>
+    implements VertexScoringAlgorithm<V, Double>
 {
     /**
      * Default number of maximum iterations.

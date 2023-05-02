@@ -305,8 +305,7 @@ public class AhujaOrlinSharmaCyclicExchangeLocalAugmentation<V, E>
      * @since June 7, 2018
      */
     private class LabeledPath<V>
-        implements
-        Cloneable
+        implements Cloneable
     {
 
         /**

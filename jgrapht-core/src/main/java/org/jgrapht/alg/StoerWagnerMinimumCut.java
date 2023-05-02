@@ -240,8 +240,7 @@ public class StoerWagnerMinimumCut<V, E>
      * Class for weighted vertices
      */
     protected class VertexAndWeight
-        implements
-        Comparable<VertexAndWeight>
+        implements Comparable<VertexAndWeight>
     {
         public Set<V> vertex;
         public Double weight;

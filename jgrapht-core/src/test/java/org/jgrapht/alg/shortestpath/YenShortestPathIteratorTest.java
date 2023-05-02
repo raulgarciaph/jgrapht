@@ -32,8 +32,7 @@ import static org.junit.Assert.assertFalse;
  * Tests for the {@link YenShortestPathIterator}.
  */
 public class YenShortestPathIteratorTest
-    extends
-    BaseKShortestPathTest
+    extends BaseKShortestPathTest
 {
     @Test(expected = IllegalArgumentException.class)
     public void testNoSourceGraph()

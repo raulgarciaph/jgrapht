@@ -33,8 +33,7 @@ import java.util.function.*;
  * @see DefaultDirectedGraph
  */
 public class DefaultDirectedWeightedGraph<V, E>
-    extends
-    DefaultDirectedGraph<V, E>
+    extends DefaultDirectedGraph<V, E>
 {
     private static final long serialVersionUID = -4867672646995721544L;
 

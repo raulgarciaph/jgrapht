@@ -32,8 +32,7 @@ import static org.junit.Assert.*;
  * @author John V. Sichi
  */
 public class DijkstraShortestPathTest
-    extends
-    ShortestPathTestCase
+    extends ShortestPathTestCase
 {
     // ~ Methods ----------------------------------------------------------------
 

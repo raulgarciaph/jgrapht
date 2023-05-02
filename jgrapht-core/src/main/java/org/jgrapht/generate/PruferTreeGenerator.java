@@ -40,8 +40,7 @@ import java.util.*;
  * @author Alexandru Valeanu
  */
 public class PruferTreeGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
 
     // number of vertices

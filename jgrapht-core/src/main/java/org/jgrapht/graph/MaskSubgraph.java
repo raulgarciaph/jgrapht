@@ -35,10 +35,8 @@ import java.util.function.*;
  * 
  */
 public class MaskSubgraph<V, E>
-    extends
-    AbstractGraph<V, E>
-    implements
-    Serializable
+    extends AbstractGraph<V, E>
+    implements Serializable
 {
     private static final long serialVersionUID = -7397441126669119179L;
 

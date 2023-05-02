@@ -32,8 +32,7 @@ import java.util.*;
  * @author Barak Naveh
  */
 public abstract class AbstractGraphIterator<V, E>
-    implements
-    GraphIterator<V, E>
+    implements GraphIterator<V, E>
 {
     private final Set<TraversalListener<V, E>> traversalListeners = new LinkedHashSet<>();
 
@@ -225,8 +224,7 @@ public abstract class AbstractGraphIterator<V, E>
      * @author Barak Naveh
      */
     static class FlyweightEdgeEvent<E>
-        extends
-        EdgeTraversalEvent<E>
+        extends EdgeTraversalEvent<E>
     {
         private static final long serialVersionUID = 4051327833765000755L;
 
@@ -258,8 +256,7 @@ public abstract class AbstractGraphIterator<V, E>
      * @author Barak Naveh
      */
     static class FlyweightVertexEvent<V>
-        extends
-        VertexTraversalEvent<V>
+        extends VertexTraversalEvent<V>
     {
         private static final long serialVersionUID = 3834024753848399924L;
 

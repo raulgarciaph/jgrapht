@@ -127,11 +127,9 @@ public class NetworkGeneratorConfigBuilder
     {
         if (Math.abs(value) > NetworkGenerator.CAPACITY_COST_BOUND) {
             invalidParam(
-                String
-                    .format(
-                        "Arcs capacities and cost must be between -%d and %d",
-                        NetworkGenerator.CAPACITY_COST_BOUND,
-                        NetworkGenerator.CAPACITY_COST_BOUND));
+                String.format(
+                    "Arcs capacities and cost must be between -%d and %d",
+                    NetworkGenerator.CAPACITY_COST_BOUND, NetworkGenerator.CAPACITY_COST_BOUND));
         }
         return value;
     }

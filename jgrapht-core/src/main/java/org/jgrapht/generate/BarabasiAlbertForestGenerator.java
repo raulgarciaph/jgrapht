@@ -44,8 +44,7 @@ import java.util.*;
  * @param <E> the graph edge type
  */
 public class BarabasiAlbertForestGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
 
     private final Random rng;

@@ -39,8 +39,7 @@ import java.util.function.*;
  * @param <E> the graph edge type
  */
 public class DefaultGraphSpecificsStrategy<V, E>
-    implements
-    GraphSpecificsStrategy<V, E>
+    implements GraphSpecificsStrategy<V, E>
 {
     private static final long serialVersionUID = 7615319421753562075L;
 

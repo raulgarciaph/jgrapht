@@ -54,10 +54,8 @@ import org.jgrapht.nio.IntegerIdProvider;
  * @author Dimitrios Michail
  */
 public class JSONExporter<V, E>
-    extends
-    BaseExporter<V, E>
-    implements
-    GraphExporter<V, E>
+    extends BaseExporter<V, E>
+    implements GraphExporter<V, E>
 {
     /**
      * Default name for the vertices collection

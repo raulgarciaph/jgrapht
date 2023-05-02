@@ -55,8 +55,7 @@ import java.util.concurrent.*;
  * @author Dimitrios Michail
  */
 public class DegeneracyBronKerboschCliqueFinder<V, E>
-    extends
-    PivotBronKerboschCliqueFinder<V, E>
+    extends PivotBronKerboschCliqueFinder<V, E>
 {
     /**
      * Constructs a new clique finder.

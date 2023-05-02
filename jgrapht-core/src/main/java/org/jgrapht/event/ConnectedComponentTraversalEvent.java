@@ -25,8 +25,7 @@ import java.util.*;
  * @author Barak Naveh
  */
 public class ConnectedComponentTraversalEvent
-    extends
-    EventObject
+    extends EventObject
 {
     private static final long serialVersionUID = 3834311717709822262L;
 

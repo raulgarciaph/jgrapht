@@ -41,9 +41,7 @@ import java.util.*;
  * @param <E> the graph edge type
  */
 public class TreeSingleSourcePathsImpl<V, E>
-    implements
-    SingleSourcePaths<V, E>,
-    Serializable
+    implements SingleSourcePaths<V, E>, Serializable
 {
     private static final long serialVersionUID = -5914007312734512847L;
 

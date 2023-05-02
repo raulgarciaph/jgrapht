@@ -63,14 +63,13 @@ public class ZhangShashaTreeEditDistanceTest
     public void testTED_treeWithOneVertex_to_articleTree2()
     {
         Set<EditOperation<Integer>> expectedEditOperations = new HashSet<>(
-            Arrays
-                .asList(
-                    new EditOperation<>(OperationType.CHANGE, 1, 1),
-                    new EditOperation<>(OperationType.INSERT, 2, null),
-                    new EditOperation<>(OperationType.INSERT, 3, null),
-                    new EditOperation<>(OperationType.INSERT, 4, null),
-                    new EditOperation<>(OperationType.INSERT, 5, null),
-                    new EditOperation<>(OperationType.INSERT, 6, null)));
+            Arrays.asList(
+                new EditOperation<>(OperationType.CHANGE, 1, 1),
+                new EditOperation<>(OperationType.INSERT, 2, null),
+                new EditOperation<>(OperationType.INSERT, 3, null),
+                new EditOperation<>(OperationType.INSERT, 4, null),
+                new EditOperation<>(OperationType.INSERT, 5, null),
+                new EditOperation<>(OperationType.INSERT, 6, null)));
         testOnTrees(
             getGraphWithOneVertex(), 1, readGraph(articleTree2), 1, 5.0, expectedEditOperations);
     }
@@ -79,14 +78,13 @@ public class ZhangShashaTreeEditDistanceTest
     public void testTED_articleTree1_to_treeWithOneVertex()
     {
         Set<EditOperation<Integer>> expectedEditOperations = new HashSet<>(
-            Arrays
-                .asList(
-                    new EditOperation<>(OperationType.CHANGE, 1, 1),
-                    new EditOperation<>(OperationType.REMOVE, 2, null),
-                    new EditOperation<>(OperationType.REMOVE, 3, null),
-                    new EditOperation<>(OperationType.REMOVE, 4, null),
-                    new EditOperation<>(OperationType.REMOVE, 5, null),
-                    new EditOperation<>(OperationType.REMOVE, 6, null)));
+            Arrays.asList(
+                new EditOperation<>(OperationType.CHANGE, 1, 1),
+                new EditOperation<>(OperationType.REMOVE, 2, null),
+                new EditOperation<>(OperationType.REMOVE, 3, null),
+                new EditOperation<>(OperationType.REMOVE, 4, null),
+                new EditOperation<>(OperationType.REMOVE, 5, null),
+                new EditOperation<>(OperationType.REMOVE, 6, null)));
         testOnTrees(
             readGraph(articleTree1), 1, getGraphWithOneVertex(), 1, 5.0, expectedEditOperations);
     }
@@ -95,15 +93,14 @@ public class ZhangShashaTreeEditDistanceTest
     public void testTED_articleTree1_to_articleTree2()
     {
         Set<EditOperation<Integer>> expectedEditOperations = new HashSet<>(
-            Arrays
-                .asList(
-                    new EditOperation<>(OperationType.REMOVE, 5, null),
-                    new EditOperation<>(OperationType.INSERT, 5, null),
-                    new EditOperation<>(OperationType.CHANGE, 1, 1),
-                    new EditOperation<>(OperationType.CHANGE, 2, 2),
-                    new EditOperation<>(OperationType.CHANGE, 3, 3),
-                    new EditOperation<>(OperationType.CHANGE, 4, 4),
-                    new EditOperation<>(OperationType.CHANGE, 6, 6)));
+            Arrays.asList(
+                new EditOperation<>(OperationType.REMOVE, 5, null),
+                new EditOperation<>(OperationType.INSERT, 5, null),
+                new EditOperation<>(OperationType.CHANGE, 1, 1),
+                new EditOperation<>(OperationType.CHANGE, 2, 2),
+                new EditOperation<>(OperationType.CHANGE, 3, 3),
+                new EditOperation<>(OperationType.CHANGE, 4, 4),
+                new EditOperation<>(OperationType.CHANGE, 6, 6)));
         testOnTrees(
             readGraph(articleTree1), 1, readGraph(articleTree2), 1, 2.0, expectedEditOperations);
     }
@@ -112,20 +109,19 @@ public class ZhangShashaTreeEditDistanceTest
     public void testTED_tree1_to_articleTree2()
     {
         Set<EditOperation<Integer>> expectedEditOperations = new HashSet<>(
-            Arrays
-                .asList(
-                    new EditOperation<>(OperationType.CHANGE, 1, 1),
-                    new EditOperation<>(OperationType.REMOVE, 4, null),
-                    new EditOperation<>(OperationType.CHANGE, 10, 3),
-                    new EditOperation<>(OperationType.REMOVE, 2, null),
-                    new EditOperation<>(OperationType.CHANGE, 5, 5),
-                    new EditOperation<>(OperationType.REMOVE, 9, null),
-                    new EditOperation<>(OperationType.REMOVE, 7, null),
-                    new EditOperation<>(OperationType.REMOVE, 8, null),
-                    new EditOperation<>(OperationType.INSERT, 2, null),
-                    new EditOperation<>(OperationType.CHANGE, 6, 6),
-                    new EditOperation<>(OperationType.REMOVE, 3, null),
-                    new EditOperation<>(OperationType.INSERT, 4, null)));
+            Arrays.asList(
+                new EditOperation<>(OperationType.CHANGE, 1, 1),
+                new EditOperation<>(OperationType.REMOVE, 4, null),
+                new EditOperation<>(OperationType.CHANGE, 10, 3),
+                new EditOperation<>(OperationType.REMOVE, 2, null),
+                new EditOperation<>(OperationType.CHANGE, 5, 5),
+                new EditOperation<>(OperationType.REMOVE, 9, null),
+                new EditOperation<>(OperationType.REMOVE, 7, null),
+                new EditOperation<>(OperationType.REMOVE, 8, null),
+                new EditOperation<>(OperationType.INSERT, 2, null),
+                new EditOperation<>(OperationType.CHANGE, 6, 6),
+                new EditOperation<>(OperationType.REMOVE, 3, null),
+                new EditOperation<>(OperationType.INSERT, 4, null)));
         testOnTrees(readGraph(tree1), 1, readGraph(articleTree2), 1, 9.0, expectedEditOperations);
     }
 
@@ -133,19 +129,18 @@ public class ZhangShashaTreeEditDistanceTest
     public void testTED_articleTree1_to_tree1()
     {
         Set<EditOperation<Integer>> expectedEditOperations = new HashSet<>(
-            Arrays
-                .asList(
-                    new EditOperation<>(OperationType.CHANGE, 1, 1),
-                    new EditOperation<>(OperationType.INSERT, 4, null),
-                    new EditOperation<>(OperationType.CHANGE, 3, 10),
-                    new EditOperation<>(OperationType.CHANGE, 2, 2),
-                    new EditOperation<>(OperationType.CHANGE, 5, 5),
-                    new EditOperation<>(OperationType.INSERT, 9, null),
-                    new EditOperation<>(OperationType.INSERT, 7, null),
-                    new EditOperation<>(OperationType.INSERT, 8, null),
-                    new EditOperation<>(OperationType.CHANGE, 6, 6),
-                    new EditOperation<>(OperationType.INSERT, 3, null),
-                    new EditOperation<>(OperationType.REMOVE, 4, null)));
+            Arrays.asList(
+                new EditOperation<>(OperationType.CHANGE, 1, 1),
+                new EditOperation<>(OperationType.INSERT, 4, null),
+                new EditOperation<>(OperationType.CHANGE, 3, 10),
+                new EditOperation<>(OperationType.CHANGE, 2, 2),
+                new EditOperation<>(OperationType.CHANGE, 5, 5),
+                new EditOperation<>(OperationType.INSERT, 9, null),
+                new EditOperation<>(OperationType.INSERT, 7, null),
+                new EditOperation<>(OperationType.INSERT, 8, null),
+                new EditOperation<>(OperationType.CHANGE, 6, 6),
+                new EditOperation<>(OperationType.INSERT, 3, null),
+                new EditOperation<>(OperationType.REMOVE, 4, null)));
         testOnTrees(readGraph(articleTree1), 1, readGraph(tree1), 1, 7.0, expectedEditOperations);
     }
 
@@ -153,23 +148,22 @@ public class ZhangShashaTreeEditDistanceTest
     public void testTED_tree2_to_tree3()
     {
         Set<EditOperation<Integer>> expectedEditOperations = new HashSet<>(
-            Arrays
-                .asList(
-                    new EditOperation<>(OperationType.CHANGE, 0, 0),
-                    new EditOperation<>(OperationType.REMOVE, 3, null),
-                    new EditOperation<>(OperationType.CHANGE, 9, 9),
-                    new EditOperation<>(OperationType.REMOVE, 1, null),
-                    new EditOperation<>(OperationType.CHANGE, 4, 4),
-                    new EditOperation<>(OperationType.REMOVE, 8, null),
-                    new EditOperation<>(OperationType.REMOVE, 6, null),
-                    new EditOperation<>(OperationType.CHANGE, 7, 7),
-                    new EditOperation<>(OperationType.REMOVE, 5, null),
-                    new EditOperation<>(OperationType.CHANGE, 2, 2),
-                    new EditOperation<>(OperationType.INSERT, 5, null),
-                    new EditOperation<>(OperationType.INSERT, 1, null),
-                    new EditOperation<>(OperationType.INSERT, 8, null),
-                    new EditOperation<>(OperationType.INSERT, 6, null),
-                    new EditOperation<>(OperationType.INSERT, 3, null)));
+            Arrays.asList(
+                new EditOperation<>(OperationType.CHANGE, 0, 0),
+                new EditOperation<>(OperationType.REMOVE, 3, null),
+                new EditOperation<>(OperationType.CHANGE, 9, 9),
+                new EditOperation<>(OperationType.REMOVE, 1, null),
+                new EditOperation<>(OperationType.CHANGE, 4, 4),
+                new EditOperation<>(OperationType.REMOVE, 8, null),
+                new EditOperation<>(OperationType.REMOVE, 6, null),
+                new EditOperation<>(OperationType.CHANGE, 7, 7),
+                new EditOperation<>(OperationType.REMOVE, 5, null),
+                new EditOperation<>(OperationType.CHANGE, 2, 2),
+                new EditOperation<>(OperationType.INSERT, 5, null),
+                new EditOperation<>(OperationType.INSERT, 1, null),
+                new EditOperation<>(OperationType.INSERT, 8, null),
+                new EditOperation<>(OperationType.INSERT, 6, null),
+                new EditOperation<>(OperationType.INSERT, 3, null)));
         testOnTrees(readGraph(tree2), 0, readGraph(tree3), 0, 10.0, expectedEditOperations);
     }
 

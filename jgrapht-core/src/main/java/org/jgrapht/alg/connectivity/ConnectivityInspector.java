@@ -51,8 +51,7 @@ import java.util.*;
  * @author John V. Sichi
  */
 public class ConnectivityInspector<V, E>
-    implements
-    GraphListener<V, E>
+    implements GraphListener<V, E>
 {
     private List<Set<V>> connectedSets;
     private Map<V, Set<V>> vertexToConnectedSet;
@@ -236,8 +235,7 @@ public class ConnectivityInspector<V, E>
      * @author Barak Naveh
      */
     private class MyTraversalListener
-        extends
-        TraversalListenerAdapter<V, E>
+        extends TraversalListenerAdapter<V, E>
     {
         private Set<V> currentConnectedSet;
 

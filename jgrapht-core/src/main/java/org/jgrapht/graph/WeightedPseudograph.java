@@ -33,8 +33,7 @@ import java.util.function.*;
  * @param <E> the graph edge type
  */
 public class WeightedPseudograph<V, E>
-    extends
-    Pseudograph<V, E>
+    extends Pseudograph<V, E>
 {
     private static final long serialVersionUID = 3037964528481084240L;
 

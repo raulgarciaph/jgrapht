@@ -66,8 +66,7 @@ import org.jheaps.tree.PairingHeap;
  * @author Assaf Mizrachi
  */
 public class BetweennessCentrality<V, E>
-    implements
-    VertexScoringAlgorithm<V, Double>
+    implements VertexScoringAlgorithm<V, Double>
 {
     /**
      * Underlying graph
@@ -268,12 +267,9 @@ public class BetweennessCentrality<V, E>
         while (!stack.isEmpty()) {
             V w = stack.pop();
             for (V v : predecessors.get(w)) {
-                dependency
-                    .put(
-                        v,
-                        dependency.get(v)
-                            + (sigma.get(v).doubleValue() / sigma.get(w).doubleValue())
-                                * (1 + dependency.get(w)));
+                dependency.put(
+                    v, dependency.get(v) + (sigma.get(v).doubleValue() / sigma.get(w).doubleValue())
+                        * (1 + dependency.get(w)));
             }
             if (!w.equals(s)) {
                 scores.put(w, scores.get(w) + dependency.get(w));
@@ -293,8 +289,7 @@ public class BetweennessCentrality<V, E>
     }
 
     private class WeightedQueue
-        implements
-        MyQueue<V, Double>
+        implements MyQueue<V, Double>
     {
 
         AddressableHeap<Double, V> delegate = new PairingHeap<>();
@@ -331,8 +326,7 @@ public class BetweennessCentrality<V, E>
     }
 
     private class UnweightedQueue
-        implements
-        MyQueue<V, Double>
+        implements MyQueue<V, Double>
     {
 
         Queue<V> delegate = new ArrayDeque<>();

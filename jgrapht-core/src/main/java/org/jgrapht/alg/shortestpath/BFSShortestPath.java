@@ -39,8 +39,7 @@ import java.util.*;
  * @author Karri Sai Satish Kumar Reddy
  */
 public class BFSShortestPath<V, E>
-    extends
-    BaseShortestPathAlgorithm<V, E>
+    extends BaseShortestPathAlgorithm<V, E>
 {
 
     /**

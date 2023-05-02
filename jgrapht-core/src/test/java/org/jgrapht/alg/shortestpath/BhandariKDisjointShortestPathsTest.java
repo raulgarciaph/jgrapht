@@ -33,8 +33,7 @@ import static org.junit.Assert.assertEquals;
  * @author Assaf Mizrachi
  */
 public class BhandariKDisjointShortestPathsTest
-    extends
-    KDisjointShortestPathsTestCase
+    extends KDisjointShortestPathsTestCase
 {
 
     /**

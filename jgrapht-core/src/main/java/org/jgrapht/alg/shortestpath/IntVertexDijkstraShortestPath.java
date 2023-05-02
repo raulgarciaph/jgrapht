@@ -54,8 +54,7 @@ import java.util.function.*;
  * @author Dimitrios Michail
  */
 public final class IntVertexDijkstraShortestPath<E>
-    extends
-    BaseShortestPathAlgorithm<Integer, E>
+    extends BaseShortestPathAlgorithm<Integer, E>
 {
     private final Supplier<AddressableHeap<Double, Integer>> heapSupplier;
 
@@ -271,9 +270,7 @@ public final class IntVertexDijkstraShortestPath<E>
     }
 
     private class ArrayBasedSingleSourcePathsImpl
-        implements
-        SingleSourcePaths<Integer, E>,
-        Serializable
+        implements SingleSourcePaths<Integer, E>, Serializable
     {
         private static final long serialVersionUID = 2912496450441089175L;
 

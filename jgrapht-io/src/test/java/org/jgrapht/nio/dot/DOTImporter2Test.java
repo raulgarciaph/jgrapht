@@ -109,9 +109,8 @@ public class DOTImporter2Test
 
         DirectedPseudograph<String, DefaultEdge> expected = new DirectedPseudograph<>(
             SupplierUtil.createStringSupplier(), SupplierUtil.DEFAULT_EDGE_SUPPLIER, false);
-        Graphs
-            .addAllVertices(
-                expected, Arrays.asList("0", "1", "2", "3", "4", "5", "6", "7", "8", "9"));
+        Graphs.addAllVertices(
+            expected, Arrays.asList("0", "1", "2", "3", "4", "5", "6", "7", "8", "9"));
         expected.addEdge("0", "1");
         expected.addEdge("1", "2");
         expected.addEdge("2", "3");

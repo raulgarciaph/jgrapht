@@ -59,8 +59,7 @@ import java.util.stream.*;
  * @author Peter Harman
  */
 public class GreedyHeuristicTSP<V, E>
-    extends
-    HamiltonianCycleAlgorithmBase<V, E>
+    extends HamiltonianCycleAlgorithmBase<V, E>
 {
 
     /**

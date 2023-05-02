@@ -23,8 +23,7 @@ import org.jgrapht.alg.interfaces.*;
 import java.util.*;
 
 public class RecursiveExactVCImplTest
-    extends
-    WeightedVertexCoverExactTest
+    extends WeightedVertexCoverExactTest
 {
 
     @Override

@@ -26,9 +26,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class ToleranceDoubleComparator
-    implements
-    Comparator<Double>,
-    Serializable
+    implements Comparator<Double>, Serializable
 {
     private static final long serialVersionUID = -3819451375975842372L;
 

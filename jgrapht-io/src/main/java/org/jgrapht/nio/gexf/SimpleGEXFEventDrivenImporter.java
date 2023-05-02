@@ -93,10 +93,8 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class SimpleGEXFEventDrivenImporter
-    extends
-    BaseEventDrivenImporter<String, Triple<String, String, Double>>
-    implements
-    EventDrivenImporter<String, Triple<String, String, Double>>
+    extends BaseEventDrivenImporter<String, Triple<String, String, Double>>
+    implements EventDrivenImporter<String, Triple<String, String, Double>>
 {
     private static final List<String> SCHEMA_FILENAMES = List.of("viz.xsd", "gexf.xsd");
 
@@ -193,8 +191,7 @@ public class SimpleGEXFEventDrivenImporter
 
     // content handler
     private class GEXFHandler
-        extends
-        DefaultHandler
+        extends DefaultHandler
     {
         private static final String GRAPH = "graph";
 
@@ -275,9 +272,8 @@ public class SimpleGEXFEventDrivenImporter
             case NODE:
                 insideNode++;
                 if (insideNode == 1 ^ insideEdge == 1) {
-                    String nodeId = findAttribute(NODE_ID, attributes)
-                        .orElseThrow(
-                            () -> new IllegalArgumentException("Node must have an identifier"));
+                    String nodeId = findAttribute(NODE_ID, attributes).orElseThrow(
+                        () -> new IllegalArgumentException("Node must have an identifier"));
                     currentNode = nodeId;
                     notifyVertex(currentNode);
                     for (String attrName : NODE_ATTRS) {
@@ -335,9 +331,8 @@ public class SimpleGEXFEventDrivenImporter
             case ATTRIBUTES:
                 insideAttributes++;
                 if (insideGraph == 1 && insideAttributes == 1) {
-                    attributesClass = findAttribute(ATTRIBUTES_CLASS, attributes)
-                        .orElseThrow(
-                            () -> new IllegalArgumentException("Attributes class missing"));
+                    attributesClass = findAttribute(ATTRIBUTES_CLASS, attributes).orElseThrow(
+                        () -> new IllegalArgumentException("Attributes class missing"));
                 }
                 break;
             case ATTRIBUTE:

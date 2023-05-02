@@ -72,10 +72,8 @@ import java.util.*;
  * 
  */
 public class DIMACSEventDrivenImporter
-    extends
-    BaseEventDrivenImporter<Integer, Triple<Integer, Integer, Double>>
-    implements
-    EventDrivenImporter<Integer, Triple<Integer, Integer, Double>>
+    extends BaseEventDrivenImporter<Integer, Triple<Integer, Integer, Double>>
+    implements EventDrivenImporter<Integer, Triple<Integer, Integer, Double>>
 {
     private boolean zeroBasedNumbering;
     private boolean renumberVertices;

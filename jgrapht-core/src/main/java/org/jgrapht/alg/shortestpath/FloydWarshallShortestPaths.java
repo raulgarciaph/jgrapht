@@ -43,8 +43,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class FloydWarshallShortestPaths<V, E>
-    extends
-    BaseShortestPathAlgorithm<V, E>
+    extends BaseShortestPathAlgorithm<V, E>
 {
     private final List<V> vertices;
     private final List<Integer> degrees;
@@ -360,8 +359,7 @@ public class FloydWarshallShortestPaths<V, E>
     }
 
     class FloydWarshallSingleSourcePaths
-        implements
-        SingleSourcePaths<V, E>
+        implements SingleSourcePaths<V, E>
     {
         private final V source;
 

@@ -33,8 +33,7 @@ import java.util.function.*;
  * @see DefaultUndirectedGraph
  */
 public class DefaultUndirectedWeightedGraph<V, E>
-    extends
-    DefaultUndirectedGraph<V, E>
+    extends DefaultUndirectedGraph<V, E>
 {
     private static final long serialVersionUID = -1008165881690129042L;
 

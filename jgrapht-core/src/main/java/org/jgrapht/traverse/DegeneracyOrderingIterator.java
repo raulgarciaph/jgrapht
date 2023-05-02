@@ -50,8 +50,7 @@ import org.jgrapht.Graphs;
  * @author Dimitrios Michail
  */
 public class DegeneracyOrderingIterator<V, E>
-    extends
-    AbstractGraphIterator<V, E>
+    extends AbstractGraphIterator<V, E>
 {
     private Set<V>[] buckets;
     private Map<V, Integer> degrees;

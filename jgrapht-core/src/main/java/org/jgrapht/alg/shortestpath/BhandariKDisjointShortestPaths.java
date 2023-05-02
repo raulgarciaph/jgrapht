@@ -45,8 +45,7 @@ import java.util.*;
  * @author Assaf Mizrachi
  */
 public class BhandariKDisjointShortestPaths<V, E>
-    extends
-    BaseKDisjointShortestPathsAlgorithm<V, E>
+    extends BaseKDisjointShortestPathsAlgorithm<V, E>
 {
     /**
      * Creates a new instance of the algorithm.

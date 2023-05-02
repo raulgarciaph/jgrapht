@@ -192,8 +192,7 @@ public class DeltaSteppingShortestPathPerformance
 
     @State(Scope.Benchmark)
     public static class GnmState
-        extends
-        BaseState
+        extends BaseState
     {
         @Param({ "10000" })
         int numOfVertices;
@@ -217,8 +216,7 @@ public class DeltaSteppingShortestPathPerformance
 
     @State(Scope.Benchmark)
     public static class GnpState
-        extends
-        BaseState
+        extends BaseState
     {
         @Param({ "10000" })
         int numOfVertices;
@@ -241,8 +239,7 @@ public class DeltaSteppingShortestPathPerformance
 
     @State(Scope.Benchmark)
     public static class BarabasiAlbertState
-        extends
-        BaseState
+        extends BaseState
     {
         @Param({ "1000" })
         int m0;
@@ -267,8 +264,7 @@ public class DeltaSteppingShortestPathPerformance
 
     @State(Scope.Benchmark)
     public static class WattsStogatzState
-        extends
-        BaseState
+        extends BaseState
     {
         @Param({ "10000" })
         int numOfVertices;
@@ -292,8 +288,7 @@ public class DeltaSteppingShortestPathPerformance
 
     @State(Scope.Benchmark)
     public static class CompleteGraphState
-        extends
-        BaseState
+        extends BaseState
     {
         @Param({ "1000", "2000", "3000" })
         int numOfVertices;

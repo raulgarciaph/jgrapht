@@ -60,8 +60,7 @@ import java.util.function.*;
  * @param <V> the graph vertex type
  */
 public class ImmutableDoubleValueGraphAdapter<V>
-    extends
-    ImmutableValueGraphAdapter<V, Double>
+    extends ImmutableValueGraphAdapter<V, Double>
 {
     private static final long serialVersionUID = 8730006126353129360L;
 

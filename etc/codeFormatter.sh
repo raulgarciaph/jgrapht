@@ -4,10 +4,12 @@
 #Details about the formatter: http://help.eclipse.org/neon/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Ftasks%2Ftasks-231.htm
 #Details about the formatter config file: http://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.user/tasks/tasks-232.htm?cp=1_3_10_1
 
+# This works well with Eclipse Neon; later Eclipse versions don't work. Note that Eclipse Neon only works with java 8; newer java version cause problems, hence the explicit java_path definition below.
+
 #Path to eclipse. Needs eclipse Neon or newer.
 eclipse_path=/opt/eclipse/eclipse
 #Path to Java
-java_path=/usr/lib/jvm/java-11-openjdk-amd64/bin/java
+java_path=/usr/lib/jvm/java-8-openjdk-amd64/bin/java
 #format configuration
 config_file=./etc/org.eclipse.jdt.core.prefs
 #get the root dir (1st ancestor of the location where this script is stored)
@@ -17,15 +19,15 @@ set -e
 
 function format(){
     find ./jgrapht-core/ -name *.java | parallel --no-notice --eta $eclipse_path -nosplash -vm $java_path -application org.eclipse.jdt.core.JavaCodeFormatter -quiet -config $config_file
-    
+
     find ./jgrapht-demo/ -name *.java | parallel --no-notice --eta $eclipse_path -nosplash -vm $java_path -application org.eclipse.jdt.core.JavaCodeFormatter -quiet -config $config_file
-    
+
     find ./jgrapht-dist/ -name *.java | parallel --no-notice --eta $eclipse_path -nosplash -vm $java_path -application org.eclipse.jdt.core.JavaCodeFormatter -quiet -config $config_file
 
     find ./jgrapht-ext/ -name *.java | parallel --no-notice --eta $eclipse_path -nosplash -vm $java_path -application org.eclipse.jdt.core.JavaCodeFormatter -quiet -config $config_file
-    
+
     find ./jgrapht-guava/ -name *.java | parallel --no-notice --eta $eclipse_path -nosplash -vm $java_path -application org.eclipse.jdt.core.JavaCodeFormatter -quiet -config $config_file
-    
+
     find ./jgrapht-io/ -name *.java | parallel --no-notice --eta $eclipse_path -nosplash -vm $java_path -application org.eclipse.jdt.core.JavaCodeFormatter -quiet -config $config_file
 }
 

@@ -51,8 +51,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class JohnsonShortestPaths<V, E>
-    extends
-    BaseShortestPathAlgorithm<V, E>
+    extends BaseShortestPathAlgorithm<V, E>
 {
     private double[][] distance;
     private E[][] pred;
@@ -283,10 +282,9 @@ public class JohnsonShortestPaths<V, E>
 
                 Pair<Double, E> newPair;
                 if (oldPair != null) {
-                    newPair = Pair
-                        .of(
-                            oldPair.getFirst() - vertexWeights.get(v) + vertexWeights.get(u),
-                            oldPair.getSecond());
+                    newPair = Pair.of(
+                        oldPair.getFirst() - vertexWeights.get(v) + vertexWeights.get(u),
+                        oldPair.getSecond());
                 } else {
                     newPair = Pair.of(Double.POSITIVE_INFINITY, null);
                 }
@@ -363,8 +361,7 @@ public class JohnsonShortestPaths<V, E>
     }
 
     class JohnsonSingleSourcePaths
-        implements
-        SingleSourcePaths<V, E>
+        implements SingleSourcePaths<V, E>
     {
         private V source;
 

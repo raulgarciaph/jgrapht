@@ -44,8 +44,7 @@ import java.util.*;
  * @author Timofey Chudakov
  */
 public class MaximumCardinalityIterator<V, E>
-    extends
-    AbstractGraphIterator<V, E>
+    extends AbstractGraphIterator<V, E>
 {
     /**
      * The maximum index of non-empty set in {@code buckets}.

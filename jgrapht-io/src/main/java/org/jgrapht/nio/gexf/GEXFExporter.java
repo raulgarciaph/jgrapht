@@ -46,10 +46,8 @@ import java.util.function.*;
  * @author Dimitrios Michail
  */
 public class GEXFExporter<V, E>
-    extends
-    BaseExporter<V, E>
-    implements
-    GraphExporter<V, E>
+    extends BaseExporter<V, E>
+    implements GraphExporter<V, E>
 {
     private static final String LABEL_ATTRIBUTE_NAME = "label";
     private static final String WEIGHT_ATTRIBUTE_NAME = "weight";
@@ -222,18 +220,16 @@ public class GEXFExporter<V, E>
             if (VERTEX_RESERVED_ATTRIBUTES.contains(name.toLowerCase())) {
                 throw new IllegalArgumentException("Reserved vertex attribute name");
             }
-            registeredVertexAttributes
-                .put(
-                    name, new AttributeDetails(
-                        String.valueOf(totalVertexAttributes++), type, defaultValue, options));
+            registeredVertexAttributes.put(
+                name, new AttributeDetails(
+                    String.valueOf(totalVertexAttributes++), type, defaultValue, options));
         } else if (category.equals(AttributeCategory.EDGE)) {
             if (EDGE_RESERVED_ATTRIBUTES.contains(name.toLowerCase())) {
                 throw new IllegalArgumentException("Reserved edge attribute name");
             }
-            registeredEdgeAttributes
-                .put(
-                    name, new AttributeDetails(
-                        String.valueOf(totalEdgeAttributes++), type, defaultValue, options));
+            registeredEdgeAttributes.put(
+                name, new AttributeDetails(
+                    String.valueOf(totalEdgeAttributes++), type, defaultValue, options));
         }
     }
 
@@ -372,10 +368,9 @@ public class GEXFExporter<V, E>
         handler.endPrefixMapping("xsi");
 
         AttributesImpl attr = new AttributesImpl();
-        attr
-            .addAttribute(
-                "", "", "xsi:schemaLocation", "CDATA",
-                "http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd");
+        attr.addAttribute(
+            "", "", "xsi:schemaLocation", "CDATA",
+            "http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd");
         attr.addAttribute("", "", "version", "CDATA", "1.2");
         handler.startElement("http://www.gexf.net/1.2draft", "", "gexf", attr);
     }
@@ -414,10 +409,9 @@ public class GEXFExporter<V, E>
         throws SAXException
     {
         AttributesImpl attr = new AttributesImpl();
-        attr
-            .addAttribute(
-                "", "", "defaultedgetype", "CDATA",
-                g.getType().isDirected() ? "directed" : "undirected");
+        attr.addAttribute(
+            "", "", "defaultedgetype", "CDATA",
+            g.getType().isDirected() ? "directed" : "undirected");
         handler.startElement("", "", "graph", attr);
     }
 
@@ -566,11 +560,9 @@ public class GEXFExporter<V, E>
         for (V v : g.vertexSet()) {
             AttributesImpl attr = new AttributesImpl();
             attr.addAttribute("", "", "id", "CDATA", getVertexId(v));
-            attr
-                .addAttribute(
-                    "", "", LABEL_ATTRIBUTE_NAME, "CDATA",
-                    getVertexAttribute(v, LABEL_ATTRIBUTE_NAME)
-                        .map(Attribute::getValue).orElse(getVertexId(v)));
+            attr.addAttribute(
+                "", "", LABEL_ATTRIBUTE_NAME, "CDATA", getVertexAttribute(v, LABEL_ATTRIBUTE_NAME)
+                    .map(Attribute::getValue).orElse(getVertexId(v)));
             handler.startElement("", "", "node", attr);
             writeVertexAttributeValues(handler, v);
             handler.endElement("", "", "node");
@@ -591,25 +583,19 @@ public class GEXFExporter<V, E>
 
         for (E e : g.edgeSet()) {
             AttributesImpl attr = new AttributesImpl();
-            attr
-                .addAttribute(
-                    "", "", "id", "CDATA",
-                    getEdgeId(e)
-                        .orElseThrow(
-                            () -> new IllegalArgumentException(
-                                "Missing or failing edge id provider.")));
+            attr.addAttribute(
+                "", "", "id", "CDATA", getEdgeId(e).orElseThrow(
+                    () -> new IllegalArgumentException("Missing or failing edge id provider.")));
             attr.addAttribute("", "", "source", "CDATA", getVertexId(g.getEdgeSource(e)));
             attr.addAttribute("", "", "target", "CDATA", getVertexId(g.getEdgeTarget(e)));
             if (exportEdgeTypes) {
-                attr
-                    .addAttribute(
-                        "", "", TYPE_ATTRIBUTE_NAME, "CDATA",
-                        isGraphDirected ? "directed" : "undirected");
+                attr.addAttribute(
+                    "", "", TYPE_ATTRIBUTE_NAME, "CDATA",
+                    isGraphDirected ? "directed" : "undirected");
             }
             if (exportEdgeWeights) {
-                attr
-                    .addAttribute(
-                        "", "", WEIGHT_ATTRIBUTE_NAME, "CDATA", String.valueOf(g.getEdgeWeight(e)));
+                attr.addAttribute(
+                    "", "", WEIGHT_ATTRIBUTE_NAME, "CDATA", String.valueOf(g.getEdgeWeight(e)));
             }
             if (exportEdgeLabels) {
                 getEdgeAttribute(e, LABEL_ATTRIBUTE_NAME).ifPresent(v -> {

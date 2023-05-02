@@ -39,10 +39,8 @@ import java.util.function.*;
  * @author Ilya Razenshteyn
  */
 public class AsGraphUnion<V, E>
-    extends
-    AbstractGraph<V, E>
-    implements
-    Serializable
+    extends AbstractGraph<V, E>
+    implements Serializable
 {
     private static final long serialVersionUID = -3848082143382987713L;
 

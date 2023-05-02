@@ -226,8 +226,7 @@ public class UnmodifiableUnionSetTest
      * Set wrapper for counting calls to individual methods.
      */
     private static class ProfilingSet<E>
-        extends
-        AbstractSet<E>
+        extends AbstractSet<E>
     {
         private Set<E> delegate;
 

@@ -43,8 +43,7 @@ import java.util.*;
  * @author Alexey Kudinkin
  */
 public class KuhnMunkresMinimalWeightBipartitePerfectMatching<V, E>
-    implements
-    MatchingAlgorithm<V, E>
+    implements MatchingAlgorithm<V, E>
 {
     private final Graph<V, E> graph;
     private Set<? extends V> partition1;
@@ -610,8 +609,7 @@ public class KuhnMunkresMinimalWeightBipartitePerfectMatching<V, E>
 
                 for (int i = 0; i < excessMatrix.length; ++i) {
                     if ((excessMatrix[i][pathTailCol] == 0) && !rowsVisited[i]) {
-                        boolean extending = extendMatchingOL(
-                            i, // New tail to continue
+                        boolean extending = extendMatchingOL(i, // New tail to continue
                             pathTailCol //
                         );
                         if (extending) {

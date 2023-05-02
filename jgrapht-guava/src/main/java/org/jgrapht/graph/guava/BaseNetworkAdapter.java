@@ -38,12 +38,8 @@ import java.util.function.*;
  * @param <N> type of the underlying Guava's network
  */
 public abstract class BaseNetworkAdapter<V, E, N extends Network<V, E>>
-    extends
-    AbstractGraph<V, E>
-    implements
-    Graph<V, E>,
-    Cloneable,
-    Serializable
+    extends AbstractGraph<V, E>
+    implements Graph<V, E>, Cloneable, Serializable
 {
     private static final long serialVersionUID = -6233085794632237761L;
 

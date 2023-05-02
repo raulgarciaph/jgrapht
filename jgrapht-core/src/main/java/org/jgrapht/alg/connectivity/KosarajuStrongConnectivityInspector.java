@@ -40,8 +40,7 @@ import java.util.*;
  * @author Christian Hammer
  */
 public class KosarajuStrongConnectivityInspector<V, E>
-    extends
-    AbstractStrongConnectivityInspector<V, E>
+    extends AbstractStrongConnectivityInspector<V, E>
 {
     // stores the vertices, ordered by their finishing time in first dfs
     private LinkedList<VertexData<V>> orderedVertices;
@@ -213,8 +212,7 @@ public class KosarajuStrongConnectivityInspector<V, E>
     }
 
     private static final class VertexData1<V>
-        extends
-        VertexData<V>
+        extends VertexData<V>
     {
         private final VertexData<V> finishedData;
 
@@ -238,8 +236,7 @@ public class KosarajuStrongConnectivityInspector<V, E>
     }
 
     private static final class VertexData2<V>
-        extends
-        VertexData<V>
+        extends VertexData<V>
     {
         private final V vertex;
 

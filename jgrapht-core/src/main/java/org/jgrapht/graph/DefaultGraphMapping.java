@@ -33,8 +33,7 @@ import java.util.*;
  * @author Assaf Lehr
  */
 public class DefaultGraphMapping<V, E>
-    implements
-    GraphMapping<V, E>
+    implements GraphMapping<V, E>
 {
     private Map<V, V> graphMappingForward;
     private Map<V, V> graphMappingReverse;

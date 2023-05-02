@@ -50,8 +50,7 @@ import java.util.*;
  * @author Timofey Chudakov
  */
 public class ChordalGraphMaxCliqueFinder<V, E>
-    implements
-    CliqueAlgorithm<V>
+    implements CliqueAlgorithm<V>
 {
     private final Graph<V, E> graph;
     private final ChordalityInspector.IterationOrder iterationOrder;

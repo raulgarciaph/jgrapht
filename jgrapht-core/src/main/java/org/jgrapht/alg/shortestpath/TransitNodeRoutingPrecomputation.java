@@ -636,11 +636,10 @@ class TransitNodeRoutingPrecomputation<V, E>
             List<AccessVertex<V, E>> accessVerticesList = forwardAccessVertices.get(v.vertexId);
             for (V unpackedVertex : vertices) {
                 if (!prunedVertices.contains(unpackedVertex)) {
-                    accessVerticesList
-                        .add(
-                            new AccessVertex<>(
-                                unpackedVertex,
-                                manyToManyShortestPaths.getPath(v.vertex, unpackedVertex)));
+                    accessVerticesList.add(
+                        new AccessVertex<>(
+                            unpackedVertex,
+                            manyToManyShortestPaths.getPath(v.vertex, unpackedVertex)));
                 }
             }
         }
@@ -663,11 +662,10 @@ class TransitNodeRoutingPrecomputation<V, E>
             List<AccessVertex<V, E>> accessVerticesList = backwardAccessVertices.get(v.vertexId);
             for (V unpackedVertex : vertices) {
                 if (!prunedVertices.contains(unpackedVertex)) {
-                    accessVerticesList
-                        .add(
-                            new AccessVertex<>(
-                                unpackedVertex,
-                                manyToManyShortestPaths.getPath(unpackedVertex, v.vertex)));
+                    accessVerticesList.add(
+                        new AccessVertex<>(
+                            unpackedVertex,
+                            manyToManyShortestPaths.getPath(unpackedVertex, v.vertex)));
                 }
             }
         }
@@ -693,7 +691,8 @@ class TransitNodeRoutingPrecomputation<V, E>
                         if (!v1.equals(v2) && !result.contains(v2)) {
                             if (forwardAccessVertices) {
                                 if (manyToManyShortestPaths.getWeight(v, v1) + transitVerticesPaths
-                                    .getWeight(v1, v2) <= manyToManyShortestPaths.getWeight(v, v2))
+                                    .getWeight(v1, v2) <= manyToManyShortestPaths
+                                        .getWeight(v, v2))
                                 {
                                     result.add(v2);
                                 }
@@ -1165,8 +1164,7 @@ class TransitNodeRoutingPrecomputation<V, E>
      * Task which is used to perform {@code ContractionHierarchyBFS} in parallel.
      */
     private class AVAndLFConstructionTask
-        implements
-        Runnable
+        implements Runnable
     {
         /**
          * Id of this task.
@@ -1237,8 +1235,7 @@ class TransitNodeRoutingPrecomputation<V, E>
      * Task which is used to unpack contracted many-to-many shortest paths between transit vertices.
      */
     private class PathsUnpackingTask
-        implements
-        Runnable
+        implements Runnable
     {
         /**
          * Id of this task.

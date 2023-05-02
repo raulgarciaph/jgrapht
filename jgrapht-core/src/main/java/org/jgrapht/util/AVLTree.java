@@ -47,8 +47,7 @@ import java.util.*;
  * @author Timofey Chudakov
  */
 public class AVLTree<T>
-    implements
-    Iterable<T>
+    implements Iterable<T>
 {
     /**
      * An auxiliary node which's always present in a tree and doesn't contain any data.
@@ -629,8 +628,7 @@ public class AVLTree<T>
      * {@code TreeNodeIterator} to iterator over the values.
      */
     private class TreeValuesIterator
-        implements
-        Iterator<T>
+        implements Iterator<T>
     {
         /**
          * Internally used {@code TreeNodeIterator}
@@ -669,8 +667,7 @@ public class AVLTree<T>
      * traversal.
      */
     private class TreeNodeIterator
-        implements
-        Iterator<TreeNode<T>>
+        implements Iterator<TreeNode<T>>
     {
         /**
          * A node that is returned next or {@code null} if all nodes are traversed
@@ -1143,15 +1140,14 @@ public class AVLTree<T>
         @Override
         public String toString()
         {
-            return String
-                .format(
-                    "{%s}: [parent = %s, left = %s, right = %s], [subtreeMin = %s, subtreeMax = %s], [predecessor = %s, successor = %s], [height = %d, subtreeSize = %d]",
-                    value, parent == null ? "null" : parent.value,
-                    left == null ? "null" : left.value, right == null ? "null" : right.value,
-                    subtreeMin == null ? "null" : subtreeMin.value,
-                    subtreeMax == null ? "null" : subtreeMax.value,
-                    predecessor == null ? "null" : predecessor.value,
-                    successor == null ? "null" : successor.value, height, subtreeSize);
+            return String.format(
+                "{%s}: [parent = %s, left = %s, right = %s], [subtreeMin = %s, subtreeMax = %s], [predecessor = %s, successor = %s], [height = %d, subtreeSize = %d]",
+                value, parent == null ? "null" : parent.value, left == null ? "null" : left.value,
+                right == null ? "null" : right.value,
+                subtreeMin == null ? "null" : subtreeMin.value,
+                subtreeMax == null ? "null" : subtreeMax.value,
+                predecessor == null ? "null" : predecessor.value,
+                successor == null ? "null" : successor.value, height, subtreeSize);
         }
     }
 

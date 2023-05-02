@@ -33,8 +33,7 @@ import java.util.*;
  * @author Andrew Newell
  */
 public class CompleteBipartiteGraphGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     private final int sizeA, sizeB;
     private final Set<V> partitionA, partitionB;

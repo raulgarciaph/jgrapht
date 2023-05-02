@@ -31,8 +31,7 @@ import java.util.function.*;
  * 
  */
 public class DirectedWeightedPseudograph<V, E>
-    extends
-    DirectedPseudograph<V, E>
+    extends DirectedPseudograph<V, E>
 {
     private static final long serialVersionUID = -4775269773843490859L;
 

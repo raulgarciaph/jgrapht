@@ -86,8 +86,7 @@ import static java.util.Arrays.*;
  *
  */
 public class TSPLIBImporter<V, E>
-    implements
-    GraphImporter<V, E>
+    implements GraphImporter<V, E>
 {
     private static final String NAME = "NAME";
     private static final String TYPE = "TYPE";

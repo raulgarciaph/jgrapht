@@ -124,10 +124,8 @@ import java.util.function.*;
  * @author Dimitrios Michail
  */
 public class GraphMLImporter<V, E>
-    extends
-    BaseEventDrivenImporter<V, E>
-    implements
-    GraphImporter<V, E>
+    extends BaseEventDrivenImporter<V, E>
+    implements GraphImporter<V, E>
 {
     /**
      * Default key used for vertex ID.

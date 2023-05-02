@@ -54,8 +54,7 @@ import java.util.function.*;
  * @author Timofey Chudakov
  */
 public class BoyerMyrvoldPlanarityInspector<V, E>
-    implements
-    PlanarityTestingAlgorithm<V, E>
+    implements PlanarityTestingAlgorithm<V, E>
 {
     /**
      * Whether to print debug messages
@@ -341,9 +340,8 @@ public class BoyerMyrvoldPlanarityInspector<V, E>
         root.pertinentRoots.removeNode(virtualRoot.listNode);
         root.separatedDfsChildList.removeNode(virtualRootChild.listNode);
 
-        root
-            .mergeChildEdges(
-                virtualRoot.embedded, info.vIn, info.vOut, info.parentNext, virtualRoot.parentEdge);
+        root.mergeChildEdges(
+            virtualRoot.embedded, info.vIn, info.vOut, info.parentNext, virtualRoot.parentEdge);
 
         root.substituteAnother(info.parentNext, info.childPrev);
         info.childPrev.substitute(virtualRoot, root);
@@ -478,11 +476,10 @@ public class BoyerMyrvoldPlanarityInspector<V, E>
                     }
 
                     if (currentComponentEntryDir == 0) {
-                        stack
-                            .add(
-                                new MergeInfo(
-                                    current, circulator.next(), root, root.outerFaceNeighbors[1],
-                                    parentComponentEntryDir, currentComponentEntryDir));
+                        stack.add(
+                            new MergeInfo(
+                                current, circulator.next(), root, root.outerFaceNeighbors[1],
+                                parentComponentEntryDir, currentComponentEntryDir));
                         current = ccwActiveNode;
                         circulator = ccwCirculator;
 
@@ -490,11 +487,10 @@ public class BoyerMyrvoldPlanarityInspector<V, E>
                             embedShortCircuit(root, 1, cwCirculator);
                         }
                     } else {
-                        stack
-                            .add(
-                                new MergeInfo(
-                                    current, circulator.next(), root, root.outerFaceNeighbors[0],
-                                    parentComponentEntryDir, currentComponentEntryDir));
+                        stack.add(
+                            new MergeInfo(
+                                current, circulator.next(), root, root.outerFaceNeighbors[0],
+                                parentComponentEntryDir, currentComponentEntryDir));
                         current = cwActiveNode;
                         circulator = cwCirculator;
 
@@ -1297,15 +1293,12 @@ public class BoyerMyrvoldPlanarityInspector<V, E>
             Edge xBackEdge = searchEdge(x, v.height);
             Edge yBackEdge = searchEdge(y, v.height);
             if (DEBUG) {
-                System.out
-                    .printf(
-                        "Failed v = %s, failed edge = %s\n", failedV.toString(false),
-                        failedEdge.toString());
+                System.out.printf(
+                    "Failed v = %s, failed edge = %s\n", failedV.toString(false),
+                    failedEdge.toString());
                 System.out.printf("x = %s, y = %s\n", x.toString(false), y.toString(false));
-                System.out
-                    .printf(
-                        "xBackEdge = %s, yBackEdge = %s\n", xBackEdge.toString(),
-                        yBackEdge.toString());
+                System.out.printf(
+                    "xBackEdge = %s, yBackEdge = %s\n", xBackEdge.toString(), yBackEdge.toString());
             }
             Node backLower = lowest(xBackEdge.target, yBackEdge.target);
             Node backHigher = highest(xBackEdge.target, yBackEdge.target);
@@ -1662,11 +1655,10 @@ public class BoyerMyrvoldPlanarityInspector<V, E>
         @Override
         public String toString()
         {
-            return String
-                .format(
-                    "Parent dir = {%s -> %s}, child_dir = {%s -> %s}, inverted = %b, vIn = %d, vOut = %d",
-                    parent.toString(false), parentNext.toString(false), childPrev.toString(false),
-                    child.toString(false), isInverted(), vIn, vOut);
+            return String.format(
+                "Parent dir = {%s -> %s}, child_dir = {%s -> %s}, inverted = %b, vIn = %d, vOut = %d",
+                parent.toString(false), parentNext.toString(false), childPrev.toString(false),
+                child.toString(false), isInverted(), vIn, vOut);
         }
     }
 
@@ -1675,8 +1667,7 @@ public class BoyerMyrvoldPlanarityInspector<V, E>
      * in the cyclic manner, i.e. it doesn't stop when all the nodes are traversed
      */
     private class OuterFaceCirculator
-        implements
-        Iterator<Node>
+        implements Iterator<Node>
     {
         /**
          * The node this circulator will return next
@@ -2381,20 +2372,18 @@ public class BoyerMyrvoldPlanarityInspector<V, E>
                 childListString = builder.append("}").toString();
             }
             if (rootVertex) {
-                return String
-                    .format(
-                        "R {%s}: neighbors = [%s, %s], embedded = %s, visited = %d, back_edge_flag = %d, dfs_index = %d",
-                        toString(false), neighbor1, neighbor2, embedded.toString(), visited,
-                        backEdgeFlag, dfsIndex);
+                return String.format(
+                    "R {%s}: neighbors = [%s, %s], embedded = %s, visited = %d, back_edge_flag = %d, dfs_index = %d",
+                    toString(false), neighbor1, neighbor2, embedded.toString(), visited,
+                    backEdgeFlag, dfsIndex);
             } else {
-                return String
-                    .format(
-                        "{%s}:  neighbors = [%s, %s], embedded = %s, visited = %d, back_edge_flag = %d, dfs_index = %d, separated = %s, tree_edges = %s, down_edges = %s, back_edges = %s, parent = %s, lowpoint = %d, least_ancestor = %d",
-                        toString(false), neighbor1, neighbor2, embedded.toString(), visited,
-                        backEdgeFlag, dfsIndex, childListString, treeEdges.toString(),
-                        downEdges.toString(), backEdges.toString(),
-                        parentEdge == null ? "null" : parentEdge.source.toString(false), lowpoint,
-                        leastAncestor);
+                return String.format(
+                    "{%s}:  neighbors = [%s, %s], embedded = %s, visited = %d, back_edge_flag = %d, dfs_index = %d, separated = %s, tree_edges = %s, down_edges = %s, back_edges = %s, parent = %s, lowpoint = %d, least_ancestor = %d",
+                    toString(false), neighbor1, neighbor2, embedded.toString(), visited,
+                    backEdgeFlag, dfsIndex, childListString, treeEdges.toString(),
+                    downEdges.toString(), backEdges.toString(),
+                    parentEdge == null ? "null" : parentEdge.source.toString(false), lowpoint,
+                    leastAncestor);
             }
         }
 
@@ -2408,10 +2397,9 @@ public class BoyerMyrvoldPlanarityInspector<V, E>
         {
             if (!full) {
                 if (rootVertex) {
-                    return String
-                        .format(
-                            "%s^%s", parentEdge.source.graphVertex.toString(),
-                            parentEdge.target.graphVertex.toString());
+                    return String.format(
+                        "%s^%s", parentEdge.source.graphVertex.toString(),
+                        parentEdge.target.graphVertex.toString());
                 } else {
                     return graphVertex.toString();
                 }

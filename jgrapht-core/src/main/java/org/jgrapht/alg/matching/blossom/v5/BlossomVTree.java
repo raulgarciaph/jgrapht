@@ -304,8 +304,7 @@ class BlossomVTree
      * tree.
      */
     public static class TreeNodeIterator
-        implements
-        Iterator<BlossomVNode>
+        implements Iterator<BlossomVNode>
     {
         /**
          * The node this iterator is currently on
@@ -393,8 +392,7 @@ class BlossomVTree
      * An iterator over tree edges incident to this tree.
      */
     public class TreeEdgeIterator
-        implements
-        Iterator<BlossomVTreeEdge>
+        implements Iterator<BlossomVTreeEdge>
     {
         /**
          * The direction of the {@code currentEdge}

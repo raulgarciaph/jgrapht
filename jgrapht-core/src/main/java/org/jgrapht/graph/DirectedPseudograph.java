@@ -33,8 +33,7 @@ import java.util.function.*;
  *
  */
 public class DirectedPseudograph<V, E>
-    extends
-    AbstractBaseGraph<V, E>
+    extends AbstractBaseGraph<V, E>
 {
     private static final long serialVersionUID = -7461248851245878913L;
 

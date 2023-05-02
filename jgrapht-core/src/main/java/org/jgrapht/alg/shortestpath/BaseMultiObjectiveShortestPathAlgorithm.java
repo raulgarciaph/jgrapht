@@ -32,8 +32,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 abstract class BaseMultiObjectiveShortestPathAlgorithm<V, E>
-    implements
-    MultiObjectiveShortestPathAlgorithm<V, E>
+    implements MultiObjectiveShortestPathAlgorithm<V, E>
 {
     /**
      * Error message for reporting that a source vertex is missing.

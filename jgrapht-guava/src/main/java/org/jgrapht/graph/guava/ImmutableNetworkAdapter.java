@@ -54,12 +54,8 @@ import java.io.*;
  * @param <E> the graph edge type
  */
 public class ImmutableNetworkAdapter<V, E>
-    extends
-    BaseNetworkAdapter<V, E, ImmutableNetwork<V, E>>
-    implements
-    Graph<V, E>,
-    Cloneable,
-    Serializable
+    extends BaseNetworkAdapter<V, E, ImmutableNetwork<V, E>>
+    implements Graph<V, E>, Cloneable, Serializable
 {
     private static final long serialVersionUID = 8776276294297681092L;
 
@@ -191,8 +187,7 @@ public class ImmutableNetworkAdapter<V, E>
 
     @SuppressWarnings("unchecked")
     private void readObject(ObjectInputStream ois)
-        throws ClassNotFoundException,
-        IOException
+        throws ClassNotFoundException, IOException
     {
         ois.defaultReadObject();
 

@@ -31,8 +31,7 @@ import org.jgrapht.event.*;
  * @author Barak Naveh
  */
 public interface ListenableGraph<V, E>
-    extends
-    Graph<V, E>
+    extends Graph<V, E>
 {
     /**
      * Adds the specified graph listener to this graph, if not already present.

@@ -55,9 +55,7 @@ public interface CapacitatedSpanningTreeAlgorithm<V, E>
      * @param <E> the graph edge type
      */
     interface CapacitatedSpanningTree<V, E>
-        extends
-        Iterable<E>,
-        SpanningTreeAlgorithm.SpanningTree<E>
+        extends Iterable<E>, SpanningTreeAlgorithm.SpanningTree<E>
     {
 
         /**
@@ -99,9 +97,7 @@ public interface CapacitatedSpanningTreeAlgorithm<V, E>
      * @param <E> the graph edge type
      */
     class CapacitatedSpanningTreeImpl<V, E>
-        implements
-        CapacitatedSpanningTree<V, E>,
-        Serializable
+        implements CapacitatedSpanningTree<V, E>, Serializable
     {
 
         private static final long serialVersionUID = 7088989899889893333L;
@@ -183,12 +179,10 @@ public interface CapacitatedSpanningTreeAlgorithm<V, E>
 
                 if (spanningTreeGraph.containsEdge(root, next)) {
                     if (!currentSubtree.isEmpty()) {
-                        if (!currentSubtree
-                            .equals(
-                                this
-                                    .getPartition()
-                                    .get(this.getLabels().get(currentSubtree.iterator().next()))
-                                    .getFirst()))
+                        if (!currentSubtree.equals(this
+                            .getPartition()
+                            .get(this.getLabels().get(currentSubtree.iterator().next()))
+                            .getFirst()))
                         {
                             return false;
                         }

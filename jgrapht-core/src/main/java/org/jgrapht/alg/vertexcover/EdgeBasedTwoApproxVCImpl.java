@@ -39,8 +39,7 @@ import java.util.*;
  * @author Linda Buisman
  */
 public class EdgeBasedTwoApproxVCImpl<V, E>
-    implements
-    VertexCoverAlgorithm<V>
+    implements VertexCoverAlgorithm<V>
 {
 
     private final Graph<V, E> graph;

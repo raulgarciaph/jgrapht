@@ -22,8 +22,7 @@ import org.jgrapht.graph.*;
 /**
  */
 public class BiconnectedGraph
-    extends
-    SimpleGraph<String, DefaultEdge>
+    extends SimpleGraph<String, DefaultEdge>
 {
     // ~ Static fields/initializers ---------------------------------------------
 

@@ -62,8 +62,7 @@ import java.util.*;
  * @author Assaf Mizrachi
  */
 public class SuurballeKDisjointShortestPaths<V, E>
-    extends
-    BaseKDisjointShortestPathsAlgorithm<V, E>
+    extends BaseKDisjointShortestPathsAlgorithm<V, E>
 {
 
     private ShortestPathAlgorithm.SingleSourcePaths<V, E> singleSourcePaths;

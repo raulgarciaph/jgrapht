@@ -58,8 +58,7 @@ import org.jgrapht.util.CollectionUtil;
  * @author Timofey Chudakov
  */
 public class LexBreadthFirstIterator<V, E>
-    extends
-    AbstractGraphIterator<V, E>
+    extends AbstractGraphIterator<V, E>
 {
 
     /**

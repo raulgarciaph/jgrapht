@@ -33,10 +33,8 @@ import static org.junit.Assert.assertEquals;
  * @author Joris Kinable
  */
 public abstract class WeightedVertexCoverExactTest
-    extends
-    VertexCoverExactTest
-    implements
-    WeightedVertexCoverTest
+    extends VertexCoverExactTest
+    implements WeightedVertexCoverTest
 {
 
     // ------- Exact algorithms ------

@@ -367,11 +367,10 @@ public class GnmRandomGraphGeneratorTest
     {
         List<Graph<Integer, DefaultEdge>> graphArray = new ArrayList<>();
         for (int i = 0; i < 4; ++i) {
-            graphArray
-                .add(
-                    new SimpleDirectedGraph<>(
-                        SupplierUtil.createIntegerSupplier(),
-                        SupplierUtil.createDefaultEdgeSupplier(), false));
+            graphArray.add(
+                new SimpleDirectedGraph<>(
+                    SupplierUtil.createIntegerSupplier(), SupplierUtil.createDefaultEdgeSupplier(),
+                    false));
         }
 
         generateGraphs(graphArray, 11, 100);
@@ -391,12 +390,11 @@ public class GnmRandomGraphGeneratorTest
     {
         List<Graph<Integer, DefaultEdge>> graphArray = new ArrayList<>();
         for (int i = 0; i < 4; ++i) {
-            graphArray
-                .add(
-                    new DefaultListenableGraph<>(
-                        new SimpleGraph<>(
-                            SupplierUtil.createIntegerSupplier(),
-                            SupplierUtil.createDefaultEdgeSupplier(), false)));
+            graphArray.add(
+                new DefaultListenableGraph<>(
+                    new SimpleGraph<>(
+                        SupplierUtil.createIntegerSupplier(),
+                        SupplierUtil.createDefaultEdgeSupplier(), false)));
         }
 
         generateGraphs(graphArray, 11, 50);

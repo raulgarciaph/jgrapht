@@ -198,15 +198,12 @@ public class SupplierUtil
     }
 
     private static class ConstructorSupplier<T>
-        implements
-        Supplier<T>,
-        Serializable
+        implements Supplier<T>, Serializable
     {
         private final Constructor<? extends T> constructor;
 
         private static class SerializedForm<T>
-            implements
-            Serializable
+            implements Serializable
         {
             private static final long serialVersionUID = -2385289829144892760L;
 

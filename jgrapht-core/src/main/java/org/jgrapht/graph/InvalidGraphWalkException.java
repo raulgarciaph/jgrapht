@@ -21,8 +21,7 @@ package org.jgrapht.graph;
  * Exception thrown in the event that the path is invalid.
  */
 public class InvalidGraphWalkException
-    extends
-    RuntimeException
+    extends RuntimeException
 {
     private static final long serialVersionUID = 3811666107707436479L;
 

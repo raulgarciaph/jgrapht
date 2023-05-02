@@ -73,8 +73,7 @@ public class DirectedAcyclicGraphPerformanceTest
     }
 
     public static class ArrayDAGRandomGraphBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
 
         @Override
@@ -86,8 +85,7 @@ public class DirectedAcyclicGraphPerformanceTest
     }
 
     public static class ArrayListDAGRandomGraphBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
         @Override
         DirectedAcyclicGraph<Long, DefaultEdge> createDAG()
@@ -98,8 +96,7 @@ public class DirectedAcyclicGraphPerformanceTest
     }
 
     public static class HashSetDAGRandomGraphBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
         @Override
         DirectedAcyclicGraph<Long, DefaultEdge> createDAG()
@@ -110,8 +107,7 @@ public class DirectedAcyclicGraphPerformanceTest
     }
 
     public static class BitSetDAGRandomGraphBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
         @Override
         DirectedAcyclicGraph<Long, DefaultEdge> createDAG()
@@ -140,8 +136,7 @@ public class DirectedAcyclicGraphPerformanceTest
      * A DAG using the array visited strategy
      */
     private static class ArrayDAG<V, E>
-        extends
-        DirectedAcyclicGraph<V, E>
+        extends DirectedAcyclicGraph<V, E>
     {
         private static final long serialVersionUID = 1L;
 
@@ -163,8 +158,7 @@ public class DirectedAcyclicGraphPerformanceTest
      * A DAG using the array list visited strategy
      */
     private static class ArrayListDAG<V, E>
-        extends
-        DirectedAcyclicGraph<V, E>
+        extends DirectedAcyclicGraph<V, E>
     {
         private static final long serialVersionUID = 1L;
 
@@ -186,8 +180,7 @@ public class DirectedAcyclicGraphPerformanceTest
      * A DAG using the hash set visited strategy
      */
     private static class HashSetDAG<V, E>
-        extends
-        DirectedAcyclicGraph<V, E>
+        extends DirectedAcyclicGraph<V, E>
     {
         private static final long serialVersionUID = 1L;
 
@@ -209,8 +202,7 @@ public class DirectedAcyclicGraphPerformanceTest
      * A DAG using the bitset visited strategy
      */
     private static class BitSetDAG<V, E>
-        extends
-        DirectedAcyclicGraph<V, E>
+        extends DirectedAcyclicGraph<V, E>
     {
         private static final long serialVersionUID = 1L;
 

@@ -51,8 +51,7 @@ import java.util.stream.*;
  * @author Dimitrios Michail
  */
 public class PivotBronKerboschCliqueFinder<V, E>
-    extends
-    BaseBronKerboschCliqueFinder<V, E>
+    extends BaseBronKerboschCliqueFinder<V, E>
 {
     /**
      * Constructs a new clique finder.

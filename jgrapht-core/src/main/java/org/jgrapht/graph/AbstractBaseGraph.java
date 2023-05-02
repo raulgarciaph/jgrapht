@@ -58,12 +58,8 @@ import java.util.function.*;
  * @author Dimitrios Michail
  */
 public abstract class AbstractBaseGraph<V, E>
-    extends
-    AbstractGraph<V, E>
-    implements
-    Graph<V, E>,
-    Cloneable,
-    Serializable
+    extends AbstractGraph<V, E>
+    implements Graph<V, E>, Cloneable, Serializable
 {
     private static final long serialVersionUID = -3582386521833998627L;
 
@@ -130,14 +126,12 @@ public abstract class AbstractBaseGraph<V, E>
 
         this.graphSpecificsStrategy =
             Objects.requireNonNull(graphSpecificsStrategy, GRAPH_SPECIFICS_STRATEGY_REQUIRED);
-        this.specifics = Objects
-            .requireNonNull(
-                graphSpecificsStrategy.getSpecificsFactory().apply(this, type),
-                GRAPH_SPECIFICS_MUST_NOT_BE_NULL);
-        this.intrusiveEdgesSpecifics = Objects
-            .requireNonNull(
-                graphSpecificsStrategy.getIntrusiveEdgesSpecificsFactory().apply(type),
-                GRAPH_SPECIFICS_MUST_NOT_BE_NULL);
+        this.specifics = Objects.requireNonNull(
+            graphSpecificsStrategy.getSpecificsFactory().apply(this, type),
+            GRAPH_SPECIFICS_MUST_NOT_BE_NULL);
+        this.intrusiveEdgesSpecifics = Objects.requireNonNull(
+            graphSpecificsStrategy.getIntrusiveEdgesSpecificsFactory().apply(type),
+            GRAPH_SPECIFICS_MUST_NOT_BE_NULL);
 
     }
 

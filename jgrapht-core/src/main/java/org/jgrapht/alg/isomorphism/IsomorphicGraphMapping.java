@@ -33,8 +33,7 @@ import java.util.*;
  * @param <E> the type of the edges
  */
 public class IsomorphicGraphMapping<V, E>
-    implements
-    GraphMapping<V, E>
+    implements GraphMapping<V, E>
 {
 
     public static final int NULL_NODE = -1;
@@ -220,10 +219,9 @@ public class IsomorphicGraphMapping<V, E>
     @Override
     public int hashCode()
     {
-        return Objects
-            .hash(
-                forwardMapping, backwardMapping, System.identityHashCode(graph1),
-                System.identityHashCode(graph2));
+        return Objects.hash(
+            forwardMapping, backwardMapping, System.identityHashCode(graph1),
+            System.identityHashCode(graph2));
     }
 
     @Override
@@ -240,9 +238,8 @@ public class IsomorphicGraphMapping<V, E>
         int i = 0;
         for (Map.Entry<String, V> entry : vertexMap.entrySet()) {
             V u = getVertexCorrespondence(entry.getValue(), true);
-            str
-                .append((i++ == 0) ? "" : " ").append(entry.getKey()).append("=")
-                .append((u == null) ? "~~" : u);
+            str.append((i++ == 0) ? "" : " ").append(entry.getKey()).append("=").append(
+                (u == null) ? "~~" : u);
         }
 
         return str + "]";

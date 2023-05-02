@@ -79,8 +79,7 @@ public class MaximumFlowAlgorithmPerformanceTest
     }
 
     public static class EdmondsKarpMaximumFlowRandomGraphBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
         @Override
         MaximumFlowAlgorithm<Integer, DefaultWeightedEdge> createSolver(
@@ -91,8 +90,7 @@ public class MaximumFlowAlgorithmPerformanceTest
     }
 
     public static class PushRelabelMaximumFlowRandomGraphBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
         @Override
         MaximumFlowAlgorithm<Integer, DefaultWeightedEdge> createSolver(
@@ -103,8 +101,7 @@ public class MaximumFlowAlgorithmPerformanceTest
     }
 
     public static class DinicMaximumFlowRandomGraphBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
 
         @Override

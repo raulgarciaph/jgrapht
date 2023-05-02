@@ -28,8 +28,7 @@ import org.junit.*;
  * @author Semen Chudakov
  */
 public class DijkstraManyToManyShortestPathsTest
-    extends
-    BaseManyToManyShortestPathsTest
+    extends BaseManyToManyShortestPathsTest
 {
 
     @Test
@@ -55,7 +54,7 @@ public class DijkstraManyToManyShortestPathsTest
     {
         super.testNoPath();
     }
-    
+
     @Test
     public void testNoPathMultiset()
     {

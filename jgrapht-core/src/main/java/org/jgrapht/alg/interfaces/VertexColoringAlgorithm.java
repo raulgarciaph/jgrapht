@@ -73,9 +73,7 @@ public interface VertexColoringAlgorithm<V>
      * @param <V> the graph vertex type
      */
     class ColoringImpl<V>
-        implements
-        Coloring<V>,
-        Serializable
+        implements Coloring<V>, Serializable
     {
         private static final long serialVersionUID = -8456580091672353150L;
 

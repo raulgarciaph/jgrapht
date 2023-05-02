@@ -38,8 +38,7 @@ import java.util.*;
  * @author Hannes Wellmann
  */
 public abstract class HamiltonianCycleAlgorithmBase<V, E>
-    implements
-    HamiltonianCycleAlgorithm<V, E>
+    implements HamiltonianCycleAlgorithm<V, E>
 {
 
     /**

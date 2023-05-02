@@ -103,8 +103,7 @@ public interface BipartiteMatchingProblem<V, E>
      * @param <E> the graph edge type
      */
     class BipartiteMatchingProblemImpl<V, E>
-        implements
-        BipartiteMatchingProblem<V, E>
+        implements BipartiteMatchingProblem<V, E>
     {
         private final Graph<V, E> graph;
         private final Set<V> partition1;

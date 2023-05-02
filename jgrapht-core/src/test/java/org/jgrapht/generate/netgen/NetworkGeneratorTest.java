@@ -373,9 +373,8 @@ public class NetworkGeneratorTest
                 for (int sinkNum = 1; sinkNum < 4; sinkNum++) {
                     for (int tSinkNum = 0; tSinkNum <= sinkNum; tSinkNum++) {
                         for (int tNodeNum : tNodes) {
-                            int arcNum = (int) NetworkGeneratorConfig
-                                .getMaximumArcNum(
-                                    sourceNum, tSourceNum, tNodeNum, tSinkNum, sinkNum);
+                            int arcNum = (int) NetworkGeneratorConfig.getMaximumArcNum(
+                                sourceNum, tSourceNum, tNodeNum, tSinkNum, sinkNum);
                             NetworkGeneratorConfig config = new NetworkGeneratorConfigBuilder()
                                 .setParams(
                                     sourceNum + tNodeNum + sinkNum, arcNum, sourceNum, sinkNum,

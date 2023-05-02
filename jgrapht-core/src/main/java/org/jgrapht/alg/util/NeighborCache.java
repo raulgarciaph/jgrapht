@@ -40,8 +40,7 @@ import java.util.function.*;
  * @author Szabolcs Besenyei
  */
 public class NeighborCache<V, E>
-    implements
-    GraphListener<V, E>
+    implements GraphListener<V, E>
 {
     private Map<V, Neighbors<V>> successors = new HashMap<>();
     private Map<V, Neighbors<V>> predecessors = new HashMap<>();

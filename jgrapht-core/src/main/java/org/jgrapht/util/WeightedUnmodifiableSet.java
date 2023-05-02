@@ -31,10 +31,8 @@ import java.util.*;
  * @author Joris Kinable
  */
 public class WeightedUnmodifiableSet<E>
-    extends
-    AbstractSet<E>
-    implements
-    Serializable
+    extends AbstractSet<E>
+    implements Serializable
 {
 
     private static final long serialVersionUID = -5913435131882975869L;

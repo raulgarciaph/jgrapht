@@ -334,8 +334,7 @@ public class EqualsAndHashCodeTest
      * Simple custom edge class.
      */
     public static class CustomEdge
-        extends
-        DefaultEdge
+        extends DefaultEdge
     {
         private static final long serialVersionUID = 1L;
         private String label;

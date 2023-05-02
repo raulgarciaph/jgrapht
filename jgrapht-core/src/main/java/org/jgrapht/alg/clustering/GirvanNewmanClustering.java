@@ -48,8 +48,7 @@ import org.jgrapht.util.SupplierUtil;
  * @param <E> the graph edge type
  */
 public class GirvanNewmanClustering<V, E>
-    implements
-    ClusteringAlgorithm<V>
+    implements ClusteringAlgorithm<V>
 {
     private Graph<V, E> graph;
     private int k;

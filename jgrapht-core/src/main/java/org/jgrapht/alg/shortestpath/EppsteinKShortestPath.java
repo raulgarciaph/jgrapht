@@ -45,8 +45,7 @@ import java.util.*;
  * @see EppsteinShortestPathIterator
  */
 public class EppsteinKShortestPath<V, E>
-    implements
-    KShortestPathAlgorithm<V, E>
+    implements KShortestPathAlgorithm<V, E>
 {
     /**
      * Underlying graph.

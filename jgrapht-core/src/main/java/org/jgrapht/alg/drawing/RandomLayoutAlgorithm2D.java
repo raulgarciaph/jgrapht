@@ -31,8 +31,7 @@ import java.util.*;
  * @param <E> the edge type
  */
 public class RandomLayoutAlgorithm2D<V, E>
-    extends
-    BaseLayoutAlgorithm2D<V, E>
+    extends BaseLayoutAlgorithm2D<V, E>
 {
     private Random rng;
 

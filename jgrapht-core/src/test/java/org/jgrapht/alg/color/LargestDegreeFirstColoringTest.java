@@ -33,8 +33,7 @@ import static org.junit.Assert.assertEquals;
  * @author Dimitrios Michail
  */
 public class LargestDegreeFirstColoringTest
-    extends
-    BaseColoringTest
+    extends BaseColoringTest
 {
 
     @Override

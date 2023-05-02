@@ -34,8 +34,7 @@ import java.util.*;
  * @author Ilya Razenshteyn
  */
 public class ScaleFreeGraphGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     private final int size;
     private final Random rng;

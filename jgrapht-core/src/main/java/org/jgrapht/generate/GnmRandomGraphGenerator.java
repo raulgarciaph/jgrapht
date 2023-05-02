@@ -57,8 +57,7 @@ import java.util.*;
  * @see GnpRandomGraphGenerator
  */
 public class GnmRandomGraphGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     private static final boolean DEFAULT_ALLOW_LOOPS = false;
     private static final boolean DEFAULT_ALLOW_MULTIPLE_EDGES = false;

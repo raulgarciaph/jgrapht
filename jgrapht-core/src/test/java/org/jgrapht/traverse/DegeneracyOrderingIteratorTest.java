@@ -91,9 +91,8 @@ public class DegeneracyOrderingIteratorTest
     {
         SimpleGraph<String, DefaultEdge> g = new SimpleGraph<>(DefaultEdge.class);
 
-        Graphs
-            .addAllVertices(
-                g, Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"));
+        Graphs.addAllVertices(
+            g, Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"));
         g.addEdge("b", "c");
         g.addEdge("c", "d");
         g.addEdge("c", "e");
@@ -121,8 +120,7 @@ public class DegeneracyOrderingIteratorTest
     }
 
     private static class TestTraversalListener<V, E>
-        implements
-        TraversalListener<V, E>
+        implements TraversalListener<V, E>
     {
 
         private StringBuilder sb = new StringBuilder();

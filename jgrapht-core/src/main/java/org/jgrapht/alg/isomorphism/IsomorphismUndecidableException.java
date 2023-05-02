@@ -22,8 +22,7 @@ package org.jgrapht.alg.isomorphism;
  * isomorphism inspectors
  */
 public class IsomorphismUndecidableException
-    extends
-    RuntimeException
+    extends RuntimeException
 {
 
     private static final long serialVersionUID = 4703220562690821852L;

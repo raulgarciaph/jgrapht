@@ -86,8 +86,7 @@ import static org.jgrapht.alg.shortestpath.ContractionHierarchyPrecomputation.*;
  * @since July 2019
  */
 public class ContractionHierarchyBidirectionalDijkstra<V, E>
-    extends
-    BaseShortestPathAlgorithm<V, E>
+    extends BaseShortestPathAlgorithm<V, E>
 {
 
     /**
@@ -327,8 +326,7 @@ public class ContractionHierarchyBidirectionalDijkstra<V, E>
      * @param <E> edges type
      */
     static class ContractionSearchFrontier<V, E>
-        extends
-        DijkstraSearchFrontier<V, E>
+        extends DijkstraSearchFrontier<V, E>
     {
         boolean isFinished;
 

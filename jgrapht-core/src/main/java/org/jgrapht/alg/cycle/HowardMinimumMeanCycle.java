@@ -60,8 +60,7 @@ import java.util.Objects;
  * @author Semen Chudakov
  */
 public class HowardMinimumMeanCycle<V, E>
-    implements
-    MinimumCycleMeanAlgorithm<V, E>
+    implements MinimumCycleMeanAlgorithm<V, E>
 {
     /**
      * The underlying graph.
@@ -152,9 +151,8 @@ public class HowardMinimumMeanCycle<V, E>
         StrongConnectivityAlgorithm<V, E> strongConnectivityAlgorithm, double toleranceEpsilon)
     {
         this.graph = Objects.requireNonNull(graph, "graph should not be null!");
-        this.strongConnectivityAlgorithm = Objects
-            .requireNonNull(
-                strongConnectivityAlgorithm, "strongConnectivityAlgorithm should not be null!");
+        this.strongConnectivityAlgorithm = Objects.requireNonNull(
+            strongConnectivityAlgorithm, "strongConnectivityAlgorithm should not be null!");
         if (maximumIterations < 0) {
             throw new IllegalArgumentException("maximumIterations should be non-negative");
         }

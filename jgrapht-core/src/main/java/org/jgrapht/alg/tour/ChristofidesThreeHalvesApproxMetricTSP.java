@@ -74,8 +74,7 @@ import java.util.stream.*;
  * @author Dimitrios Michail
  */
 public class ChristofidesThreeHalvesApproxMetricTSP<V, E>
-    extends
-    HamiltonianCycleAlgorithmBase<V, E>
+    extends HamiltonianCycleAlgorithmBase<V, E>
 {
 
     /**
@@ -102,9 +101,8 @@ public class ChristofidesThreeHalvesApproxMetricTSP<V, E>
 
         // add all edges of a minimum spanning tree to the auxiliary graph
         SpanningTreeAlgorithm<E> spanningTreeAlgorithm = new KruskalMinimumSpanningTree<>(graph);
-        spanningTreeAlgorithm
-            .getSpanningTree().getEdges()
-            .forEach(e -> mstAndMatching.addEdge(graph.getEdgeSource(e), graph.getEdgeTarget(e)));
+        spanningTreeAlgorithm.getSpanningTree().getEdges().forEach(
+            e -> mstAndMatching.addEdge(graph.getEdgeSource(e), graph.getEdgeTarget(e)));
 
         // find odd degree vertices
         Set<V> oddDegreeVertices = mstAndMatching
@@ -118,9 +116,8 @@ public class ChristofidesThreeHalvesApproxMetricTSP<V, E>
         Graph<V, E> subgraph = new AsSubgraph<>(graph, oddDegreeVertices);
         MatchingAlgorithm<V, E> matchingAlgorithm =
             new KolmogorovWeightedPerfectMatching<>(subgraph);
-        matchingAlgorithm
-            .getMatching().getEdges()
-            .forEach(e -> mstAndMatching.addEdge(graph.getEdgeSource(e), graph.getEdgeTarget(e)));
+        matchingAlgorithm.getMatching().getEdges().forEach(
+            e -> mstAndMatching.addEdge(graph.getEdgeSource(e), graph.getEdgeTarget(e)));
 
         // find an Eulerian cycle in the auxiliary graph
         EulerianCycleAlgorithm<V, DefaultEdge> eulerianCycleAlgorithm =

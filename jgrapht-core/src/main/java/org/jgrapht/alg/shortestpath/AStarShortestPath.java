@@ -59,8 +59,7 @@ import java.util.function.*;
  * @author Thomas Breitbart
  */
 public class AStarShortestPath<V, E>
-    extends
-    BaseShortestPathAlgorithm<V, E>
+    extends BaseShortestPathAlgorithm<V, E>
 {
     // Supplier of the preferable heap implementation
     protected final Supplier<AddressableHeap<Double, V>> heapSupplier;

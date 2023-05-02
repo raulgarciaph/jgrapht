@@ -28,8 +28,7 @@ import java.util.concurrent.*;
  * @author John V. Sichi
  */
 public class BronKerboschCliqueFinderTest
-    extends
-    BaseBronKerboschCliqueFinderTest
+    extends BaseBronKerboschCliqueFinderTest
 {
 
     @Override

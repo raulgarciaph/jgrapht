@@ -76,13 +76,12 @@ public class StrongConnectivityAlgorithmTest
     @SuppressWarnings("unchecked")
     public static List<Object[]> getAlgorithmFactory()
     {
-        return List
-            .of(
-                new Object[] { GabowStrongConnectivityInspector.class.getSimpleName(),
-                    (Function<Graph<?, ?>, ?>) GabowStrongConnectivityInspector::new },
+        return List.of(
+            new Object[] { GabowStrongConnectivityInspector.class.getSimpleName(),
+                (Function<Graph<?, ?>, ?>) GabowStrongConnectivityInspector::new },
 
-                new Object[] { KosarajuStrongConnectivityInspector.class.getSimpleName(),
-                    (Function<Graph<?, ?>, ?>) KosarajuStrongConnectivityInspector::new });
+            new Object[] { KosarajuStrongConnectivityInspector.class.getSimpleName(),
+                (Function<Graph<?, ?>, ?>) KosarajuStrongConnectivityInspector::new });
     }
 
     @Test

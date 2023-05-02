@@ -532,8 +532,7 @@ class BlossomVNode
      * example).
      */
     public class IncidentEdgeIterator
-        implements
-        Iterator<BlossomVEdge>
+        implements Iterator<BlossomVEdge>
     {
 
         /**

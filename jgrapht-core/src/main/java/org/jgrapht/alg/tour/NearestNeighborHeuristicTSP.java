@@ -70,8 +70,7 @@ import static org.jgrapht.util.ArrayUtil.*;
  * @author Hannes Wellmann
  */
 public class NearestNeighborHeuristicTSP<V, E>
-    extends
-    HamiltonianCycleAlgorithmBase<V, E>
+    extends HamiltonianCycleAlgorithmBase<V, E>
 {
 
     private Random rng;
@@ -95,9 +94,8 @@ public class NearestNeighborHeuristicTSP<V, E>
     public NearestNeighborHeuristicTSP(V first)
     {
         this(
-            Collections
-                .singletonList(
-                    Objects.requireNonNull(first, "Specified initial vertex cannot be null")),
+            Collections.singletonList(
+                Objects.requireNonNull(first, "Specified initial vertex cannot be null")),
             new Random());
     }
 

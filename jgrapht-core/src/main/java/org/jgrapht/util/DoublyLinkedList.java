@@ -57,10 +57,8 @@ import java.util.function.*;
  * @author Hannes Wellmann
  */
 public class DoublyLinkedList<E>
-    extends
-    AbstractSequentialList<E>
-    implements
-    Deque<E>
+    extends AbstractSequentialList<E>
+    implements Deque<E>
 {
     /** The first element of the list, {@code null} if this list is empty. */
     private ListNodeImpl<E> head = null;
@@ -1069,8 +1067,7 @@ public class DoublyLinkedList<E>
      * @param <E> the list element type
      */
     public interface NodeIterator<E>
-        extends
-        Iterator<E>
+        extends Iterator<E>
     {
         /**
          * {@inheritDoc}
@@ -1098,9 +1095,7 @@ public class DoublyLinkedList<E>
      * @param <E> the list element type
      */
     public interface ListNodeIterator<E>
-        extends
-        ListIterator<E>,
-        NodeIterator<E>
+        extends ListIterator<E>, NodeIterator<E>
     {
         /**
          * {@inheritDoc}
@@ -1135,8 +1130,7 @@ public class DoublyLinkedList<E>
      * An implementation of the {@link DoublyLinkedList.ListNodeIterator} interface.
      */
     private class ListNodeIteratorImpl
-        implements
-        ListNodeIterator<E>
+        implements ListNodeIterator<E>
     {
         /** Index in this list of the ListNode returned next. */
         private int nextIndex;
@@ -1390,8 +1384,7 @@ public class DoublyLinkedList<E>
      * container list policy.
      */
     private static class ListNodeImpl<V>
-        implements
-        ListNode<V>
+        implements ListNode<V>
     {
         private final V value;
         private DoublyLinkedList<V> list = null;

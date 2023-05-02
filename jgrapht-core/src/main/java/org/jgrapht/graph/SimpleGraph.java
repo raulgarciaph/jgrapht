@@ -34,8 +34,7 @@ import java.util.function.*;
  * 
  */
 public class SimpleGraph<V, E>
-    extends
-    AbstractBaseGraph<V, E>
+    extends AbstractBaseGraph<V, E>
 {
     private static final long serialVersionUID = 4607246833824317836L;
 

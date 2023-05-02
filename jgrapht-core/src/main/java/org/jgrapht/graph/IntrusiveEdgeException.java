@@ -23,8 +23,7 @@ package org.jgrapht.graph;
  * @author Hannes Wellmann
  */
 public class IntrusiveEdgeException
-    extends
-    RuntimeException
+    extends RuntimeException
 {
     private static final long serialVersionUID = 7261763645809925025L;
 

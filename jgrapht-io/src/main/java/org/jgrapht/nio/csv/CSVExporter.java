@@ -52,10 +52,8 @@ import java.util.function.*;
  * @author Dimitrios Michail
  */
 public class CSVExporter<V, E>
-    extends
-    BaseExporter<V, E>
-    implements
-    GraphExporter<V, E>
+    extends BaseExporter<V, E>
+    implements GraphExporter<V, E>
 {
     private static final char DEFAULT_DELIMITER = ',';
 

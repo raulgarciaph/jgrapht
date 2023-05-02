@@ -24,8 +24,7 @@ package org.jgrapht.graph;
  * @author EnderCrypt (Magnus Gunnarsson)
  */
 public class GraphCycleProhibitedException
-    extends
-    IllegalArgumentException
+    extends IllegalArgumentException
 {
     private static final long serialVersionUID = 2440845437318796595L;
 

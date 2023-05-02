@@ -30,8 +30,7 @@ import java.util.function.*;
  * @param <E> the graph edge type
  */
 public class SimpleDirectedWeightedGraph<V, E>
-    extends
-    SimpleDirectedGraph<V, E>
+    extends SimpleDirectedGraph<V, E>
 {
     private static final long serialVersionUID = -3301373580757772501L;
 

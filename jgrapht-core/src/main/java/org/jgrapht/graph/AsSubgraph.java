@@ -89,10 +89,8 @@ import java.util.stream.*;
  * @see Set
  */
 public class AsSubgraph<V, E>
-    extends
-    AbstractGraph<V, E>
-    implements
-    Serializable
+    extends AbstractGraph<V, E>
+    implements Serializable
 {
 
     private static final long serialVersionUID = -1471811754881775298L;
@@ -339,9 +337,8 @@ public class AsSubgraph<V, E>
     {
         assertVertexExist(vertex);
 
-        return base
-            .edgesOf(vertex).stream().filter(edgeSet::contains)
-            .collect(Collectors.toCollection(LinkedHashSet::new));
+        return base.edgesOf(vertex).stream().filter(edgeSet::contains).collect(
+            Collectors.toCollection(LinkedHashSet::new));
     }
 
     /**
@@ -380,9 +377,8 @@ public class AsSubgraph<V, E>
     {
         assertVertexExist(vertex);
 
-        return base
-            .incomingEdgesOf(vertex).stream().filter(edgeSet::contains)
-            .collect(Collectors.toCollection(LinkedHashSet::new));
+        return base.incomingEdgesOf(vertex).stream().filter(edgeSet::contains).collect(
+            Collectors.toCollection(LinkedHashSet::new));
     }
 
     /**
@@ -406,9 +402,8 @@ public class AsSubgraph<V, E>
     {
         assertVertexExist(vertex);
 
-        return base
-            .outgoingEdgesOf(vertex).stream().filter(edgeSet::contains)
-            .collect(Collectors.toCollection(LinkedHashSet::new));
+        return base.outgoingEdgesOf(vertex).stream().filter(edgeSet::contains).collect(
+            Collectors.toCollection(LinkedHashSet::new));
     }
 
     /**
@@ -533,9 +528,8 @@ public class AsSubgraph<V, E>
             if (vertexFilter.size() > base.vertexSet().size()) {
                 base.vertexSet().stream().filter(vertexFilter::contains).forEach(vertexSet::add);
             } else {
-                vertexFilter
-                    .stream().filter(v -> v != null && base.containsVertex(v))
-                    .forEach(vertexSet::add);
+                vertexFilter.stream().filter(v -> v != null && base.containsVertex(v)).forEach(
+                    vertexSet::add);
             }
         }
 
@@ -573,9 +567,7 @@ public class AsSubgraph<V, E>
      * @author Barak Naveh
      */
     private class BaseGraphListener
-        implements
-        GraphListener<V, E>,
-        Serializable
+        implements GraphListener<V, E>, Serializable
     {
         private static final long serialVersionUID = 4343535244243546391L;
 

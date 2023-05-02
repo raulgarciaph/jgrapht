@@ -284,9 +284,9 @@ public class TransitNodeRoutingPrecomputationTest
         }
 
         // many-to-many shortest paths
-        Set<Integer> transitVerticesSet = routing
-            .getTransitVertices().stream().map(v -> v.vertex)
-            .collect(Collectors.toCollection(HashSet::new));
+        Set<Integer> transitVerticesSet =
+            routing.getTransitVertices().stream().map(v -> v.vertex).collect(
+                Collectors.toCollection(HashSet::new));
         assertEquals(transitVerticesSet, routing.getTransitVerticesPaths().getSources());
         assertEquals(transitVerticesSet, routing.getTransitVerticesPaths().getTargets());
 

@@ -94,10 +94,8 @@ import org.jgrapht.nio.json.JsonParser.JsonContext;
  * @author Dimitrios Michail
  */
 public class JSONEventDrivenImporter
-    extends
-    BaseEventDrivenImporter<String, Triple<String, String, Double>>
-    implements
-    EventDrivenImporter<String, Triple<String, String, Double>>
+    extends BaseEventDrivenImporter<String, Triple<String, String, Double>>
+    implements EventDrivenImporter<String, Triple<String, String, Double>>
 {
     /**
      * Default name for the vertices collection
@@ -207,8 +205,7 @@ public class JSONEventDrivenImporter
     }
 
     private class ThrowingErrorListener
-        extends
-        BaseErrorListener
+        extends BaseErrorListener
     {
         @Override
         public void syntaxError(
@@ -223,8 +220,7 @@ public class JSONEventDrivenImporter
 
     // notify about graph from parse tree
     private class NotifyJsonListener
-        extends
-        JsonBaseListener
+        extends JsonBaseListener
     {
         private static final String GRAPH = "graph";
         private static final String ID = "id";

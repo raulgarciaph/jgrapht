@@ -43,10 +43,8 @@ import java.util.function.*;
  * @author Dimitrios Michail
  */
 public class MatrixExporter<V, E>
-    extends
-    BaseExporter<V, E>
-    implements
-    GraphExporter<V, E>
+    extends BaseExporter<V, E>
+    implements GraphExporter<V, E>
 {
     private final String delimiter = " ";
     private Format format;

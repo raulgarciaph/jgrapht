@@ -61,8 +61,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class PathGrowingWeightedMatching<V, E>
-    implements
-    MatchingAlgorithm<V, E>
+    implements MatchingAlgorithm<V, E>
 {
     /**
      * Default value on whether to use extra heuristics to improve the result.

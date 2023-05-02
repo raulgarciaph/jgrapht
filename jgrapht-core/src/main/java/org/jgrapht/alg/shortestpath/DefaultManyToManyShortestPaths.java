@@ -53,8 +53,7 @@ import java.util.function.*;
  * @see CHManyToManyShortestPaths
  */
 public class DefaultManyToManyShortestPaths<V, E>
-    extends
-    BaseManyToManyShortestPaths<V, E>
+    extends BaseManyToManyShortestPaths<V, E>
 {
 
     /**
@@ -114,8 +113,7 @@ public class DefaultManyToManyShortestPaths<V, E>
      * For each pair of source and target vertices stores a corresponding path between them.
      */
     static class DefaultManyToManyShortestPathsImpl<V, E>
-        extends
-        BaseManyToManyShortestPathsImpl<V, E>
+        extends BaseManyToManyShortestPathsImpl<V, E>
     {
 
         /**

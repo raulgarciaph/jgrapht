@@ -36,8 +36,7 @@ import java.util.*;
  * @param <E> the type of the edges
  */
 public abstract class VF2AbstractIsomorphismInspector<V, E>
-    implements
-    IsomorphismInspector<V, E>
+    implements IsomorphismInspector<V, E>
 {
     protected Graph<V, E> graph1, graph2;
 

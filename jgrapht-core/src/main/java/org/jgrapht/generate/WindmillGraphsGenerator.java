@@ -38,8 +38,7 @@ import java.util.*;
  * @param <E> graph edge type
  */
 public class WindmillGraphsGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     /**
      * WINDMILL and DUTCHWINDMILL Modes for the Constructor

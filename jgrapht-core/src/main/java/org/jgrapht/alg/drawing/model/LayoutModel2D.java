@@ -34,8 +34,7 @@ import java.util.*;
  * @param <V> the vertex type
  */
 public interface LayoutModel2D<V>
-    extends
-    Iterable<Map.Entry<V, Point2D>>
+    extends Iterable<Map.Entry<V, Point2D>>
 {
 
     /**

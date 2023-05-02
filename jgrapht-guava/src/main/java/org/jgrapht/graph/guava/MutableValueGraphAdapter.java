@@ -40,8 +40,7 @@ import java.util.function.*;
  * 
  * <pre>
  * class MyValue
- *     implements
- *     Serializable
+ *     implements Serializable
  * {
  *     private double value;
  *
@@ -89,12 +88,8 @@ import java.util.function.*;
  * @param <W> the value type
  */
 public class MutableValueGraphAdapter<V, W>
-    extends
-    BaseValueGraphAdapter<V, W, MutableValueGraph<V, W>>
-    implements
-    Graph<V, EndpointPair<V>>,
-    Cloneable,
-    Serializable
+    extends BaseValueGraphAdapter<V, W, MutableValueGraph<V, W>>
+    implements Graph<V, EndpointPair<V>>, Cloneable, Serializable
 {
     private static final long serialVersionUID = -5095044027783397573L;
 
@@ -337,8 +332,7 @@ public class MutableValueGraphAdapter<V, W>
 
     @SuppressWarnings("unchecked")
     private void readObject(ObjectInputStream ois)
-        throws ClassNotFoundException,
-        IOException
+        throws ClassNotFoundException, IOException
     {
         ois.defaultReadObject();
 

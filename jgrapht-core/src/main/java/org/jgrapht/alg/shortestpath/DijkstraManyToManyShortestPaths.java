@@ -52,8 +52,7 @@ import java.util.*;
  * @see CHManyToManyShortestPaths
  */
 public class DijkstraManyToManyShortestPaths<V, E>
-    extends
-    BaseManyToManyShortestPaths<V, E>
+    extends BaseManyToManyShortestPaths<V, E>
 {
 
     /**
@@ -98,8 +97,7 @@ public class DijkstraManyToManyShortestPaths<V, E>
      * both actual paths and theirs weights.
      */
     private class DijkstraManyToManyShortestPathsImpl
-        extends
-        BaseManyToManyShortestPathsImpl<V, E>
+        extends BaseManyToManyShortestPathsImpl<V, E>
     {
 
         /**
@@ -139,7 +137,7 @@ public class DijkstraManyToManyShortestPaths<V, E>
             assertCorrectSourceAndTarget(source, target);
             if (reversed) {
                 GraphPath<V, E> reversedPath = searchSpaces.get(target).getPath(source);
-                if (reversedPath == null) { 
+                if (reversedPath == null) {
                     return null;
                 }
                 List<V> vertices = reversedPath.getVertexList();

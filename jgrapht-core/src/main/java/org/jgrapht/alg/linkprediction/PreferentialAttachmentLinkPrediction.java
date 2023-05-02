@@ -46,8 +46,7 @@ import org.jgrapht.alg.interfaces.LinkPredictionAlgorithm;
  * @author Dimitrios Michail
  */
 public class PreferentialAttachmentLinkPrediction<V, E>
-    implements
-    LinkPredictionAlgorithm<V, E>
+    implements LinkPredictionAlgorithm<V, E>
 {
     private Graph<V, E> graph;
 

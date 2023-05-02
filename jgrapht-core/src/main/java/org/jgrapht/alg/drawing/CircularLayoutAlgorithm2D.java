@@ -38,8 +38,7 @@ import java.util.stream.*;
  * @param <E> the edge type
  */
 public class CircularLayoutAlgorithm2D<V, E>
-    extends
-    BaseLayoutAlgorithm2D<V, E>
+    extends BaseLayoutAlgorithm2D<V, E>
 {
     protected double radius;
     protected Comparator<Double> comparator;

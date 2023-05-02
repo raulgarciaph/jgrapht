@@ -34,8 +34,7 @@ import java.util.*;
  * @param <IE> the intrusive edge type
  */
 public abstract class BaseIntrusiveEdgesSpecifics<V, E, IE extends IntrusiveEdge>
-    implements
-    Serializable
+    implements Serializable
 {
     private static final long serialVersionUID = -7498268216742485L;
 

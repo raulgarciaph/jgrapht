@@ -113,11 +113,8 @@ import java.util.stream.*;
  * @author CHEN Kui
  */
 public class AsSynchronizedGraph<V, E>
-    extends
-    GraphDelegator<V, E>
-    implements
-    Graph<V, E>,
-    Serializable
+    extends GraphDelegator<V, E>
+    implements Graph<V, E>, Serializable
 {
     private static final long serialVersionUID = 5144561442831050752L;
 
@@ -713,9 +710,7 @@ public class AsSynchronizedGraph<V, E>
      * @author CHEN Kui
      */
     private static class CopyOnDemandSet<E>
-        implements
-        Set<E>,
-        Serializable
+        implements Set<E>, Serializable
     {
         private static final long serialVersionUID = 5553953818148294283L;
 
@@ -1122,9 +1117,7 @@ public class AsSynchronizedGraph<V, E>
      * and <code>outgoingEdgesOf</code> methods.
      */
     private class NoCache
-        implements
-        CacheStrategy<V, E>,
-        Serializable
+        implements CacheStrategy<V, E>, Serializable
     {
         private static final long serialVersionUID = 19246150051213471L;
 
@@ -1216,8 +1209,7 @@ public class AsSynchronizedGraph<V, E>
      * synchronize iterations over these collections.
      */
     private class NoCopy
-        extends
-        NoCache
+        extends NoCache
     {
         private static final long serialVersionUID = -5046944235164395939L;
 
@@ -1254,9 +1246,7 @@ public class AsSynchronizedGraph<V, E>
      * <code>outgoingEdgesOf</code> methods.
      */
     private class CacheAccess
-        implements
-        CacheStrategy<V, E>,
-        Serializable
+        implements CacheStrategy<V, E>, Serializable
     {
         private static final long serialVersionUID = -18262921841829294L;
 

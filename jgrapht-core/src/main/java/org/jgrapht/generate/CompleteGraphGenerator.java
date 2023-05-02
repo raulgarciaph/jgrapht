@@ -34,8 +34,7 @@ import java.util.*;
  * @author Tim Shearouse
  */
 public class CompleteGraphGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     private final int size;
 

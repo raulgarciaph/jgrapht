@@ -31,8 +31,7 @@ import static org.junit.Assert.assertTrue;
  * @author Joris Kinable
  */
 public abstract class MaximumFlowAlgorithmTest
-    extends
-    MaximumFlowMinimumCutAlgorithmTestBase
+    extends MaximumFlowMinimumCutAlgorithmTestBase
 {
 
     abstract MaximumFlowAlgorithm<Integer, DefaultWeightedEdge> createSolver(

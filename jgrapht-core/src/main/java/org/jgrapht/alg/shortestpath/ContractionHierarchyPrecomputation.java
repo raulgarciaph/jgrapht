@@ -282,11 +282,9 @@ public class ContractionHierarchyPrecomputation<V, E>
         computeShortcutsConsumer =
             vertex -> shortcutEdges.set(vertex.vertexId, getShortcuts(vertex));
         updateNeighboursConsumer = vertex -> updateNeighboursData(vertex);
-        markUpwardEdgesConsumer = vertex -> contractionGraph
-            .outgoingEdgesOf(vertex).forEach(
-                e -> e.isUpward =
-                    contractionGraph.getEdgeSource(e).contractionLevel < contractionGraph
-                        .getEdgeTarget(e).contractionLevel);
+        markUpwardEdgesConsumer = vertex -> contractionGraph.outgoingEdgesOf(vertex).forEach(
+            e -> e.isUpward = contractionGraph.getEdgeSource(e).contractionLevel < contractionGraph
+                .getEdgeTarget(e).contractionLevel);
     }
 
     /**
@@ -502,9 +500,8 @@ public class ContractionHierarchyPrecomputation<V, E>
      */
     private void contractIndependentSet(int independentSetStart, int independentSetEnd)
     {
-        vertices
-            .subList(independentSetStart, independentSetEnd)
-            .forEach(v -> contractVertex(v, contractionLevelCounter.getAndIncrement()));
+        vertices.subList(independentSetStart, independentSetEnd).forEach(
+            v -> contractVertex(v, contractionLevelCounter.getAndIncrement()));
     }
 
     /**
@@ -692,10 +689,9 @@ public class ContractionHierarchyPrecomputation<V, E>
                 {
                     shortcutConsumer.accept(inEdge, outEdge);
                     if (graph.getType().isUndirected()) {
-                        shortcutConsumer
-                            .accept(
-                                contractionGraph.getEdge(successor, vertex),
-                                contractionGraph.getEdge(vertex, predecessor));
+                        shortcutConsumer.accept(
+                            contractionGraph.getEdge(successor, vertex),
+                            contractionGraph.getEdge(vertex, predecessor));
                     }
                 }
             }
@@ -1109,8 +1105,7 @@ public class ContractionHierarchyPrecomputation<V, E>
      * Caches passed shortcuts into a list.
      */
     private class ToListConsumer
-        implements
-        BiConsumer<ContractionEdge<E>, ContractionEdge<E>>
+        implements BiConsumer<ContractionEdge<E>, ContractionEdge<E>>
     {
         /**
          * Resulting list of shortcuts.
@@ -1138,8 +1133,7 @@ public class ContractionHierarchyPrecomputation<V, E>
      * contraction used to compute only the vertex priority.
      */
     private class ToStatisticsConsumer
-        implements
-        BiConsumer<ContractionEdge<E>, ContractionEdge<E>>
+        implements BiConsumer<ContractionEdge<E>, ContractionEdge<E>>
     {
         /**
          * Resulting statistics instance.
@@ -1168,8 +1162,7 @@ public class ContractionHierarchyPrecomputation<V, E>
      * segment of vertices in {@code vertices} is divided into chunks using {@code taskId}.
      */
     private class ContractionTask
-        implements
-        Runnable
+        implements Runnable
     {
         /**
          * Id of this task.

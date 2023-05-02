@@ -45,8 +45,7 @@ import java.util.stream.*;
  * @author Joris Kinable
  */
 public class GreedyVCImpl<V, E>
-    implements
-    VertexCoverAlgorithm<V>
+    implements VertexCoverAlgorithm<V>
 {
 
     private static int vertexCounter = 0;
@@ -95,10 +94,9 @@ public class GreedyVCImpl<V, E>
         // Create working graph: for every vertex, create a RatioVertex which maintains its own list
         // of neighbors
         Map<V, RatioVertex<V>> vertexEncapsulationMap = new HashMap<>();
-        graph
-            .vertexSet().stream().filter(v -> graph.degreeOf(v) > 0).forEach(
-                v -> vertexEncapsulationMap
-                    .put(v, new RatioVertex<>(vertexCounter++, v, vertexWeightMap.get(v))));
+        graph.vertexSet().stream().filter(v -> graph.degreeOf(v) > 0).forEach(
+            v -> vertexEncapsulationMap
+                .put(v, new RatioVertex<>(vertexCounter++, v, vertexWeightMap.get(v))));
 
         for (E e : graph.edgeSet()) {
             V u = graph.getEdgeSource(e);
@@ -123,11 +121,10 @@ public class GreedyVCImpl<V, E>
 
             // Find a vertex vx for which W(vx)/degree(vx) is minimal
             RatioVertex<V> vx = workingGraph.pollFirst();
-            assert (workingGraph
-                .parallelStream().allMatch(
-                    ux -> vx.getRatio() <= ux
-                        .getRatio())) : "vx does not have the smallest ratio among all elements. VX: "
-                            + vx + " WorkingGraph: " + workingGraph;
+            assert (workingGraph.parallelStream().allMatch(
+                ux -> vx.getRatio() <= ux
+                    .getRatio())) : "vx does not have the smallest ratio among all elements. VX: "
+                        + vx + " WorkingGraph: " + workingGraph;
 
             for (RatioVertex<V> nx : vx.neighbors.keySet()) {
 
@@ -148,9 +145,8 @@ public class GreedyVCImpl<V, E>
             // Update cover
             cover.add(vx.v);
             weight += vertexWeightMap.get(vx.v);
-            assert (workingGraph
-                .parallelStream().noneMatch(
-                    ux -> ux.id == vx.id)) : "vx should no longer exist in the working graph";
+            assert (workingGraph.parallelStream().noneMatch(
+                ux -> ux.id == vx.id)) : "vx should no longer exist in the working graph";
         }
         return new VertexCoverAlgorithm.VertexCoverImpl<>(cover, weight);
     }

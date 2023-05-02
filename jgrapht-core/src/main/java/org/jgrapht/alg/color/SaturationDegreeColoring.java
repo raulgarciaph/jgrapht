@@ -58,8 +58,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class SaturationDegreeColoring<V, E>
-    implements
-    VertexColoringAlgorithm<V>
+    implements VertexColoringAlgorithm<V>
 {
     private final Graph<V, E> graph;
 
@@ -110,9 +109,8 @@ public class SaturationDegreeColoring<V, E>
         for (V v : graph.vertexSet()) {
             handles.put(v, new HeapHandle(v));
         }
-        heap
-            .bulkInsert(
-                handles.values().toArray((HeapHandle[]) Array.newInstance(HeapHandle.class, 0)));
+        heap.bulkInsert(
+            handles.values().toArray((HeapHandle[]) Array.newInstance(HeapHandle.class, 0)));
 
         /*
          * Color vertices
@@ -169,8 +167,7 @@ public class SaturationDegreeColoring<V, E>
      * degree (maximum is better in both cases).
      */
     private class DSaturComparator
-        implements
-        Comparator<V>
+        implements Comparator<V>
     {
         private Map<V, Integer> saturation;
         private Map<V, Integer> degree;

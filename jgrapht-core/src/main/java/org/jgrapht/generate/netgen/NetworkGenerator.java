@@ -564,9 +564,8 @@ public class NetworkGenerator<V, E>
                 Node arcTail = chainSource.chainNodes.get(arcTailIndex);
 
                 addSkeletonArc(chainSource, arcTail, sink);
-                supplyMap
-                    .put(
-                        sink.graphVertex, supplyMap.getOrDefault(sink.graphVertex, 0) - sinkSupply);
+                supplyMap.put(
+                    sink.graphVertex, supplyMap.getOrDefault(sink.graphVertex, 0) - sinkSupply);
             }
         }
 
@@ -585,10 +584,9 @@ public class NetworkGenerator<V, E>
          * Upper bounds for every class of arcs.
          */
         List<Long> upperBounds = new ArrayList<>(
-            List
-                .of(
-                    source2TSourceUB, source2TNodeUB, source2SinkUB, tNode2TSourceUB, tNode2TNodeUB,
-                    tNode2SinkUB, tSink2TSourceUB, tSink2TNodeUB, tSink2SinkUB));
+            List.of(
+                source2TSourceUB, source2TNodeUB, source2SinkUB, tNode2TSourceUB, tNode2TNodeUB,
+                tNode2SinkUB, tSink2TSourceUB, tSink2TNodeUB, tSink2SinkUB));
 
         long classBoundsSum = upperBounds.stream().mapToLong(l -> l).sum();
         if (classBoundsSum == 0) {
@@ -609,10 +607,9 @@ public class NetworkGenerator<V, E>
             return weightBound + 1; // make this bound positive
         });
 
-        List<Integer> arcNumDistribution = arcNumDistributor
-            .getDistribution(
-                IntStream.range(0, upperBounds.size()).boxed().collect(Collectors.toList()),
-                remainingArcs);
+        List<Integer> arcNumDistribution = arcNumDistributor.getDistribution(
+            IntStream.range(0, upperBounds.size()).boxed().collect(Collectors.toList()),
+            remainingArcs);
 
         generateArcs(getSources(), getTransshipSources(), arcNumDistribution.get(0));
         generateArcs(getSources(), getTransshipNodes(), arcNumDistribution.get(1));
@@ -656,10 +653,8 @@ public class NetworkGenerator<V, E>
             return tailArcWeightBound + 1;
         });
 
-        List<Integer> arcNumDistribution = arcNumDistributor
-            .getDistribution(
-                IntStream.range(0, tails.size()).boxed().collect(Collectors.toList()),
-                arcsToGenerate);
+        List<Integer> arcNumDistribution = arcNumDistributor.getDistribution(
+            IntStream.range(0, tails.size()).boxed().collect(Collectors.toList()), arcsToGenerate);
 
         // For every tail, generate the assigned number of arcs.
         for (int i = 0; i < tails.size(); i++) {
@@ -906,10 +901,9 @@ public class NetworkGenerator<V, E>
      */
     private List<Node> getTransshipSinks()
     {
-        return nodes
-            .subList(
-                config.getSourceNum() + config.getTransshipNodeNum(),
-                nodes.size() - config.getPureSinkNum());
+        return nodes.subList(
+            config.getSourceNum() + config.getTransshipNodeNum(),
+            nodes.size() - config.getPureSinkNum());
     }
 
     /**

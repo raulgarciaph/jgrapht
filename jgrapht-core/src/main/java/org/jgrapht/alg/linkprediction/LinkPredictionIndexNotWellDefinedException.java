@@ -25,8 +25,7 @@ import org.jgrapht.alg.util.Pair;
  * @author Dimitrios Michail
  */
 public class LinkPredictionIndexNotWellDefinedException
-    extends
-    RuntimeException
+    extends RuntimeException
 {
     private static final long serialVersionUID = -8832535053621910719L;
 

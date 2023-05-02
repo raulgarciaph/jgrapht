@@ -51,11 +51,8 @@ import java.util.*;
  * @author John V. Sichi
  */
 public class AsUndirectedGraph<V, E>
-    extends
-    GraphDelegator<V, E>
-    implements
-    Serializable,
-    Graph<V, E>
+    extends GraphDelegator<V, E>
+    implements Serializable, Graph<V, E>
 {
     private static final long serialVersionUID = 325983813283133557L;
 

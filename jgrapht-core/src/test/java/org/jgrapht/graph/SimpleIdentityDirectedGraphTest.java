@@ -75,8 +75,7 @@ public class SimpleIdentityDirectedGraphTest
     }
 
     public static class SimpleIdentityDirectedGraph<V, E>
-        extends
-        AbstractBaseGraph<V, E>
+        extends AbstractBaseGraph<V, E>
     {
         private static final long serialVersionUID = 4600490314100246989L;
 
@@ -89,8 +88,7 @@ public class SimpleIdentityDirectedGraphTest
     }
 
     private static class IdentitySpecificsStrategy<V, E>
-        implements
-        GraphSpecificsStrategy<V, E>
+        implements GraphSpecificsStrategy<V, E>
     {
 
         private static final long serialVersionUID = 1L;

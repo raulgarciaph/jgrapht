@@ -40,10 +40,8 @@ import java.util.*;
  * @author Barak Naveh
  */
 public class AsUnmodifiableGraph<V, E>
-    extends
-    GraphDelegator<V, E>
-    implements
-    Serializable
+    extends GraphDelegator<V, E>
+    implements Serializable
 {
     private static final long serialVersionUID = -8186686968362705760L;
 

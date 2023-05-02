@@ -389,10 +389,9 @@ public abstract class GraphTests
     public static <V, E> boolean isBipartitePartition(
         Graph<V, E> graph, Set<? extends V> firstPartition, Set<? extends V> secondPartition)
     {
-        return new BipartitePartitioning<>(graph)
-            .isValidPartitioning(
-                new PartitioningAlgorithm.PartitioningImpl<>(
-                    Arrays.asList((Set<V>) firstPartition, (Set<V>) secondPartition)));
+        return new BipartitePartitioning<>(graph).isValidPartitioning(
+            new PartitioningAlgorithm.PartitioningImpl<>(
+                Arrays.asList((Set<V>) firstPartition, (Set<V>) secondPartition)));
     }
 
     /**

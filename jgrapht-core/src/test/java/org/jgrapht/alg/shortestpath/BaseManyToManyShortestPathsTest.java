@@ -483,7 +483,7 @@ public abstract class BaseManyToManyShortestPathsTest
 
         return graph;
     }
-    
+
     protected void testNoPathMultiSet()
     {
         Graph<Integer, DefaultWeightedEdge> graph =

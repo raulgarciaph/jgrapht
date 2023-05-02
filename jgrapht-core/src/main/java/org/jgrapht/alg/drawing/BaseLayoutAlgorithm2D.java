@@ -31,8 +31,7 @@ import java.util.function.*;
  * @param <E> the edge type
  */
 abstract class BaseLayoutAlgorithm2D<V, E>
-    implements
-    LayoutAlgorithm2D<V, E>
+    implements LayoutAlgorithm2D<V, E>
 {
     /**
      * A model initializer

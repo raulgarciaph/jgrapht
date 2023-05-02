@@ -109,10 +109,8 @@ import org.jgrapht.nio.ImportException;
  * @author Dimitrios Michail
  */
 public class JSONImporter<V, E>
-    extends
-    BaseEventDrivenImporter<V, E>
-    implements
-    GraphImporter<V, E>
+    extends BaseEventDrivenImporter<V, E>
+    implements GraphImporter<V, E>
 {
     /**
      * Default key used for vertex ID.

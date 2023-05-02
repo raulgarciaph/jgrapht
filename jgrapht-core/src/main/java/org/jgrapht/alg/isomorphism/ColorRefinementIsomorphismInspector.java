@@ -42,8 +42,7 @@ import java.util.*;
  * @author Dennis Fischer
  */
 public class ColorRefinementIsomorphismInspector<V, E>
-    implements
-    IsomorphismInspector<V, E>
+    implements IsomorphismInspector<V, E>
 {
 
     /**
@@ -259,9 +258,8 @@ public class ColorRefinementIsomorphismInspector<V, E>
             // safety check whether the color class is not empty.
             if (cur1.iterator().hasNext()) {
                 // check if the color are not the same (works as colors are integers).
-                if (!coloring1
-                    .getColors().get(cur1.iterator().next())
-                    .equals(coloring2.getColors().get(cur2.iterator().next())))
+                if (!coloring1.getColors().get(cur1.iterator().next()).equals(
+                    coloring2.getColors().get(cur2.iterator().next())))
                 {
                     // colors are not the same -> graphs are not isomorphic.
                     return false;
@@ -411,11 +409,10 @@ public class ColorRefinementIsomorphismInspector<V, E>
             transformedGraph.addVertex(new DistinctGraphObject<>(vertex, graph));
         }
         for (E edge : graph.edgeSet()) {
-            transformedGraph
-                .addEdge(
-                    new DistinctGraphObject<>(graph.getEdgeSource(edge), graph),
-                    new DistinctGraphObject<>(graph.getEdgeTarget(edge), graph),
-                    new DistinctGraphObject<>(edge, graph));
+            transformedGraph.addEdge(
+                new DistinctGraphObject<>(graph.getEdgeSource(edge), graph),
+                new DistinctGraphObject<>(graph.getEdgeTarget(edge), graph),
+                new DistinctGraphObject<>(edge, graph));
         }
 
         return transformedGraph;

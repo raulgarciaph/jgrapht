@@ -32,8 +32,7 @@ import org.jgrapht.graph.*;
  * @author John V. Sichi
  */
 public class IgnoreDirectionTest
-    extends
-    AbstractGraphIteratorTest
+    extends AbstractGraphIteratorTest
 {
     // ~ Methods ----------------------------------------------------------------
 

@@ -57,10 +57,8 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class CSVEventDrivenImporter
-    extends
-    BaseEventDrivenImporter<String, Triple<String, String, Double>>
-    implements
-    EventDrivenImporter<String, Triple<String, String, Double>>
+    extends BaseEventDrivenImporter<String, Triple<String, String, Double>>
+    implements EventDrivenImporter<String, Triple<String, String, Double>>
 {
     private static final char DEFAULT_DELIMITER = ',';
 
@@ -217,8 +215,7 @@ public class CSVEventDrivenImporter
     }
 
     private class ThrowingErrorListener
-        extends
-        BaseErrorListener
+        extends BaseErrorListener
     {
         @Override
         public void syntaxError(
@@ -233,8 +230,7 @@ public class CSVEventDrivenImporter
 
     // listener for the edge list format
     private class AdjacencyListCSVListener
-        extends
-        RowCSVListener
+        extends RowCSVListener
     {
         private boolean assumeEdgeWeights;
 
@@ -289,8 +285,7 @@ public class CSVEventDrivenImporter
 
     // listener for the edge list format
     private class MatrixCSVListener
-        extends
-        RowCSVListener
+        extends RowCSVListener
     {
         private boolean assumeNodeIds;
         private boolean assumeEdgeWeights;
@@ -399,11 +394,9 @@ public class CSVEventDrivenImporter
                         }
                     } else {
                         if (assumeEdgeWeights) {
-                            notifyEdge(
-                                Triple
-                                    .of(
-                                        currentVertexName, columnIndex.get(target),
-                                        Double.valueOf(entryAsInteger)));
+                            notifyEdge(Triple.of(
+                                currentVertexName, columnIndex.get(target),
+                                Double.valueOf(entryAsInteger)));
                         } else {
                             notifyEdge(Triple.of(currentVertexName, columnIndex.get(target), null));
                         }
@@ -435,8 +428,7 @@ public class CSVEventDrivenImporter
 
     // base listener
     private abstract class RowCSVListener
-        extends
-        CSVBaseListener
+        extends CSVBaseListener
     {
         protected List<String> row;
         protected Set<String> vertices;

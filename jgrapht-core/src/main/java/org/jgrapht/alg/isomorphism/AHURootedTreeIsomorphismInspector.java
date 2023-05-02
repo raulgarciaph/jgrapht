@@ -64,8 +64,7 @@ import java.util.*;
  * @author Alexandru Valeanu
  */
 public class AHURootedTreeIsomorphismInspector<V, E>
-    implements
-    IsomorphismInspector<V, E>
+    implements IsomorphismInspector<V, E>
 {
     private final Graph<V, E> tree1;
     private final Graph<V, E> tree2;

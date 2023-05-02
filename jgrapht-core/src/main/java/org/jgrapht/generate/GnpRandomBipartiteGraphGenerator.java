@@ -39,8 +39,7 @@ import java.util.*;
  * @see GnmRandomBipartiteGraphGenerator
  */
 public class GnpRandomBipartiteGraphGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     private final Random rng;
     private final int n1;

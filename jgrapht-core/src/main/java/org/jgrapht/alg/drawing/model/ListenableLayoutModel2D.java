@@ -29,8 +29,7 @@ import java.util.function.*;
  * @param <V> the vertex type
  */
 public class ListenableLayoutModel2D<V>
-    implements
-    LayoutModel2D<V>
+    implements LayoutModel2D<V>
 {
     protected LayoutModel2D<V> model;
     protected List<BiConsumer<V, Point2D>> listeners;

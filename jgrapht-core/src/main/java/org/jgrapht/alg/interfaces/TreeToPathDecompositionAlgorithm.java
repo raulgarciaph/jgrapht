@@ -78,9 +78,7 @@ public interface TreeToPathDecompositionAlgorithm<V, E>
      * @param <E> the graph edge type
      */
     class PathDecompositionImpl<V, E>
-        implements
-        PathDecomposition<V, E>,
-        Serializable
+        implements PathDecomposition<V, E>, Serializable
     {
 
         private static final long serialVersionUID = 8468626434814461297L;
@@ -98,9 +96,9 @@ public interface TreeToPathDecompositionAlgorithm<V, E>
         {
             this.edges = edges;
 
-            Set<GraphPath<V, E>> arrayUnenforcedSet = paths
-                .stream().map(path -> new GraphWalk<>(graph, path, path.size()))
-                .collect(Collectors.toCollection(ArrayUnenforcedSet::new));
+            Set<GraphPath<V, E>> arrayUnenforcedSet =
+                paths.stream().map(path -> new GraphWalk<>(graph, path, path.size())).collect(
+                    Collectors.toCollection(ArrayUnenforcedSet::new));
 
             this.paths = Collections.unmodifiableSet(arrayUnenforcedSet);
         }

@@ -60,10 +60,8 @@ import org.jgrapht.util.*;
  * @author Peter Giles
  */
 public class DirectedAcyclicGraph<V, E>
-    extends
-    AbstractBaseGraph<V, E>
-    implements
-    Iterable<V>
+    extends AbstractBaseGraph<V, E>
+    implements Iterable<V>
 {
     private static final long serialVersionUID = 4522128427004938150L;
 
@@ -624,8 +622,7 @@ public class DirectedAcyclicGraph<V, E>
      * @author Peter Giles
      */
     protected interface TopoOrderMap<V>
-        extends
-        Serializable
+        extends Serializable
     {
         /**
          * Add a vertex at the given topological index.
@@ -712,8 +709,7 @@ public class DirectedAcyclicGraph<V, E>
      * @author Peter Giles
      */
     protected interface VisitedStrategyFactory
-        extends
-        Serializable
+        extends Serializable
     {
         /**
          * Create a new instance of {@link VisitedStrategy}.
@@ -730,8 +726,7 @@ public class DirectedAcyclicGraph<V, E>
      * @author Peter Giles
      */
     protected static class TopoVertexBiMap<V>
-        implements
-        TopoOrderMap<V>
+        implements TopoOrderMap<V>
     {
         private static final long serialVersionUID = 1L;
 
@@ -790,8 +785,7 @@ public class DirectedAcyclicGraph<V, E>
      * @author Peter Giles
      */
     protected class TopoVertexMap
-        implements
-        TopoOrderMap<V>
+        implements TopoOrderMap<V>
     {
         private static final long serialVersionUID = 1L;
 
@@ -870,8 +864,7 @@ public class DirectedAcyclicGraph<V, E>
      * @author Peter Giles
      */
     protected static class Region
-        implements
-        Serializable
+        implements Serializable
     {
         private static final long serialVersionUID = 1L;
 
@@ -946,9 +939,7 @@ public class DirectedAcyclicGraph<V, E>
      * @author John V. Sichi
      */
     protected static class VisitedBitSetImpl
-        implements
-        VisitedStrategy,
-        VisitedStrategyFactory
+        implements VisitedStrategy, VisitedStrategyFactory
     {
         private static final long serialVersionUID = 1L;
 
@@ -1013,9 +1004,7 @@ public class DirectedAcyclicGraph<V, E>
      * @author Peter Giles
      */
     protected static class VisitedArrayListImpl
-        implements
-        VisitedStrategy,
-        VisitedStrategyFactory
+        implements VisitedStrategy, VisitedStrategyFactory
     {
         private static final long serialVersionUID = 1L;
 
@@ -1087,9 +1076,7 @@ public class DirectedAcyclicGraph<V, E>
      * @author Peter Giles
      */
     protected static class VisitedHashSetImpl
-        implements
-        VisitedStrategy,
-        VisitedStrategyFactory
+        implements VisitedStrategy, VisitedStrategyFactory
     {
         private static final long serialVersionUID = 1L;
 
@@ -1139,9 +1126,7 @@ public class DirectedAcyclicGraph<V, E>
      * @author Peter Giles
      */
     protected static class VisitedArrayImpl
-        implements
-        VisitedStrategy,
-        VisitedStrategyFactory
+        implements VisitedStrategy, VisitedStrategyFactory
     {
         private static final long serialVersionUID = 1L;
 
@@ -1206,8 +1191,7 @@ public class DirectedAcyclicGraph<V, E>
      * @author Peter Giles
      */
     private static class CycleFoundException
-        extends
-        Exception
+        extends Exception
     {
         private static final long serialVersionUID = 5583471522212552754L;
     }
@@ -1218,9 +1202,7 @@ public class DirectedAcyclicGraph<V, E>
      * @author Peter Giles
      */
     private class TopoComparator
-        implements
-        Comparator<V>,
-        Serializable
+        implements Comparator<V>, Serializable
     {
         private static final long serialVersionUID = 8144905376266340066L;
 
@@ -1239,8 +1221,7 @@ public class DirectedAcyclicGraph<V, E>
      * @author Peter Giles
      */
     private class TopoIterator
-        implements
-        Iterator<V>
+        implements Iterator<V>
     {
         private int currentTopoIndex;
         private final long expectedTopoModCount = topoModCount;

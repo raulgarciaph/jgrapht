@@ -47,10 +47,8 @@ import java.util.*;
  * @author JeanYves Tinevez
  */
 public class JGraphXAdapter<V, E>
-    extends
-    mxGraph
-    implements
-    GraphListener<V, E>
+    extends mxGraph
+    implements GraphListener<V, E>
 {
     /**
      * The graph to be drawn. Has vertices "V" and edges "E".

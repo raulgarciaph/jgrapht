@@ -43,10 +43,8 @@ import java.util.regex.*;
  * @author Dimitrios Michail
  */
 public class DOTExporter<V, E>
-    extends
-    BaseExporter<V, E>
-    implements
-    GraphExporter<V, E>
+    extends BaseExporter<V, E>
+    implements GraphExporter<V, E>
 {
     /**
      * Default graph id used by the exporter.

@@ -23,8 +23,7 @@ package org.jgrapht.nio;
  * @author Wil Selwood
  */
 public class ImportException
-    extends
-    RuntimeException
+    extends RuntimeException
 {
     private static final long serialVersionUID = 1L;
 

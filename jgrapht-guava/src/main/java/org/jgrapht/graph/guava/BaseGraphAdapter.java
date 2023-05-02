@@ -40,12 +40,8 @@ import static java.util.stream.Collectors.toSet;
  * @param <G> type of the underlying Guava's graph
  */
 public abstract class BaseGraphAdapter<V, G extends com.google.common.graph.Graph<V>>
-    extends
-    AbstractGraph<V, EndpointPair<V>>
-    implements
-    Graph<V, EndpointPair<V>>,
-    Cloneable,
-    Serializable
+    extends AbstractGraph<V, EndpointPair<V>>
+    implements Graph<V, EndpointPair<V>>, Cloneable, Serializable
 {
     private static final long serialVersionUID = -6742507788742087708L;
 
@@ -264,9 +260,8 @@ public abstract class BaseGraphAdapter<V, G extends com.google.common.graph.Grap
     @Override
     public Set<EndpointPair<V>> incomingEdgesOf(V vertex)
     {
-        return graph
-            .predecessors(vertex).stream().map(other -> createEdge(other, vertex))
-            .collect(collectingAndThen(toSet(), Collections::unmodifiableSet));
+        return graph.predecessors(vertex).stream().map(other -> createEdge(other, vertex)).collect(
+            collectingAndThen(toSet(), Collections::unmodifiableSet));
     }
 
     @Override
@@ -278,9 +273,8 @@ public abstract class BaseGraphAdapter<V, G extends com.google.common.graph.Grap
     @Override
     public Set<EndpointPair<V>> outgoingEdgesOf(V vertex)
     {
-        return graph
-            .successors(vertex).stream().map(other -> createEdge(vertex, other))
-            .collect(collectingAndThen(toSet(), Collections::unmodifiableSet));
+        return graph.successors(vertex).stream().map(other -> createEdge(vertex, other)).collect(
+            collectingAndThen(toSet(), Collections::unmodifiableSet));
     }
 
     @Override

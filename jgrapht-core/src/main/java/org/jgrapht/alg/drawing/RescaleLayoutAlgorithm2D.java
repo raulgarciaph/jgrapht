@@ -39,8 +39,7 @@ import org.jgrapht.alg.drawing.model.Point2D;
  * @param <E> the edge type
  */
 public class RescaleLayoutAlgorithm2D<V, E>
-    extends
-    BaseLayoutAlgorithm2D<V, E>
+    extends BaseLayoutAlgorithm2D<V, E>
 {
     private double scale;
 
@@ -112,9 +111,8 @@ public class RescaleLayoutAlgorithm2D<V, E>
             }
         }
 
-        model
-            .setDrawableArea(
-                Box2D.of(oldCenterX - scale, oldCenterY - scale, 2.0 * scale, 2.0 * scale));
+        model.setDrawableArea(
+            Box2D.of(oldCenterX - scale, oldCenterY - scale, 2.0 * scale, 2.0 * scale));
     }
 
 }

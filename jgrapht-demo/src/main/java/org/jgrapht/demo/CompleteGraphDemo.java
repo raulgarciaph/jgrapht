@@ -77,10 +77,9 @@ public final class CompleteGraphDemo
         Iterator<String> iter = new DepthFirstIterator<>(completeGraph);
         while (iter.hasNext()) {
             String vertex = iter.next();
-            System.out
-                .println(
-                    "Vertex " + vertex + " is connected to: "
-                        + completeGraph.edgesOf(vertex).toString());
+            System.out.println(
+                "Vertex " + vertex + " is connected to: "
+                    + completeGraph.edgesOf(vertex).toString());
         }
     }
 }

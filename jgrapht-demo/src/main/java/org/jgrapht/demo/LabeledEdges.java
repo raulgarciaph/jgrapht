@@ -97,8 +97,7 @@ public class LabeledEdges
  */
 // @example:edgeclass:begin
 class RelationshipEdge
-    extends
-    DefaultEdge
+    extends DefaultEdge
 {
     private String label;
 

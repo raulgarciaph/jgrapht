@@ -28,8 +28,7 @@ import java.util.*;
  * @author Joris Kinable
  */
 public class EdmondsKarpMinimumSTCutTest
-    extends
-    MinimumSourceSinkCutTest
+    extends MinimumSourceSinkCutTest
 {
     @Override
     MinimumSTCutAlgorithm<Integer, DefaultWeightedEdge> createSolver(
@@ -58,10 +57,9 @@ public class EdmondsKarpMinimumSTCutTest
             Set<Integer> sinkPartition = ekSolver.getSinkPartition();
             Set<DefaultWeightedEdge> cutEdges = ekSolver.getCutEdges();
 
-            this
-                .verifyDirected(
-                    network, source, sink, expectedCutWeight, cutWeight, sourcePartition,
-                    sinkPartition, cutEdges);
+            this.verifyDirected(
+                network, source, sink, expectedCutWeight, cutWeight, sourcePartition, sinkPartition,
+                cutEdges);
         }
     }
 
@@ -85,10 +83,9 @@ public class EdmondsKarpMinimumSTCutTest
             Set<Integer> sinkPartition = ekSolver.getSinkPartition();
             Set<DefaultWeightedEdge> cutEdges = ekSolver.getCutEdges();
 
-            this
-                .verifyUndirected(
-                    network, source, sink, expectedCutWeight, cutWeight, sourcePartition,
-                    sinkPartition, cutEdges);
+            this.verifyUndirected(
+                network, source, sink, expectedCutWeight, cutWeight, sourcePartition, sinkPartition,
+                cutEdges);
         }
     }
 

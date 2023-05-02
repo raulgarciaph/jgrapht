@@ -31,8 +31,7 @@ import java.util.function.*;
  * @param <E> the graph edge type
  */
 public class DirectedWeightedMultigraph<V, E>
-    extends
-    DirectedMultigraph<V, E>
+    extends DirectedMultigraph<V, E>
 {
     private static final long serialVersionUID = 1984381120642160572L;
 

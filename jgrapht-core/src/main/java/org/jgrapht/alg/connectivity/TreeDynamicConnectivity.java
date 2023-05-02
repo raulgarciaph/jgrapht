@@ -583,12 +583,9 @@ public class TreeDynamicConnectivity<T>
         @Override
         public String toString()
         {
-            return String
-                .format(
-                    "{%s} -> [%s]", value,
-                    arcs
-                        .stream().map(a -> a.target.value.toString())
-                        .collect(Collectors.joining(",")));
+            return String.format(
+                "{%s} -> [%s]", value,
+                arcs.stream().map(a -> a.target.value.toString()).collect(Collectors.joining(",")));
         }
     }
 

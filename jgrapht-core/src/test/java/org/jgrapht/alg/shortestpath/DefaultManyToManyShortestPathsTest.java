@@ -28,8 +28,7 @@ import org.junit.*;
  * @author Semen Chudakov
  */
 public class DefaultManyToManyShortestPathsTest
-    extends
-    BaseManyToManyShortestPathsTest
+    extends BaseManyToManyShortestPathsTest
 {
     @Test
     public void testEmptyGraph()

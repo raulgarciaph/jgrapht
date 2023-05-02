@@ -9,7 +9,7 @@
 
 <img src="https://raw.githubusercontent.com/jgrapht/jgrapht/master/etc/logo/jgrapht-logo-transparent-cropped.png" width="361" height="200" align="right" />
 
-Released: May 1, 2023</p>
+Released: May 2, 2023</p>
 
 Written by [Barak Naveh](mailto:barak_naveh@users.sourceforge.net) and Contributors
 

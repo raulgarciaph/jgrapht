@@ -25,8 +25,7 @@ import java.util.function.*;
  * @author Hannes Wellmann
  */
 public class SupplierException
-    extends
-    IllegalArgumentException
+    extends IllegalArgumentException
 {
     private static final long serialVersionUID = -8192314371524515620L;
 

@@ -50,8 +50,7 @@ import java.util.*;
  * @author Emilio Cruciani
  */
 public class PlantedPartitionGraphGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     private static final boolean DEFAULT_ALLOW_SELFLOOPS = false;
 

@@ -103,8 +103,7 @@ public class NearestNeighborHeuristicTSPTest
 
     @Test
     public void testConstructorWithRandomNumberGenerator()
-        throws URISyntaxException,
-        IOException
+        throws URISyntaxException, IOException
     {
         int randomSeed = 0;
         int tours = graph.vertexSet().size();

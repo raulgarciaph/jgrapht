@@ -2,7 +2,7 @@
 
 Changes to JGraphT in each version:
 
-- **version 1.5.2** (1-May-2023)
+- **version 1.5.2** (2-May-2023)
     - Prepared release cycle 1.5.2: removed deprecated code, updated dependencies (contributed by Joris Kinable)
     - Fixed NPE when no path exists in `DijkstraManyToManyShortestPaths` (contributed by Dimitrios Michail)
     - Fixed NaN exception in case of a zero displacement in `FRLayoutAlgorithm2D` (contributed by Dimitrios Michail)

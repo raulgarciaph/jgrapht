@@ -34,8 +34,7 @@ import java.util.*;
  * @param <E> graph edge type
  */
 public class GeneralizedPetersenGraphGenerator<V, E>
-    implements
-    GraphGenerator<V, E, List<V>>
+    implements GraphGenerator<V, E, List<V>>
 {
 
     private final int n;

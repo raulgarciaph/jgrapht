@@ -24,8 +24,7 @@ package org.jgrapht.generate;
  *
  */
 public class TooManyFailuresException
-    extends
-    RuntimeException
+    extends RuntimeException
 {
 
     /** Serial Version ID */

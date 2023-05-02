@@ -42,8 +42,7 @@ import java.util.stream.*;
  * @author Oliver Feith
  */
 public class ColorRefinementAlgorithm<V, E>
-    implements
-    VertexColoringAlgorithm<V>
+    implements VertexColoringAlgorithm<V>
 {
     private final Graph<V, E> graph;
     private final Coloring<V> alpha;

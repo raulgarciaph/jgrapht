@@ -62,9 +62,7 @@ import java.util.function.*;
  * 
  */
 public class GraphWalk<V, E>
-    implements
-    GraphPath<V, E>,
-    Serializable
+    implements GraphPath<V, E>, Serializable
 {
     private static final long serialVersionUID = 7663410644865380676L;
     protected Graph<V, E> graph;

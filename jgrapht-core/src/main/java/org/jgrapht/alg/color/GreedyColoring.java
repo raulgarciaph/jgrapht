@@ -35,8 +35,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class GreedyColoring<V, E>
-    implements
-    VertexColoringAlgorithm<V>
+    implements VertexColoringAlgorithm<V>
 {
     /**
      * Error message if the input graph contains self-loops.

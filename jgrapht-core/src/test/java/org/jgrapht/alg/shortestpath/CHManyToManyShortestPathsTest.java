@@ -35,8 +35,7 @@ import static org.junit.Assert.assertEquals;
  * @author Semen Chudakov
  */
 public class CHManyToManyShortestPathsTest
-    extends
-    BaseManyToManyShortestPathsTest
+    extends BaseManyToManyShortestPathsTest
 {
     /**
      * Executor which is supplied to the {@link CHManyToManyShortestPaths} in this test case.

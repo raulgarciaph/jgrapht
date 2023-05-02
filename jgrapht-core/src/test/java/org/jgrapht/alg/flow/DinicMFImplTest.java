@@ -25,8 +25,7 @@ import org.junit.*;
 import static org.junit.Assert.assertEquals;
 
 public class DinicMFImplTest
-    extends
-    MaximumFlowAlgorithmTest
+    extends MaximumFlowAlgorithmTest
 {
 
     private DefaultDirectedWeightedGraph<String, DefaultWeightedEdge> g;

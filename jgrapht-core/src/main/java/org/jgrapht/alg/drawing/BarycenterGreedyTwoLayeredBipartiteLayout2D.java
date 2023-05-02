@@ -53,8 +53,7 @@ import org.jgrapht.alg.util.Pair;
  * @param <E> the graph edge type
  */
 public class BarycenterGreedyTwoLayeredBipartiteLayout2D<V, E>
-    extends
-    TwoLayeredBipartiteLayout2D<V, E>
+    extends TwoLayeredBipartiteLayout2D<V, E>
 {
     /**
      * Create a new layout

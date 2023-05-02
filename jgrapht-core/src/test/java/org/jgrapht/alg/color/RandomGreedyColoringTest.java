@@ -29,8 +29,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class RandomGreedyColoringTest
-    extends
-    BaseColoringTest
+    extends BaseColoringTest
 {
 
     final long seed = 13;

@@ -32,8 +32,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 abstract class BaseShortestPathAlgorithm<V, E>
-    implements
-    ShortestPathAlgorithm<V, E>
+    implements ShortestPathAlgorithm<V, E>
 {
     /**
      * Error message for reporting the existence of a negative-weight cycle.

@@ -34,10 +34,8 @@ import static org.junit.Assert.assertTrue;
  * @author Joris Kinable
  */
 public abstract class WeightedVertexCoverTwoApproxTest
-    extends
-    VertexCoverTwoApproxTest
-    implements
-    WeightedVertexCoverTest
+    extends VertexCoverTwoApproxTest
+    implements WeightedVertexCoverTest
 {
 
     // ------- Approximation algorithms ------

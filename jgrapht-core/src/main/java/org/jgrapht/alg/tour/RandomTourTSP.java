@@ -37,8 +37,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class RandomTourTSP<V, E>
-    extends
-    HamiltonianCycleAlgorithmBase<V, E>
+    extends HamiltonianCycleAlgorithmBase<V, E>
 {
 
     private final Random rng;

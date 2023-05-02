@@ -67,8 +67,7 @@ import java.util.*;
  * @param <E> the graph edge type
  */
 public class ALTAdmissibleHeuristic<V, E>
-    implements
-    AStarAdmissibleHeuristic<V>
+    implements AStarAdmissibleHeuristic<V>
 {
     private final Graph<V, E> graph;
     private final Comparator<Double> comparator;

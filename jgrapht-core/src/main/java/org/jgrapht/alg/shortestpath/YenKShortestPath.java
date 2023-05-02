@@ -46,8 +46,7 @@ import java.util.*;
  * @see PathValidator
  */
 public class YenKShortestPath<V, E>
-    implements
-    KShortestPathAlgorithm<V, E>
+    implements KShortestPathAlgorithm<V, E>
 {
     /**
      * Underlying graph.

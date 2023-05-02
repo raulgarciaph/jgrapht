@@ -54,12 +54,8 @@ import java.io.*;
  * @param <V> the graph vertex type
  */
 public class ImmutableGraphAdapter<V>
-    extends
-    BaseGraphAdapter<V, ImmutableGraph<V>>
-    implements
-    Graph<V, EndpointPair<V>>,
-    Cloneable,
-    Serializable
+    extends BaseGraphAdapter<V, ImmutableGraph<V>>
+    implements Graph<V, EndpointPair<V>>, Cloneable, Serializable
 {
     private static final long serialVersionUID = -6619929013881511474L;
 
@@ -186,8 +182,7 @@ public class ImmutableGraphAdapter<V>
 
     @SuppressWarnings("unchecked")
     private void readObject(ObjectInputStream ois)
-        throws ClassNotFoundException,
-        IOException
+        throws ClassNotFoundException, IOException
     {
         ois.defaultReadObject();
 

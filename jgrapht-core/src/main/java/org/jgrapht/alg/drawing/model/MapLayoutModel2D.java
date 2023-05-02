@@ -28,8 +28,7 @@ import java.util.Map.*;
  * @param <V> the vertex type
  */
 public class MapLayoutModel2D<V>
-    implements
-    LayoutModel2D<V>
+    implements LayoutModel2D<V>
 {
     protected Box2D drawableArea;
     protected Map<V, Point2D> points;

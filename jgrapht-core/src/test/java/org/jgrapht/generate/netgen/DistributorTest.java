@@ -126,9 +126,8 @@ public class DistributorTest
 
         int elementNum = 10;
         int valueNum = 5 * elementNum;
-        List<Integer> dist = distributor
-            .getDistribution(
-                IntStream.range(0, elementNum).boxed().collect(Collectors.toList()), valueNum);
+        List<Integer> dist = distributor.getDistribution(
+            IntStream.range(0, elementNum).boxed().collect(Collectors.toList()), valueNum);
 
         int sum = dist.stream().mapToInt(i -> i).sum();
         assertEquals(sum, valueNum);
@@ -147,9 +146,8 @@ public class DistributorTest
 
         int elementNum = 10;
         int valueNum = 10 * elementNum;
-        List<Integer> dist = distributor
-            .getDistribution(
-                IntStream.range(0, elementNum).boxed().collect(Collectors.toList()), valueNum);
+        List<Integer> dist = distributor.getDistribution(
+            IntStream.range(0, elementNum).boxed().collect(Collectors.toList()), valueNum);
 
         int sum = dist.stream().mapToInt(i -> i).sum();
         assertEquals(sum, valueNum);
@@ -168,9 +166,8 @@ public class DistributorTest
 
         int elementNum = 10;
         int valueNum = 8 * elementNum;
-        List<Integer> dist = distributor
-            .getDistribution(
-                IntStream.range(0, elementNum).boxed().collect(Collectors.toList()), valueNum);
+        List<Integer> dist = distributor.getDistribution(
+            IntStream.range(0, elementNum).boxed().collect(Collectors.toList()), valueNum);
 
         int sum = dist.stream().mapToInt(i -> i).sum();
         assertEquals(sum, valueNum);
@@ -192,9 +189,8 @@ public class DistributorTest
 
         int elementNum = 1000;
         int valueNum = ((lb + ub) / 2) * elementNum;
-        List<Integer> dist = distributor
-            .getDistribution(
-                IntStream.range(0, elementNum).boxed().collect(Collectors.toList()), valueNum);
+        List<Integer> dist = distributor.getDistribution(
+            IntStream.range(0, elementNum).boxed().collect(Collectors.toList()), valueNum);
 
         int sum = dist.stream().mapToInt(i -> i).sum();
         assertEquals(sum, valueNum);

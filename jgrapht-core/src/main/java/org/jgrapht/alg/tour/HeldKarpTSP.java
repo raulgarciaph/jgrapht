@@ -49,8 +49,7 @@ import java.util.*;
  * @author Alexandru Valeanu
  */
 public class HeldKarpTSP<V, E>
-    extends
-    HamiltonianCycleAlgorithmBase<V, E>
+    extends HamiltonianCycleAlgorithmBase<V, E>
 {
 
     private double memo(int previousNode, int state, double[][] c, double[][] w)
@@ -178,10 +177,9 @@ public class HeldKarpTSP<V, E>
             for (int node = 1; node < n; node++) {
                 if ((lastState & (1 << node)) == 0 && w[lastNode][node] != Double.MAX_VALUE
                     && c[node][lastState ^ (1 << node)] != Double.MIN_VALUE
-                    && Double
-                        .compare(
-                            c[node][lastState ^ (1 << node)] + w[lastNode][node],
-                            c[lastNode][lastState]) == 0)
+                    && Double.compare(
+                        c[node][lastState ^ (1 << node)] + w[lastNode][node],
+                        c[lastNode][lastState]) == 0)
                 {
                     nextNode = node;
                     break;

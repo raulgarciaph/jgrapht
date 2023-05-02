@@ -90,8 +90,7 @@ import java.util.stream.*;
  * @author Joris Kinable
  */
 public class DenseEdmondsMaximumCardinalityMatching<V, E>
-    implements
-    MatchingAlgorithm<V, E>
+    implements MatchingAlgorithm<V, E>
 {
     /* The graph we are matching on. */
     private final Graph<V, E> graph;

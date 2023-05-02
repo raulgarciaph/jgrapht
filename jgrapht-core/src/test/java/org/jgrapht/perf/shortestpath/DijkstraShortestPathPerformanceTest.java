@@ -86,8 +86,7 @@ public class DijkstraShortestPathPerformanceTest
     }
 
     public static class DijkstraBenchmark
-        extends
-        BenchmarkBase
+        extends BenchmarkBase
     {
         @Override
         ShortestPathAlgorithm<Integer, DefaultWeightedEdge> createSolver(
@@ -104,8 +103,7 @@ public class DijkstraShortestPathPerformanceTest
     }
 
     public static class BFSShortestPathBenchmark
-        extends
-        BenchmarkBase
+        extends BenchmarkBase
     {
         @Override
         ShortestPathAlgorithm<Integer, DefaultWeightedEdge> createSolver(
@@ -122,8 +120,7 @@ public class DijkstraShortestPathPerformanceTest
     }
 
     public static class ClosestFirstIteratorBenchmark
-        extends
-        BenchmarkBase
+        extends BenchmarkBase
     {
         @Override
         ShortestPathAlgorithm<Integer, DefaultWeightedEdge> createSolver(
@@ -176,8 +173,7 @@ public class DijkstraShortestPathPerformanceTest
     }
 
     public static class BidirectionalDijkstraBenchmark
-        extends
-        BenchmarkBase
+        extends BenchmarkBase
     {
         @Override
         ShortestPathAlgorithm<Integer, DefaultWeightedEdge> createSolver(
@@ -195,8 +191,7 @@ public class DijkstraShortestPathPerformanceTest
     }
 
     public static class AStarNoHeuristicBenchmark
-        extends
-        BenchmarkBase
+        extends BenchmarkBase
     {
         @Override
         ShortestPathAlgorithm<Integer, DefaultWeightedEdge> createSolver(
@@ -214,8 +209,7 @@ public class DijkstraShortestPathPerformanceTest
     }
 
     public static class AStarALTBenchmark
-        extends
-        BenchmarkBase
+        extends BenchmarkBase
     {
         private int totalLandmarks;
 
@@ -244,8 +238,7 @@ public class DijkstraShortestPathPerformanceTest
     }
 
     public static class BidirectionalAStarNoHeuristicBenchmark
-        extends
-        BenchmarkBase
+        extends BenchmarkBase
     {
         @Override
         ShortestPathAlgorithm<Integer, DefaultWeightedEdge> createSolver(
@@ -262,8 +255,7 @@ public class DijkstraShortestPathPerformanceTest
     }
 
     public static class BidirectionalAStarALTBenchmark
-        extends
-        BenchmarkBase
+        extends BenchmarkBase
     {
         private int totalLandmarks;
 
@@ -298,10 +290,9 @@ public class DijkstraShortestPathPerformanceTest
     {
         System.out.println("All-Pairs Shortest Paths Benchmark");
         System.out.println("---------");
-        System.out
-            .println(
-                "Using G(n,p) random graph with n = " + PERF_BENCHMARK_VERTICES_COUNT + ", p = "
-                    + PERF_BENCHMARK_EDGES_PROP);
+        System.out.println(
+            "Using G(n,p) random graph with n = " + PERF_BENCHMARK_VERTICES_COUNT + ", p = "
+                + PERF_BENCHMARK_EDGES_PROP);
         System.out.println("Warmup phase " + WARMUP_REPEAT + " executions");
         System.out.println("Averaging results over " + REPEAT + " executions");
 

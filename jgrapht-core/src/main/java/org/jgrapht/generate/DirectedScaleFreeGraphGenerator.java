@@ -55,8 +55,7 @@ import java.util.*;
  * @param <E> the graph edge type
  */
 public class DirectedScaleFreeGraphGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     private final Random rng;
 
@@ -242,9 +241,8 @@ public class DirectedScaleFreeGraphGenerator<V, E>
         }
         if (deltaIn < 0 || deltaOut < 0) {
             throw new IllegalArgumentException(
-                String
-                    .format(
-                        "deltaIn and deltaOut values of (%f, %f) are invalid", deltaIn, deltaOut));
+                String.format(
+                    "deltaIn and deltaOut values of (%f, %f) are invalid", deltaIn, deltaOut));
         }
         if (targetEdges < 0 && targetNodes < 0) {
             throw new IllegalArgumentException(

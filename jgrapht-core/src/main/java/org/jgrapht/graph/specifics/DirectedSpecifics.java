@@ -39,9 +39,7 @@ import java.util.function.*;
  * @author Joris Kinable
  */
 public class DirectedSpecifics<V, E>
-    implements
-    Specifics<V, E>,
-    Serializable
+    implements Specifics<V, E>, Serializable
 {
     private static final long serialVersionUID = 5964807709682219859L;
 

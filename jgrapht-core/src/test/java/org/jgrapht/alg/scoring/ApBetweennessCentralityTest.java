@@ -40,10 +40,9 @@ public class ApBetweennessCentralityTest
         for (int i = 0; i < 3290; i++)
             for (int j = 0; j < 10; j++)
                 g.addEdge(i, i - i % 10 + 10 + j);
-        VertexScoringAlgorithm<Integer, Apfloat> bc =
-            new ApBetweennessCentrality<>(g);
+        VertexScoringAlgorithm<Integer, Apfloat> bc = new ApBetweennessCentrality<>(g);
         Map<Integer, Apfloat> scores = bc.getScores();
-        
+
         assertEquals(scores.get(9), new Apfloat(0));
         assertEquals(scores.get(10), new Apfloat("3.28e3"));
         assertEquals(scores.get(3289), new Apfloat("3.28e3"));

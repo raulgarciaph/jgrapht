@@ -65,9 +65,8 @@ public class TSPLIBImporterTest
         public String toString()
         {
             String indexStr = index >= 0 ? indexFormat.format(index) + " " : "";
-            return indexStr + Arrays
-                .stream(elements).mapToObj(coordinateFormat::format)
-                .collect(Collectors.joining(" "));
+            return indexStr + Arrays.stream(elements).mapToObj(coordinateFormat::format).collect(
+                Collectors.joining(" "));
         }
     }
 
@@ -87,10 +86,9 @@ public class TSPLIBImporterTest
 
     private static List<TestVector> getExpected3DPoints()
     {
-        return Arrays
-            .asList(
-                new TestVector(1, 10.0, 15.0, 3.7), new TestVector(2, 14.0, 15.0, 3.7),
-                new TestVector(3, 14.0, 20.0, 3.7), new TestVector(4, 14.0, 20.0, 3.7));
+        return Arrays.asList(
+            new TestVector(1, 10.0, 15.0, 3.7), new TestVector(2, 14.0, 15.0, 3.7),
+            new TestVector(3, 14.0, 20.0, 3.7), new TestVector(4, 14.0, 20.0, 3.7));
     }
 
     private static StringJoiner get2DPointsFileContent(String edgeWeightType)
@@ -110,10 +108,9 @@ public class TSPLIBImporterTest
 
     private static List<TestVector> getExpected2DPoints()
     {
-        return Arrays
-            .asList(
-                new TestVector(1, 10.2, 15.0), new TestVector(2, 14.2, 15.0),
-                new TestVector(3, 14.8, 20.0), new TestVector(4, 10.8, 20.0));
+        return Arrays.asList(
+            new TestVector(1, 10.2, 15.0), new TestVector(2, 14.2, 15.0),
+            new TestVector(3, 14.8, 20.0), new TestVector(4, 10.8, 20.0));
     }
 
     // ----------------------------------------------------------------------

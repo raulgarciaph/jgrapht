@@ -64,8 +64,7 @@ import java.util.stream.*;
  * @author Peter Harman
  */
 public class NearestInsertionHeuristicTSP<V, E>
-    extends
-    HamiltonianCycleAlgorithmBase<V, E>
+    extends HamiltonianCycleAlgorithmBase<V, E>
 {
 
     private GraphPath<V, E> subtour;
@@ -147,10 +146,9 @@ public class NearestInsertionHeuristicTSP<V, E>
         }
         if (subtourVertices.isEmpty()) {
             // If no initial subtour exists, create one based on the shortest edge
-            E shortestEdge = Collections
-                .min(
-                    graph.edgeSet(),
-                    (e1, e2) -> Double.compare(graph.getEdgeWeight(e1), graph.getEdgeWeight(e2)));
+            E shortestEdge = Collections.min(
+                graph.edgeSet(),
+                (e1, e2) -> Double.compare(graph.getEdgeWeight(e1), graph.getEdgeWeight(e2)));
             subtourVertices.add(graph.getEdgeSource(shortestEdge));
             subtourVertices.add(graph.getEdgeTarget(shortestEdge));
         }
@@ -219,10 +217,8 @@ public class NearestInsertionHeuristicTSP<V, E>
             }
             return c;
         });
-        currentClosest
-            .put(
-                chosen.getUnvisitedVertex(),
-                getClosest(chosen.getUnvisitedVertex(), unvisited, graph));
+        currentClosest.put(
+            chosen.getUnvisitedVertex(), getClosest(chosen.getUnvisitedVertex(), unvisited, graph));
     }
 
     /**
@@ -303,8 +299,7 @@ public class NearestInsertionHeuristicTSP<V, E>
      * @param <V> vertex type
      */
     private static class Closest<V>
-        implements
-        Comparable<Closest<V>>
+        implements Comparable<Closest<V>>
     {
 
         private final V tourVertex;

@@ -60,8 +60,7 @@ import java.util.*;
  * @author Alexandru Valeanu
  */
 public class ClusteringCoefficient<V, E>
-    implements
-    VertexScoringAlgorithm<V, Double>
+    implements VertexScoringAlgorithm<V, Double>
 {
 
     /**

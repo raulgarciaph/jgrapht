@@ -32,8 +32,7 @@ import java.util.function.*;
  * 
  */
 public class DefaultDirectedGraph<V, E>
-    extends
-    AbstractBaseGraph<V, E>
+    extends AbstractBaseGraph<V, E>
 {
     private static final long serialVersionUID = -2066644490824847621L;
 

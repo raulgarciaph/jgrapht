@@ -63,18 +63,20 @@ public class AllDirectedPathsTest
     public void testSmallExampleGraphWithPathValidator()
     {
         PathValidator<String, DefaultEdge> pathValidator =
-                (partialPath, edge) -> !"B".equals(partialPath.getGraph().getEdgeTarget(edge));
+            (partialPath, edge) -> !"B".equals(partialPath.getGraph().getEdgeTarget(edge));
 
-        AllDirectedPaths<String, DefaultEdge> pathFindingAlg = new AllDirectedPaths<>(toyGraph(), pathValidator);
+        AllDirectedPaths<String, DefaultEdge> pathFindingAlg =
+            new AllDirectedPaths<>(toyGraph(), pathValidator);
 
         Set<String> sources = vertexSet(I1, I2);
         Set<String> targets = vertexSet(O1, O2);
 
         List<GraphPath<String, DefaultEdge>> allPaths =
-                pathFindingAlg.getAllPaths(sources, targets, true, null);
+            pathFindingAlg.getAllPaths(sources, targets, true, null);
 
-        assertEquals("Toy network should have correct number of simple paths using path validator",
-                3, allPaths.size());
+        assertEquals(
+            "Toy network should have correct number of simple paths using path validator", 3,
+            allPaths.size());
     }
 
     @Test
@@ -119,7 +121,7 @@ public class AllDirectedPathsTest
     public void testLengthOnePathsWithPathValidator()
     {
         DefaultDirectedGraph<String, DefaultEdge> graph =
-                new DefaultDirectedGraph<>(DefaultEdge.class);
+            new DefaultDirectedGraph<>(DefaultEdge.class);
         graph.addVertex("A");
         graph.addVertex("B");
         graph.addVertex("C");
@@ -127,15 +129,17 @@ public class AllDirectedPathsTest
         graph.addEdge("C", "B");
 
         PathValidator<String, DefaultEdge> pathValidator =
-                (partialPath, edge) -> !"B".equals(graph.getEdgeTarget(edge));
+            (partialPath, edge) -> !"B".equals(graph.getEdgeTarget(edge));
         AllDirectedPaths<String, DefaultEdge> all = new AllDirectedPaths<>(graph, pathValidator);
         List<GraphPath<String, DefaultEdge>> allPaths =
-                all.getAllPaths(graph.vertexSet(), graph.vertexSet(), true, graph.edgeSet().size());
+            all.getAllPaths(graph.vertexSet(), graph.vertexSet(), true, graph.edgeSet().size());
 
         assertEquals(4, allPaths.size());
         assertEquals(Arrays.asList("A"), allPaths.get(0).getVertexList());
-        // The following is slightly counterintuitive, as one might think that the B-excluding pathValidator excludes
-        // this path. However, a PathValidator is designed to check additional edges, not vertices, so this is correct
+        // The following is slightly counterintuitive, as one might think that the B-excluding
+        // pathValidator excludes
+        // this path. However, a PathValidator is designed to check additional edges, not vertices,
+        // so this is correct
         // behavior. Included a comment on this in the Javadoc of the algorithm.
         assertEquals(Arrays.asList("B"), allPaths.get(1).getVertexList());
         assertEquals(Arrays.asList("C"), allPaths.get(2).getVertexList());
@@ -238,15 +242,12 @@ public class AllDirectedPathsTest
 
         Assert.assertFalse("We should find at least some paths!", paths.isEmpty());
 
-        paths
-            .forEach(
-                path -> Assert
-                    .assertEquals(
-                        String
-                            .format(
-                                "The path %s has length %d even though we requested only paths of length 0",
-                                path, path.getLength()),
-                        0, path.getLength()));
+        paths.forEach(
+            path -> Assert.assertEquals(
+                String.format(
+                    "The path %s has length %d even though we requested only paths of length 0",
+                    path, path.getLength()),
+                0, path.getLength()));
     }
 
     private static Graph<String, DefaultEdge> toyGraph()
@@ -287,7 +288,8 @@ public class AllDirectedPathsTest
         return graph;
     }
 
-    private static HashSet<String> vertexSet(String... vertices) {
+    private static HashSet<String> vertexSet(String... vertices)
+    {
         return new HashSet<>(Arrays.asList(vertices));
     }
 }

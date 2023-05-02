@@ -32,8 +32,7 @@ import java.util.*;
  * @author John V. Sichi
  */
 public class RingGraphGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     private final int size;
 

@@ -58,8 +58,7 @@ import java.util.stream.*;
  * @author Joris Kinable
  */
 public class RecursiveExactVCImpl<V, E>
-    implements
-    VertexCoverAlgorithm<V>
+    implements VertexCoverAlgorithm<V>
 {
 
     /** Input graph **/
@@ -267,10 +266,9 @@ public class RecursiveExactVCImpl<V, E>
      */
     private double calculateUpperBound()
     {
-        return Math
-            .min(
-                new GreedyVCImpl<>(graph, vertexWeightMap).getVertexCover().getWeight(),
-                new ClarksonTwoApproxVCImpl<>(graph, vertexWeightMap).getVertexCover().getWeight());
+        return Math.min(
+            new GreedyVCImpl<>(graph, vertexWeightMap).getVertexCover().getWeight(),
+            new ClarksonTwoApproxVCImpl<>(graph, vertexWeightMap).getVertexCover().getWeight());
     }
 
     /**

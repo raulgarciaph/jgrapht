@@ -115,10 +115,9 @@ public class Graph6Sparse6ImporterTest
         Graph6Sparse6Importer<String, DefaultEdge> importer = new Graph6Sparse6Importer<>();
         importer.setVertexFactory(id -> String.valueOf("node" + id));
         try {
-            importer
-                .importGraph(
-                    graph, new InputStreamReader(
-                        new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8)), "UTF-8"));
+            importer.importGraph(
+                graph, new InputStreamReader(
+                    new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8)), "UTF-8"));
         } catch (UnsupportedEncodingException e) {
             // cannot happen
         }
@@ -338,8 +337,7 @@ public class Graph6Sparse6ImporterTest
 
     @Test
     public void testFromFile()
-        throws ImportException,
-        IOException
+        throws ImportException, IOException
     {
         InputStream fstream =
             getClass().getClassLoader().getResourceAsStream("ellinghamHorton78Graph.s6");

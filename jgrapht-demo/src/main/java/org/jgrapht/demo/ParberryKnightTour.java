@@ -341,10 +341,9 @@ public class ParberryKnightTour
          * Update size of the list.
          */
 
-        tour1
-            .getList().setSize(
-                tour1.getList().getSize() + tour2.getList().getSize() + tour3.getList().getSize()
-                    + tour4.getList().getSize());
+        tour1.getList().setSize(
+            tour1.getList().getSize() + tour2.getList().getSize() + tour3.getList().getSize()
+                + tour4.getList().getSize());
 
         return tour1;
     }

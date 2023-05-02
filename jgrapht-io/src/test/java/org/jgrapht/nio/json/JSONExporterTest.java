@@ -234,8 +234,7 @@ public class JSONExporterTest
 
     @Test
     public void testExportAndImport()
-        throws ExportException,
-        ImportException
+        throws ExportException, ImportException
     {
         Graph<Integer,
             DefaultWeightedEdge> graph1 = GraphTypeBuilder
@@ -288,8 +287,7 @@ public class JSONExporterTest
 
     @Test
     public void testExportAndImportWithEscape()
-        throws ExportException,
-        ImportException
+        throws ExportException, ImportException
     {
         Graph<String,
             DefaultWeightedEdge> graph1 = GraphTypeBuilder
@@ -375,5 +373,5 @@ public class JSONExporterTest
         String res = new String(os.toByteArray(), "UTF-8");
         assertEquals(expected, res);
     }
-    
+
 }

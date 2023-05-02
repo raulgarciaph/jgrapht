@@ -39,8 +39,7 @@ import java.util.*;
  * @since July 18, 2018
  */
 public abstract class AbstractCapacitatedMinimumSpanningTree<V, E>
-    implements
-    CapacitatedSpanningTreeAlgorithm<V, E>
+    implements CapacitatedSpanningTreeAlgorithm<V, E>
 {
 
     /**
@@ -116,8 +115,7 @@ public abstract class AbstractCapacitatedMinimumSpanningTree<V, E>
      * mapping can be calculated.
      */
     protected class CapacitatedSpanningTreeSolutionRepresentation
-        implements
-        Cloneable
+        implements Cloneable
     {
 
         /**
@@ -212,20 +210,18 @@ public abstract class AbstractCapacitatedMinimumSpanningTree<V, E>
 
             Set<V> oldPart = partition.get(fromLabel).getFirst();
             oldPart.remove(vertex);
-            partition
-                .put(
-                    fromLabel,
-                    Pair.of(oldPart, partition.get(fromLabel).getSecond() - demands.get(vertex)));
+            partition.put(
+                fromLabel,
+                Pair.of(oldPart, partition.get(fromLabel).getSecond() - demands.get(vertex)));
 
             if (!partition.keySet().contains(toLabel)) {
                 partition.put(toLabel, Pair.of(new HashSet<>(), 0.0));
             }
             Set<V> newPart = partition.get(toLabel).getFirst();
             newPart.add(vertex);
-            partition
-                .put(
-                    toLabel,
-                    Pair.of(newPart, partition.get(toLabel).getSecond() + demands.get(vertex)));
+            partition.put(
+                toLabel,
+                Pair.of(newPart, partition.get(toLabel).getSecond() + demands.get(vertex)));
         }
 
         /**
@@ -251,17 +247,14 @@ public abstract class AbstractCapacitatedMinimumSpanningTree<V, E>
             }
             Set<V> newPart = partition.get(toLabel).getFirst();
             newPart.addAll(vertices);
-            partition
-                .put(
-                    toLabel,
-                    Pair.of(newPart, partition.get(toLabel).getSecond() + weightOfVertices));
+            partition.put(
+                toLabel, Pair.of(newPart, partition.get(toLabel).getSecond() + weightOfVertices));
 
             Set<V> oldPart = partition.get(fromLabel).getFirst();
             oldPart.removeAll(vertices);
-            partition
-                .put(
-                    fromLabel,
-                    Pair.of(oldPart, partition.get(fromLabel).getSecond() - weightOfVertices));
+            partition.put(
+                fromLabel,
+                Pair.of(oldPart, partition.get(fromLabel).getSecond() - weightOfVertices));
         }
 
         /**
@@ -429,12 +422,9 @@ public abstract class AbstractCapacitatedMinimumSpanningTree<V, E>
                 capacitatedSpanningTreeSolutionRepresentation.partition = new HashMap<>();
                 for (Map.Entry<Integer, Pair<Set<V>, Double>> entry : this.partition.entrySet()) {
                     capacitatedSpanningTreeSolutionRepresentation.partition
-                        .put(
-                            entry.getKey(),
-                            Pair
-                                .of(
-                                    new HashSet<>(entry.getValue().getFirst()),
-                                    entry.getValue().getSecond()));
+                        .put(entry.getKey(), Pair.of(
+                            new HashSet<>(entry.getValue().getFirst()),
+                            entry.getValue().getSecond()));
                 }
                 capacitatedSpanningTreeSolutionRepresentation.nextFreeLabel = this.nextFreeLabel;
 

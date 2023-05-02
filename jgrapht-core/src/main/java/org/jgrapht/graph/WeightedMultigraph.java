@@ -33,8 +33,7 @@ import java.util.function.*;
  * @param <E> the graph edge type
  */
 public class WeightedMultigraph<V, E>
-    extends
-    Multigraph<V, E>
+    extends Multigraph<V, E>
 {
     private static final long serialVersionUID = -6009321659287373874L;
 

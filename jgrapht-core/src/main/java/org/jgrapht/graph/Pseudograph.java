@@ -32,8 +32,7 @@ import java.util.function.*;
  * @param <E> the graph edge type
  */
 public class Pseudograph<V, E>
-    extends
-    AbstractBaseGraph<V, E>
+    extends AbstractBaseGraph<V, E>
 {
     private static final long serialVersionUID = -7574564204896552581L;
 

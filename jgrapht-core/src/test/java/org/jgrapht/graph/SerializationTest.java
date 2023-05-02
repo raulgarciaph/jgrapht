@@ -61,10 +61,9 @@ public class SerializationTest
     private static final String V2 = "V2";
     private static final String V3 = "V3";
     private static final List<String> VERTEX_LIST = Arrays.asList(V1, V2, V3);
-    private static final List<List<String>> VERTEX_PAIRS = Arrays
-        .asList(
-            Arrays.asList(V1, V2), Arrays.asList(V2, V1), Arrays.asList(V1, V3),
-            Arrays.asList(V3, V1), Arrays.asList(V2, V3), Arrays.asList(V3, V2));
+    private static final List<List<String>> VERTEX_PAIRS = Arrays.asList(
+        Arrays.asList(V1, V2), Arrays.asList(V2, V1), Arrays.asList(V1, V3), Arrays.asList(V3, V1),
+        Arrays.asList(V2, V3), Arrays.asList(V3, V2));
 
     public static <V, E> void assertContainsAllVertices(Graph<V, E> graph, List<V> vertices)
     {

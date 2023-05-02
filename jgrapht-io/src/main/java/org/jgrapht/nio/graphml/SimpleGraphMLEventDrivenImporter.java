@@ -114,10 +114,8 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class SimpleGraphMLEventDrivenImporter
-    extends
-    BaseEventDrivenImporter<String, Triple<String, String, Double>>
-    implements
-    EventDrivenImporter<String, Triple<String, String, Double>>
+    extends BaseEventDrivenImporter<String, Triple<String, String, Double>>
+    implements EventDrivenImporter<String, Triple<String, String, Double>>
 {
     private static final String GRAPHML_SCHEMA_FILENAME = "graphml.xsd";
     private static final String XLINK_SCHEMA_FILENAME = "xlink.xsd";
@@ -203,15 +201,15 @@ public class SimpleGraphMLEventDrivenImporter
             SAXParserFactory spf = SAXParserFactory.newInstance();
             if (schemaValidation) {
                 // load schema
-                InputStream xsdStream = Thread
-                    .currentThread().getContextClassLoader()
-                    .getResourceAsStream(GRAPHML_SCHEMA_FILENAME);
+                InputStream xsdStream =
+                    Thread.currentThread().getContextClassLoader().getResourceAsStream(
+                        GRAPHML_SCHEMA_FILENAME);
                 if (xsdStream == null) {
                     throw new ImportException("Failed to locate GraphML xsd");
                 }
-                InputStream xlinkStream = Thread
-                    .currentThread().getContextClassLoader()
-                    .getResourceAsStream(XLINK_SCHEMA_FILENAME);
+                InputStream xlinkStream =
+                    Thread.currentThread().getContextClassLoader().getResourceAsStream(
+                        XLINK_SCHEMA_FILENAME);
                 if (xlinkStream == null) {
                     throw new ImportException("Failed to locate XLink xsd");
                 }
@@ -234,8 +232,7 @@ public class SimpleGraphMLEventDrivenImporter
 
     // content handler
     private class GraphMLHandler
-        extends
-        DefaultHandler
+        extends DefaultHandler
     {
         private static final String GRAPH = "graph";
         private static final String GRAPH_ID = "id";
@@ -303,14 +300,12 @@ public class SimpleGraphMLEventDrivenImporter
                         "This importer does not support nested graphs");
                 }
                 insideGraph++;
-                findAttribute(GRAPH_ID, attributes)
-                    .ifPresent(
-                        value -> notifyGraphAttribute(
-                            GRAPH_ID, DefaultAttribute.createAttribute(value)));
-                findAttribute(GRAPH_EDGE_DEFAULT, attributes)
-                    .ifPresent(
-                        value -> notifyGraphAttribute(
-                            GRAPH_EDGE_DEFAULT, DefaultAttribute.createAttribute(value)));
+                findAttribute(GRAPH_ID, attributes).ifPresent(
+                    value -> notifyGraphAttribute(
+                        GRAPH_ID, DefaultAttribute.createAttribute(value)));
+                findAttribute(GRAPH_EDGE_DEFAULT, attributes).ifPresent(
+                    value -> notifyGraphAttribute(
+                        GRAPH_EDGE_DEFAULT, DefaultAttribute.createAttribute(value)));
                 break;
             case NODE:
                 if (insideNode > 0 || insideEdge > 0) {
@@ -318,9 +313,8 @@ public class SimpleGraphMLEventDrivenImporter
                         "Nodes cannot be inside other nodes or edges");
                 }
                 insideNode++;
-                String nodeId = findAttribute(NODE_ID, attributes)
-                    .orElseThrow(
-                        () -> new IllegalArgumentException("Node must have an identifier"));
+                String nodeId = findAttribute(NODE_ID, attributes).orElseThrow(
+                    () -> new IllegalArgumentException("Node must have an identifier"));
                 currentNode = nodeId;
                 notifyVertex(currentNode);
                 notifyVertexAttribute(
@@ -354,8 +348,8 @@ public class SimpleGraphMLEventDrivenImporter
                 String keyAttrName = findAttribute(KEY_ATTR_NAME, attributes)
                     .orElseThrow(() -> new IllegalArgumentException("Key attribute name missing"));
                 currentKey = new Key(
-                    keyId, keyAttrName,
-                    findAttribute(KEY_ATTR_TYPE, attributes)
+                    keyId,
+                    keyAttrName, findAttribute(KEY_ATTR_TYPE, attributes)
                         .map(AttributeType::create).orElse(AttributeType.UNKNOWN),
                     findAttribute(KEY_FOR, attributes).orElse("ALL"));
                 break;

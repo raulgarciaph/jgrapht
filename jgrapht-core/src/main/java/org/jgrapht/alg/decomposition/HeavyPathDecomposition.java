@@ -65,8 +65,7 @@ import java.util.*;
  * @param <E> the graph edge type
  */
 public class HeavyPathDecomposition<V, E>
-    implements
-    TreeToPathDecompositionAlgorithm<V, E>
+    implements TreeToPathDecompositionAlgorithm<V, E>
 {
 
     private final Graph<V, E> graph;

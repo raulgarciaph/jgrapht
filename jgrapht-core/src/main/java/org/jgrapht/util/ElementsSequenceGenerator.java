@@ -32,9 +32,7 @@ import java.util.*;
  * @author Timofey Chudakov
  */
 public class ElementsSequenceGenerator<T>
-    implements
-    Iterator<T>,
-    Iterable<T>
+    implements Iterator<T>, Iterable<T>
 {
 
     /**

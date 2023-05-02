@@ -46,11 +46,10 @@ public class GirvanNewmanClusteringTest
                 .edgeSupplier(SupplierUtil.DEFAULT_EDGE_SUPPLIER)
                 .vertexSupplier(SupplierUtil.createIntegerSupplier()).buildGraph();
 
-        g = TestUtil
-            .createUndirected(
-                new int[][] { { 1, 2 }, { 1, 3 }, { 2, 3 }, { 3, 7 }, { 4, 6 }, { 4, 5 }, { 5, 6 },
-                    { 6, 7 }, { 7, 8 }, { 8, 9 }, { 8, 12 }, { 9, 10 }, { 9, 11 }, { 12, 13 },
-                    { 12, 14 }, { 10, 11 }, { 13, 14 } });
+        g = TestUtil.createUndirected(
+            new int[][] { { 1, 2 }, { 1, 3 }, { 2, 3 }, { 3, 7 }, { 4, 6 }, { 4, 5 }, { 5, 6 },
+                { 6, 7 }, { 7, 8 }, { 8, 9 }, { 8, 12 }, { 9, 10 }, { 9, 11 }, { 12, 13 },
+                { 12, 14 }, { 10, 11 }, { 13, 14 } });
 
         Clustering<Integer> c1 = new GirvanNewmanClustering<>(g, 2).getClustering();
         assertEquals(c1.getNumberClusters(), 2);

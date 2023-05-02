@@ -74,8 +74,7 @@ public class PathGrowingWeightedMatchingPerformanceTest
     }
 
     public static class PathGrowingWeightedMatchingRandomGraphBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
         @Override
         MatchingAlgorithm<Integer, DefaultEdge> createSolver(Graph<Integer, DefaultEdge> graph)
@@ -85,8 +84,7 @@ public class PathGrowingWeightedMatchingPerformanceTest
     }
 
     public static class PathGrowingWeightedMatchingNoHeuristicsRandomGraphBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
         @Override
         MatchingAlgorithm<Integer, DefaultEdge> createSolver(Graph<Integer, DefaultEdge> graph)
@@ -97,8 +95,7 @@ public class PathGrowingWeightedMatchingPerformanceTest
     }
 
     public static class GreedyWeightedMatchingRandomGraphBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
         @Override
         MatchingAlgorithm<Integer, DefaultEdge> createSolver(Graph<Integer, DefaultEdge> graph)
@@ -108,8 +105,7 @@ public class PathGrowingWeightedMatchingPerformanceTest
     }
 
     public static class EdmondsMaximumCardinalityMatchingRandomGraphBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
         @Override
         MatchingAlgorithm<Integer, DefaultEdge> createSolver(Graph<Integer, DefaultEdge> graph)

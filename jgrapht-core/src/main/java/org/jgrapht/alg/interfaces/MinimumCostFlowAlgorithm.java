@@ -33,8 +33,7 @@ import java.util.*;
  * @author Timofey Chudakov
  */
 public interface MinimumCostFlowAlgorithm<V, E>
-    extends
-    FlowAlgorithm<V, E>
+    extends FlowAlgorithm<V, E>
 {
 
     /**
@@ -62,8 +61,7 @@ public interface MinimumCostFlowAlgorithm<V, E>
      * @param <E> graph edge type
      */
     interface MinimumCostFlow<E>
-        extends
-        Flow<E>
+        extends Flow<E>
     {
         /**
          * Returns the cost of the flow
@@ -79,10 +77,8 @@ public interface MinimumCostFlowAlgorithm<V, E>
      * @param <E> graph edge type
      */
     class MinimumCostFlowImpl<E>
-        extends
-        FlowImpl<E>
-        implements
-        MinimumCostFlow<E>
+        extends FlowImpl<E>
+        implements MinimumCostFlow<E>
     {
         /**
          * The cost of the flow defined by the mapping {@code flowMap}

@@ -27,9 +27,7 @@ import java.io.*;
  * @author Dimitrios Michail
  */
 public class DefaultAttribute<T>
-    implements
-    Attribute,
-    Serializable
+    implements Attribute, Serializable
 {
     private static final long serialVersionUID = 366113727410278952L;
 

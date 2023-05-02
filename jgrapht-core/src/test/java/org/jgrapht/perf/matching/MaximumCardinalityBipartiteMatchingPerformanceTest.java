@@ -80,16 +80,14 @@ public class MaximumCardinalityBipartiteMatchingPerformanceTest
             MatchingAlgorithm.Matching<Integer, DefaultEdge> m =
                 createSolver(graph, firstPartition, secondPartition).getMatching();
             time = System.currentTimeMillis() - time;
-            System.out
-                .println(
-                    "time: " + time + " obj :" + m.getEdges().size() + " vertices: "
-                        + graph.vertexSet().size() + " edges: " + graph.edgeSet().size());
+            System.out.println(
+                "time: " + time + " obj :" + m.getEdges().size() + " vertices: "
+                    + graph.vertexSet().size() + " edges: " + graph.edgeSet().size());
         }
     }
 
     public static class EdmondsMaxCardinalityBipartiteMatchingBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
         @Override
         MatchingAlgorithm<Integer, DefaultEdge> createSolver(
@@ -101,8 +99,7 @@ public class MaximumCardinalityBipartiteMatchingPerformanceTest
     }
 
     public static class HopcroftKarpMaximumCardinalityBipartiteMatchingBenchmark
-        extends
-        RandomGraphBenchmarkBase
+        extends RandomGraphBenchmarkBase
     {
         @Override
         MatchingAlgorithm<Integer, DefaultEdge> createSolver(

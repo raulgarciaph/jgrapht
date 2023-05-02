@@ -41,8 +41,7 @@ import java.util.*;
  * @param <E> the graph edge type
  */
 public class IndexedFRLayoutAlgorithm2D<V, E>
-    extends
-    FRLayoutAlgorithm2D<V, E>
+    extends FRLayoutAlgorithm2D<V, E>
 {
     /**
      * Default $\theta$ value for approximation using the Barnes-Hut technique

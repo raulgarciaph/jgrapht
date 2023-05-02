@@ -43,8 +43,7 @@ import java.util.stream.*;
  * @param <E> the edge type
  */
 public class MartinShortestPath<V, E>
-    extends
-    BaseMultiObjectiveShortestPathAlgorithm<V, E>
+    extends BaseMultiObjectiveShortestPathAlgorithm<V, E>
 {
     // the edge weight function
     private final Function<E, double[]> edgeWeightFunction;
@@ -268,8 +267,7 @@ public class MartinShortestPath<V, E>
      * Lexicographic comparator of two node labels.
      */
     private class LabelComparator
-        implements
-        Comparator<Label>
+        implements Comparator<Label>
     {
 
         @Override

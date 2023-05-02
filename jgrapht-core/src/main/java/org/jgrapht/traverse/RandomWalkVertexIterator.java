@@ -51,8 +51,7 @@ import org.jgrapht.Graphs;
  * @param <E> the graph edge type
  */
 public class RandomWalkVertexIterator<V, E>
-    implements
-    Iterator<V>
+    implements Iterator<V>
 {
     private final Random rng;
     private final Graph<V, E> graph;
@@ -143,9 +142,8 @@ public class RandomWalkVertexIterator<V, E>
         E e = null;
         if (weighted) {
             double outEdgesWeight = outEdgesTotalWeight.computeIfAbsent(nextVertex, v -> {
-                return graph
-                    .outgoingEdgesOf(v).stream()
-                    .collect(Collectors.summingDouble(graph::getEdgeWeight));
+                return graph.outgoingEdgesOf(v).stream().collect(
+                    Collectors.summingDouble(graph::getEdgeWeight));
             });
             double p = outEdgesWeight * rng.nextDouble();
             double cumulativeP = 0d;

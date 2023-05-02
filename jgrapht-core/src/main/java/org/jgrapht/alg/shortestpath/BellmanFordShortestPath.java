@@ -47,8 +47,7 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class BellmanFordShortestPath<V, E>
-    extends
-    BaseShortestPathAlgorithm<V, E>
+    extends BaseShortestPathAlgorithm<V, E>
 {
     protected final Comparator<Double> comparator;
     protected final int maxHops;

@@ -70,10 +70,8 @@ import java.util.function.*;
  * @param <E> the graph edge type
  */
 public class DIMACSImporter<V, E>
-    extends
-    BaseEventDrivenImporter<V, E>
-    implements
-    GraphImporter<V, E>
+    extends BaseEventDrivenImporter<V, E>
+    implements GraphImporter<V, E>
 {
     /**
      * Default key used for vertex ID.

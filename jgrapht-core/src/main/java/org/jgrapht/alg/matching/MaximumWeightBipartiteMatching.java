@@ -45,8 +45,7 @@ import java.util.function.*;
  * @author Dimitrios Michail
  */
 public class MaximumWeightBipartiteMatching<V, E>
-    implements
-    MatchingAlgorithm<V, E>
+    implements MatchingAlgorithm<V, E>
 {
     private final Graph<V, E> graph;
     private final Set<V> partition1;
@@ -204,9 +203,8 @@ public class MaximumWeightBipartiteMatching<V, E>
         for (E e1 : graph.edgesOf(a1)) {
             if (!matching.contains(e1)) {
                 V b1 = Graphs.getOppositeVertex(graph, e1, a1);
-                BigDecimal db1 = dist
-                    .get(a1).add(pot.get(a1)).add(pot.get(b1))
-                    .subtract(BigDecimal.valueOf(graph.getEdgeWeight(e1)));
+                BigDecimal db1 = dist.get(a1).add(pot.get(a1)).add(pot.get(b1)).subtract(
+                    BigDecimal.valueOf(graph.getEdgeWeight(e1)));
 
                 if (pred.get(b1) == null) {
                     dist.put(b1, db1);
@@ -265,9 +263,9 @@ public class MaximumWeightBipartiteMatching<V, E>
                     for (E e1 : graph.edgesOf(a1)) {
                         if (!matching.contains(e1)) {
                             V b1 = Graphs.getOppositeVertex(graph, e1, a1);
-                            BigDecimal db1 = dist
-                                .get(a1).add(pot.get(a1)).add(pot.get(b1))
-                                .subtract(BigDecimal.valueOf(graph.getEdgeWeight(e1)));
+                            BigDecimal db1 =
+                                dist.get(a1).add(pot.get(a1)).add(pot.get(b1)).subtract(
+                                    BigDecimal.valueOf(graph.getEdgeWeight(e1)));
                             if (pred.get(b1) == null) {
                                 dist.put(b1, db1);
                                 pred.put(b1, e1);

@@ -34,8 +34,7 @@ import java.util.*;
  * @author Hannes Wellmann
  */
 public class GabowStrongConnectivityInspector<V, E>
-    extends
-    AbstractStrongConnectivityInspector<V, E>
+    extends AbstractStrongConnectivityInspector<V, E>
 {
     // the sequence of (original) vertices encountered but not yet assigned to a component
     private Deque<VertexNumber<V>> stackS = new ArrayDeque<>();

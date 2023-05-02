@@ -43,29 +43,28 @@ public class EdgeSelectionTest
     public void testEdgeSelectionOverride()
     {
         Graph<StatefulVertex, StatefulEdge> graph = createGraph();
-        DepthFirstIterator<StatefulVertex, StatefulEdge> iterator =
-            new DepthFirstIterator<>(graph)
+        DepthFirstIterator<StatefulVertex, StatefulEdge> iterator = new DepthFirstIterator<>(graph)
+        {
+            String evenEdgeColor = "BLUE";
+            String oddEdgeColor = "RED";
+
+            @Override
+            protected Set<StatefulEdge> selectOutgoingEdges(StatefulVertex vertex)
             {
-                String evenEdgeColor = "BLUE";
-                String oddEdgeColor = "RED";
+                return graph
+                    .outgoingEdgesOf(vertex).stream().filter(e -> filterEdge(vertex, e))
+                    .collect(Collectors.toSet());
+            }
 
-                @Override
-                protected Set<StatefulEdge> selectOutgoingEdges(StatefulVertex vertex)
-                {
-                    return graph
-                        .outgoingEdgesOf(vertex).stream().filter(e -> filterEdge(vertex, e))
-                        .collect(Collectors.toSet());
-                }
-
-                /**
-                 * Checks if the edge color corresponds to the vertex parity.
-                 */
-                private boolean filterEdge(StatefulVertex vertex, StatefulEdge edge)
-                {
-                    return vertex.getState() % 2 == 0 ? edge.getColor().equals(evenEdgeColor)
-                        : edge.getColor().equals(oddEdgeColor);
-                }
-            };
+            /**
+             * Checks if the edge color corresponds to the vertex parity.
+             */
+            private boolean filterEdge(StatefulVertex vertex, StatefulEdge edge)
+            {
+                return vertex.getState() % 2 == 0 ? edge.getColor().equals(evenEdgeColor)
+                    : edge.getColor().equals(oddEdgeColor);
+            }
+        };
         VertexTrackingTraversalListener<StatefulVertex, StatefulEdge> listener =
             new VertexTrackingTraversalListener<>(graph);
 
@@ -116,8 +115,7 @@ public class EdgeSelectionTest
     }
 
     private static class StatefulEdge
-        extends
-        DefaultWeightedEdge
+        extends DefaultWeightedEdge
     {
         private static final long serialVersionUID = 1L;
         private final String color;

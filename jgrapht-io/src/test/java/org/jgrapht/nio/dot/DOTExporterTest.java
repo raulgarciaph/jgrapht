@@ -64,8 +64,7 @@ public class DOTExporterTest
 
     @Test
     public void testUndirected()
-        throws UnsupportedEncodingException,
-        ExportException
+        throws UnsupportedEncodingException, ExportException
     {
         testUndirected(new SimpleGraph<>(DefaultEdge.class), true);
         testUndirected(new Multigraph<>(DefaultEdge.class), false);
@@ -73,8 +72,7 @@ public class DOTExporterTest
     }
 
     private void testUndirected(Graph<String, DefaultEdge> g, boolean strict)
-        throws UnsupportedEncodingException,
-        ExportException
+        throws UnsupportedEncodingException, ExportException
     {
         g.addVertex(V1);
         g.addVertex(V2);
@@ -107,8 +105,7 @@ public class DOTExporterTest
     }
 
     private void testUndirectedWithGraphAttributes(Graph<String, DefaultEdge> g, boolean strict)
-        throws UnsupportedEncodingException,
-        ExportException
+        throws UnsupportedEncodingException, ExportException
     {
         g.addVertex(V1);
         g.addVertex(V2);
@@ -202,8 +199,7 @@ public class DOTExporterTest
 
     @Test
     public void testDifferentGraphID()
-        throws UnsupportedEncodingException,
-        ExportException
+        throws UnsupportedEncodingException, ExportException
     {
         Graph<String, DefaultEdge> g = new SimpleGraph<>(DefaultEdge.class);
 

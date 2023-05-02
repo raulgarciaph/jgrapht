@@ -64,8 +64,7 @@ import java.util.*;
  * @author Joris Kinable
  */
 public class GusfieldEquivalentFlowTree<V, E>
-    implements
-    MaximumFlowAlgorithm<V, E>
+    implements MaximumFlowAlgorithm<V, E>
 {
 
     /* Number of vertices in the graph */

@@ -35,8 +35,7 @@ import java.util.function.*;
  * @author John V. Sichi
  */
 public class WheelGraphGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
     /**
      * Role for the hub vertex.

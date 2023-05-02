@@ -109,12 +109,9 @@ public class NetworkInfo<V, E>
      */
     public List<V> getTransshipmentNodes()
     {
-        return Collections
-            .unmodifiableList(
-                vertices
-                    .subList(
-                        config.getSourceNum(),
-                        config.getSourceNum() + config.getTransshipNodeNum()));
+        return Collections.unmodifiableList(
+            vertices.subList(
+                config.getSourceNum(), config.getSourceNum() + config.getTransshipNodeNum()));
     }
 
     /**
@@ -124,10 +121,8 @@ public class NetworkInfo<V, E>
      */
     public List<V> getPureSinks()
     {
-        return Collections
-            .unmodifiableList(
-                vertices
-                    .subList(config.getNodeNum() - config.getPureSinkNum(), config.getNodeNum()));
+        return Collections.unmodifiableList(
+            vertices.subList(config.getNodeNum() - config.getPureSinkNum(), config.getNodeNum()));
     }
 
     /**
@@ -137,12 +132,10 @@ public class NetworkInfo<V, E>
      */
     public List<V> getTransshipmentSinks()
     {
-        return Collections
-            .unmodifiableList(
-                vertices
-                    .subList(
-                        config.getNodeNum() - config.getSinkNum(),
-                        config.getNodeNum() - config.getPureSinkNum()));
+        return Collections.unmodifiableList(
+            vertices.subList(
+                config.getNodeNum() - config.getSinkNum(),
+                config.getNodeNum() - config.getPureSinkNum()));
     }
 
     /**
@@ -152,9 +145,8 @@ public class NetworkInfo<V, E>
      */
     public List<V> getSinks()
     {
-        return Collections
-            .unmodifiableList(
-                vertices.subList(config.getNodeNum() - config.getSinkNum(), config.getNodeNum()));
+        return Collections.unmodifiableList(
+            vertices.subList(config.getNodeNum() - config.getSinkNum(), config.getNodeNum()));
     }
 
     /**

@@ -606,9 +606,10 @@ public class DirectedAcyclicGraphTest
     {
         GraphSpecificsStrategy<String, DefaultEdge> graphSpecificsStrategy =
             new FastLookupGraphSpecificsStrategy<>();
-        DirectedAcyclicGraph<String, DefaultEdge> graph =
-            new DirectedAcyclicGraph<>(SupplierUtil.createStringSupplier(),
-                SupplierUtil.DEFAULT_EDGE_SUPPLIER, false, false, graphSpecificsStrategy);
+        DirectedAcyclicGraph<String,
+            DefaultEdge> graph = new DirectedAcyclicGraph<>(
+                SupplierUtil.createStringSupplier(), SupplierUtil.DEFAULT_EDGE_SUPPLIER, false,
+                false, graphSpecificsStrategy);
         String a = "A";
         String b = "B";
 
@@ -628,14 +629,16 @@ public class DirectedAcyclicGraphTest
         GraphSpecificsStrategy<String, DefaultEdge> graphSpecificsStrategy =
             new FastLookupGraphSpecificsStrategy<>()
             {
-                @Override public EdgeSetFactory<String, DefaultEdge> getEdgeSetFactory()
+                @Override
+                public EdgeSetFactory<String, DefaultEdge> getEdgeSetFactory()
                 {
                     return vertex -> new HashSet<>();
                 }
             };
-        DirectedAcyclicGraph<String, DefaultEdge> graph =
-            new DirectedAcyclicGraph<>(SupplierUtil.createStringSupplier(),
-                SupplierUtil.DEFAULT_EDGE_SUPPLIER, false, false, graphSpecificsStrategy);
+        DirectedAcyclicGraph<String,
+            DefaultEdge> graph = new DirectedAcyclicGraph<>(
+                SupplierUtil.createStringSupplier(), SupplierUtil.DEFAULT_EDGE_SUPPLIER, false,
+                false, graphSpecificsStrategy);
         String a = "A";
         String b = "B";
 
@@ -731,8 +734,7 @@ public class DirectedAcyclicGraphTest
     // it is nice for tests to be easily repeatable, so we use a graph generator
     // that we can seed for specific configurations
     public static class RepeatableRandomGraphGenerator<V, E>
-        implements
-        GraphGenerator<V, E, V>
+        implements GraphGenerator<V, E, V>
     {
         private Random randomizer;
         private int numOfVertexes;

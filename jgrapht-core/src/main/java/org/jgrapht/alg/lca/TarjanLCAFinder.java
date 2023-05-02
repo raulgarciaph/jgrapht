@@ -62,8 +62,7 @@ import java.util.*;
  * @author Alexandru Valeanu
  */
 public class TarjanLCAFinder<V, E>
-    implements
-    LowestCommonAncestorAlgorithm<V>
+    implements LowestCommonAncestorAlgorithm<V>
 {
     private Graph<V, E> graph;
     private Set<V> roots;

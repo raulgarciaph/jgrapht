@@ -52,8 +52,7 @@ public interface PartitioningAlgorithm<V>
      * @param <V> the vertex type
      */
     interface Partitioning<V>
-        extends
-        Iterable<Set<V>>
+        extends Iterable<Set<V>>
     {
 
         /**
@@ -98,9 +97,7 @@ public interface PartitioningAlgorithm<V>
      * @param <V> the vertex type
      */
     class PartitioningImpl<V>
-        implements
-        Partitioning<V>,
-        Serializable
+        implements Partitioning<V>, Serializable
     {
 
         private static final long serialVersionUID = 3702471090706836080L;
@@ -116,11 +113,9 @@ public interface PartitioningAlgorithm<V>
          */
         public PartitioningImpl(List<Set<V>> classes)
         {
-            this.classes = Collections
-                .unmodifiableList(
-                    Objects
-                        .requireNonNull(classes).stream().map(Collections::unmodifiableSet)
-                        .collect(Collectors.toList()));
+            this.classes = Collections.unmodifiableList(
+                Objects.requireNonNull(classes).stream().map(Collections::unmodifiableSet).collect(
+                    Collectors.toList()));
         }
 
         /**
@@ -140,11 +135,10 @@ public interface PartitioningAlgorithm<V>
                     .computeIfAbsent(entry.getValue(), x -> new HashSet<>()).add(entry.getKey());
             }
 
-            this.classes = Collections
-                .unmodifiableList(
-                    partitionIndexToVertexMap
-                        .values().stream().map(Collections::unmodifiableSet)
-                        .collect(Collectors.toList()));
+            this.classes = Collections.unmodifiableList(
+                partitionIndexToVertexMap
+                    .values().stream().map(Collections::unmodifiableSet)
+                    .collect(Collectors.toList()));
         }
 
         /**

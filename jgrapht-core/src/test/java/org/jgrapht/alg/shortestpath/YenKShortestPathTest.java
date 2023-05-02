@@ -31,8 +31,7 @@ import static org.junit.Assert.assertEquals;
  * Tests for the {@link YenKShortestPath}.
  */
 public class YenKShortestPathTest
-    extends
-    BaseKShortestPathTest
+    extends BaseKShortestPathTest
 {
     /**
      * Seed value which is used to generate random graphs by

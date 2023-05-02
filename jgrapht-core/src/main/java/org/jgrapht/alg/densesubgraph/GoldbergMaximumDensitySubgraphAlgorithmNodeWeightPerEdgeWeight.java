@@ -56,8 +56,7 @@ import java.util.function.*;
  */
 public class GoldbergMaximumDensitySubgraphAlgorithmNodeWeightPerEdgeWeight<
     V extends Pair<?, Double>, E>
-    extends
-    GoldbergMaximumDensitySubgraphAlgorithmBase<V, E>
+    extends GoldbergMaximumDensitySubgraphAlgorithmBase<V, E>
 {
 
     /**

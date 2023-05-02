@@ -29,10 +29,8 @@ import java.util.function.*;
  *
  */
 class MaskEdgeSet<V, E>
-    extends
-    AbstractSet<E>
-    implements
-    Serializable
+    extends AbstractSet<E>
+    implements Serializable
 {
     private static final long serialVersionUID = 4208908842850100708L;
 

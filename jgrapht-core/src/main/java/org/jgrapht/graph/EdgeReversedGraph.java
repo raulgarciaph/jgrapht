@@ -39,10 +39,8 @@ import java.util.*;
  * @see AsUndirectedGraph
  */
 public class EdgeReversedGraph<V, E>
-    extends
-    GraphDelegator<V, E>
-    implements
-    Graph<V, E>
+    extends GraphDelegator<V, E>
+    implements Graph<V, E>
 {
     private static final long serialVersionUID = -3806030402468293063L;
 

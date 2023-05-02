@@ -54,8 +54,7 @@ import java.util.function.*;
  * @author Andre Immig
  */
 public class GoldbergMaximumDensitySubgraphAlgorithm<V, E>
-    extends
-    GoldbergMaximumDensitySubgraphAlgorithmBase<V, E>
+    extends GoldbergMaximumDensitySubgraphAlgorithmBase<V, E>
 {
     /**
      * Constructor

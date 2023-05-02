@@ -44,11 +44,8 @@ import java.util.function.*;
  * @author Barak Naveh
  */
 public class GraphDelegator<V, E>
-    extends
-    AbstractGraph<V, E>
-    implements
-    Graph<V, E>,
-    Serializable
+    extends AbstractGraph<V, E>
+    implements Graph<V, E>, Serializable
 {
     private static final long serialVersionUID = -215068279981825448L;
 

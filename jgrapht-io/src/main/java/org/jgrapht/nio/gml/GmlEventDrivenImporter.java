@@ -96,10 +96,8 @@ import java.util.*;
  * @author Dimitrios Michail
  */
 public class GmlEventDrivenImporter
-    extends
-    BaseEventDrivenImporter<Integer, Triple<Integer, Integer, Double>>
-    implements
-    EventDrivenImporter<Integer, Triple<Integer, Integer, Double>>
+    extends BaseEventDrivenImporter<Integer, Triple<Integer, Integer, Double>>
+    implements EventDrivenImporter<Integer, Triple<Integer, Integer, Double>>
 {
     /**
      * Constructs a new importer.
@@ -142,8 +140,7 @@ public class GmlEventDrivenImporter
     }
 
     private class ThrowingErrorListener
-        extends
-        BaseErrorListener
+        extends BaseErrorListener
     {
         @Override
         public void syntaxError(
@@ -158,8 +155,7 @@ public class GmlEventDrivenImporter
 
     // notify from parse tree
     private class NotifyGmlListener
-        extends
-        GmlBaseListener
+        extends GmlBaseListener
     {
         private static final String NODE = "node";
         private static final String EDGE = "edge";
@@ -340,10 +336,9 @@ public class GmlEventDrivenImporter
                 if (level == 2) {
                     stringBuffer.append(' ');
                     stringBuffer.append(']');
-                    attributes
-                        .put(
-                            key,
-                            new DefaultAttribute<>(stringBuffer.toString(), AttributeType.UNKNOWN));
+                    attributes.put(
+                        key,
+                        new DefaultAttribute<>(stringBuffer.toString(), AttributeType.UNKNOWN));
                     stringBuffer = null;
                 } else if (level >= 3) {
                     stringBuffer.append(' ');

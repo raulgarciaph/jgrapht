@@ -35,8 +35,7 @@ import static org.junit.Assert.*;
  * @author Patrick Sharp
  */
 public class BreadthFirstIteratorTest
-    extends
-    CrossComponentIteratorTest
+    extends CrossComponentIteratorTest
 {
     // ~ Methods ----------------------------------------------------------------
 

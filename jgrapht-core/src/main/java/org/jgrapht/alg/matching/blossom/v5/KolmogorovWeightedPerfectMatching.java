@@ -138,8 +138,7 @@ import static org.jgrapht.alg.matching.blossom.v5.ObjectiveSense.MINIMIZE;
  * @see BlossomVDualUpdater
  */
 public class KolmogorovWeightedPerfectMatching<V, E>
-    implements
-    MatchingAlgorithm<V, E>
+    implements MatchingAlgorithm<V, E>
 {
     /**
      * Default epsilon used in the algorithm
@@ -399,9 +398,8 @@ public class KolmogorovWeightedPerfectMatching<V, E>
                 while (iterationTreeNum == state.treeNum) {
                     if (DEBUG) {
                         printState();
-                        System.out
-                            .println(
-                                "Current tree is " + tree + ", current root is " + currentRoot);
+                        System.out.println(
+                            "Current tree is " + tree + ", current root is " + currentRoot);
                     }
 
                     if (!tree.plusInfinityEdges.isEmpty()) {

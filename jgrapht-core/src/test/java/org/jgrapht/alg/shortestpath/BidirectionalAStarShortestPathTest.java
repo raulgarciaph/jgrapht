@@ -34,8 +34,7 @@ import static org.junit.Assert.*;
  * @author Semen Chudakov
  */
 public class BidirectionalAStarShortestPathTest
-    extends
-    BaseHeuristicSearchTest
+    extends BaseHeuristicSearchTest
 {
     private static final String S = "S";
     private static final String T = "T";

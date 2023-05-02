@@ -110,9 +110,8 @@ public class GEXFExporterTest
 
         exporter.registerAttribute("color", AttributeCategory.NODE, GEXFAttributeType.STRING, null);
         exporter.registerAttribute("city", AttributeCategory.NODE, GEXFAttributeType.STRING, null);
-        exporter
-            .registerAttribute(
-                "hobby", AttributeCategory.NODE, GEXFAttributeType.STRING, null, "ski|dance|photo");
+        exporter.registerAttribute(
+            "hobby", AttributeCategory.NODE, GEXFAttributeType.STRING, null, "ski|dance|photo");
 
         exporter.setVertexAttributeProvider(v -> {
             Map<String, Attribute> map = new HashMap<String, Attribute>();

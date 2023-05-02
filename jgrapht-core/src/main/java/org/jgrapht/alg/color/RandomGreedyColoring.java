@@ -28,8 +28,7 @@ import java.util.*;
  * @param <E> the graph edge type
  */
 public class RandomGreedyColoring<V, E>
-    extends
-    GreedyColoring<V, E>
+    extends GreedyColoring<V, E>
 {
     /*
      * Random number generator

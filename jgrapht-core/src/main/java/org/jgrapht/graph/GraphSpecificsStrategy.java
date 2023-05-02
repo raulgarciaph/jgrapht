@@ -38,8 +38,7 @@ import java.util.function.*;
  * @see DefaultGraphSpecificsStrategy
  */
 public interface GraphSpecificsStrategy<V, E>
-    extends
-    Serializable
+    extends Serializable
 {
     /**
      * Get a function which creates the intrusive edges specifics. The factory will accept the graph

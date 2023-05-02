@@ -25,8 +25,7 @@ import java.io.*;
  * @author Dimitrios Michail
  */
 public class Point2D
-    implements
-    Serializable
+    implements Serializable
 {
     private static final long serialVersionUID = -5410937389829502498L;
 

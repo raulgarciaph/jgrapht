@@ -45,10 +45,8 @@ import java.util.function.*;
  * @author Dimitrios Michail
  */
 public class GraphMLExporter<V, E>
-    extends
-    BaseExporter<V, E>
-    implements
-    GraphExporter<V, E>
+    extends BaseExporter<V, E>
+    implements GraphExporter<V, E>
 {
     // registered attributes
     private Map<String, AttributeDetails> registeredAttributes = new LinkedHashMap<>();
@@ -371,10 +369,9 @@ public class GraphMLExporter<V, E>
         handler.endPrefixMapping("xsi");
 
         AttributesImpl attr = new AttributesImpl();
-        attr
-            .addAttribute(
-                "", "", "xsi:schemaLocation", "CDATA",
-                "http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd");
+        attr.addAttribute(
+            "", "", "xsi:schemaLocation", "CDATA",
+            "http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd");
         handler.startElement("http://graphml.graphdrawing.org/xmlns", "", "graphml", attr);
     }
 
@@ -383,10 +380,8 @@ public class GraphMLExporter<V, E>
     {
         // <graph>
         AttributesImpl attr = new AttributesImpl();
-        attr
-            .addAttribute(
-                "", "", "edgedefault", "CDATA",
-                g.getType().isDirected() ? "directed" : "undirected");
+        attr.addAttribute(
+            "", "", "edgedefault", "CDATA", g.getType().isDirected() ? "directed" : "undirected");
         handler.startElement("", "", "graph", attr);
     }
 

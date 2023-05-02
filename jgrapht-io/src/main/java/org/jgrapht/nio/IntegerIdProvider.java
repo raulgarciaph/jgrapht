@@ -31,8 +31,7 @@ import java.util.function.*;
  * @author Trevor Harmon
  */
 public class IntegerIdProvider<T>
-    implements
-    Function<T, String>
+    implements Function<T, String>
 {
     private int nextId = 1;
     private final Map<T, Integer> idMap;

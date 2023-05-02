@@ -33,8 +33,7 @@ import java.util.function.*;
  *
  */
 public class Multigraph<V, E>
-    extends
-    AbstractBaseGraph<V, E>
+    extends AbstractBaseGraph<V, E>
 {
     private static final long serialVersionUID = -8313058939737164595L;
 

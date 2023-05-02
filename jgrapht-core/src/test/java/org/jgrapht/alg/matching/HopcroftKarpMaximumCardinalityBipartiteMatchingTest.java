@@ -30,8 +30,7 @@ import java.util.*;
  *
  */
 public class HopcroftKarpMaximumCardinalityBipartiteMatchingTest
-    extends
-    MaximumCardinalityBipartiteMatchingTest
+    extends MaximumCardinalityBipartiteMatchingTest
 {
 
     @Override

@@ -106,10 +106,8 @@ import java.util.Map.*;
  * @author Dimitrios Michail
  */
 public class GraphMLEventDrivenImporter
-    extends
-    BaseEventDrivenImporter<String, Triple<String, String, Double>>
-    implements
-    EventDrivenImporter<String, Triple<String, String, Double>>
+    extends BaseEventDrivenImporter<String, Triple<String, String, Double>>
+    implements EventDrivenImporter<String, Triple<String, String, Double>>
 {
     private static final String GRAPHML_SCHEMA_FILENAME = "graphml.xsd";
     private static final String XLINK_SCHEMA_FILENAME = "xlink.xsd";
@@ -200,15 +198,15 @@ public class GraphMLEventDrivenImporter
             SAXParserFactory spf = SAXParserFactory.newInstance();
             if (schemaValidation) {
                 // load schema
-                InputStream xsdStream = Thread
-                    .currentThread().getContextClassLoader()
-                    .getResourceAsStream(GRAPHML_SCHEMA_FILENAME);
+                InputStream xsdStream =
+                    Thread.currentThread().getContextClassLoader().getResourceAsStream(
+                        GRAPHML_SCHEMA_FILENAME);
                 if (xsdStream == null) {
                     throw new ImportException("Failed to locate GraphML xsd");
                 }
-                InputStream xlinkStream = Thread
-                    .currentThread().getContextClassLoader()
-                    .getResourceAsStream(XLINK_SCHEMA_FILENAME);
+                InputStream xlinkStream =
+                    Thread.currentThread().getContextClassLoader().getResourceAsStream(
+                        XLINK_SCHEMA_FILENAME);
                 if (xlinkStream == null) {
                     throw new ImportException("Failed to locate XLink xsd");
                 }
@@ -231,8 +229,7 @@ public class GraphMLEventDrivenImporter
 
     // content handler
     private class GraphMLHandler
-        extends
-        DefaultHandler
+        extends DefaultHandler
     {
         private static final String GRAPH = "graph";
         private static final String GRAPH_ID = "id";
@@ -294,15 +291,13 @@ public class GraphMLEventDrivenImporter
                     String validId = validKey.id;
                     AttributeType validType = validKey.type;
                     if (collectedAttributes.containsKey(validId)) {
-                        finalAttributes
-                            .put(
-                                validKey.attributeName, new DefaultAttribute<>(
-                                    collectedAttributes.get(validId), validType));
+                        finalAttributes.put(
+                            validKey.attributeName,
+                            new DefaultAttribute<>(collectedAttributes.get(validId), validType));
                     } else if (validKey.defaultValue != null) {
-                        finalAttributes
-                            .put(
-                                validKey.attributeName,
-                                new DefaultAttribute<>(validKey.defaultValue, validType));
+                        finalAttributes.put(
+                            validKey.attributeName,
+                            new DefaultAttribute<>(validKey.defaultValue, validType));
                     }
                 }
 
@@ -355,16 +350,14 @@ public class GraphMLEventDrivenImporter
                     String validId = validKey.id;
                     AttributeType validType = validKey.type;
                     if (collectedAttributes.containsKey(validId)) {
-                        finalAttributes
-                            .put(
-                                validKey.attributeName, new DefaultAttribute<>(
-                                    collectedAttributes.get(validId), validType));
+                        finalAttributes.put(
+                            validKey.attributeName,
+                            new DefaultAttribute<>(collectedAttributes.get(validId), validType));
                     } else {
                         if (validKey.defaultValue != null) {
-                            finalAttributes
-                                .put(
-                                    validKey.attributeName,
-                                    new DefaultAttribute<>(validKey.defaultValue, validType));
+                            finalAttributes.put(
+                                validKey.attributeName,
+                                new DefaultAttribute<>(validKey.defaultValue, validType));
                         }
                     }
                 }
@@ -375,12 +368,9 @@ public class GraphMLEventDrivenImporter
                 if (handleSpecialEdgeWeights) {
                     if (finalAttributes.containsKey(edgeWeightAttributeName)) {
                         try {
-                            te
-                                .setThird(
-                                    Double
-                                        .parseDouble(
-                                            finalAttributes
-                                                .get(edgeWeightAttributeName).getValue()));
+                            te.setThird(
+                                Double.parseDouble(
+                                    finalAttributes.get(edgeWeightAttributeName).getValue()));
                         } catch (NumberFormatException nfe) {
                             te.setThird(defaultSpecialEdgeWeight);
                         }
@@ -422,11 +412,10 @@ public class GraphMLEventDrivenImporter
                 currentGraphElement.push(new GraphElement(findAttribute(NODE_ID, attributes)));
                 break;
             case EDGE:
-                currentGraphElement
-                    .push(
-                        new GraphElement(
-                            findAttribute(EDGE_SOURCE, attributes),
-                            findAttribute(EDGE_TARGET, attributes)));
+                currentGraphElement.push(
+                    new GraphElement(
+                        findAttribute(EDGE_SOURCE, attributes),
+                        findAttribute(EDGE_TARGET, attributes)));
                 break;
             case KEY:
                 String keyId = findAttribute(KEY_ID, attributes);

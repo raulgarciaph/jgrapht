@@ -39,8 +39,7 @@ import java.util.function.*;
  * @param <E> the graph edge type
  */
 public class FastLookupGraphSpecificsStrategy<V, E>
-    implements
-    GraphSpecificsStrategy<V, E>
+    implements GraphSpecificsStrategy<V, E>
 {
     private static final long serialVersionUID = -5490869870275054280L;
 

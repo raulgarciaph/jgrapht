@@ -45,8 +45,7 @@ import java.util.*;
  * @param <E> graph edge type
  */
 public class Graph6Sparse6Exporter<V, E>
-    implements
-    GraphExporter<V, E>
+    implements GraphExporter<V, E>
 {
 
     /**

@@ -37,8 +37,7 @@ import static junit.framework.TestCase.assertEquals;
  * @author Timofey Chudakov
  */
 public class BoykovKolmogorovMFImplTest
-    extends
-    MaximumFlowAlgorithmTest
+    extends MaximumFlowAlgorithmTest
 {
 
     private static final double EPS = 1e-9;

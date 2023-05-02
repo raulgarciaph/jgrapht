@@ -341,8 +341,7 @@ public class ImmutableValueGraphAdapterTest
     }
 
     private static class MyValue
-        implements
-        Serializable
+        implements Serializable
     {
 
         private static final long serialVersionUID = 1L;

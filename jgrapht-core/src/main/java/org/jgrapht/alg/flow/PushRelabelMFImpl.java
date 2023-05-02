@@ -57,8 +57,7 @@ import java.util.*;
  *
  */
 public class PushRelabelMFImpl<V, E>
-    extends
-    MaximumFlowAlgorithmBase<V, E>
+    extends MaximumFlowAlgorithmBase<V, E>
 {
     // Diagnostic
     private static final boolean DIAGNOSTIC_ENABLED = false;
@@ -541,8 +540,7 @@ public class PushRelabelMFImpl<V, E>
      * Vertex extension for the push-relabel algorithm, which contains an additional height.
      */
     public class VertexExtension
-        extends
-        VertexExtensionBase
+        extends VertexExtensionBase
     {
         private int id;
         private int height; // also called label (or distance label) in some papers

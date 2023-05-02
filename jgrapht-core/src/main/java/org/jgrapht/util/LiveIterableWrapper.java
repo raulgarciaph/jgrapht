@@ -29,8 +29,7 @@ import java.util.function.Supplier;
  * @param <E> the element type
  */
 public class LiveIterableWrapper<E>
-    implements
-    Iterable<E>
+    implements Iterable<E>
 {
     private Supplier<Iterable<E>> supplier;
 

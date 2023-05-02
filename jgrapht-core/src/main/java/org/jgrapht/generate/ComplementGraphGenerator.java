@@ -43,8 +43,7 @@ import java.util.*;
  * @param <E> edge type
  */
 public class ComplementGraphGenerator<V, E>
-    implements
-    GraphGenerator<V, E, V>
+    implements GraphGenerator<V, E, V>
 {
 
     private final Graph<V, E> graph;
