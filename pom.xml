@@ -5,7 +5,7 @@
     <artifactId>jgrapht</artifactId>
     <packaging>pom</packaging>
     <name>JGraphT - Parent</name>
-    <version>1.5.2-SNAPSHOT</version>
+    <version>1.5.2</version>
     <description>A Java class library for graph-theory data structures and algorithms.</description>
     <url>http://www.jgrapht.org</url>
     <parent>
@@ -29,7 +29,7 @@
         <url>https://github.com/jgrapht/jgrapht.git</url>
         <connection>scm:git:git://github.com/jgrapht/jgrapht.git</connection>
         <developerConnection>scm:git:git@github.com:jgrapht/jgrapht.git</developerConnection>
-        <tag>jgrapht-1.5.1</tag>
+        <tag>jgrapht-1.5.2</tag>
     </scm>
     <issueManagement>
         <url>https://github.com/jgrapht/jgrapht/issues</url>
@@ -335,7 +335,6 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>${maven-source-plugin.version}</version>
                     <executions>
                         <execution>
                             <id>attach-sources</id>
@@ -348,7 +347,6 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${maven-javadoc-plugin.version}</version>
                     <configuration>
                         <show>protected</show>
                         <windowtitle>JGraphT : a free Java graph library</windowtitle>
@@ -363,6 +361,7 @@
                         </doctitle>
                         <detectJavaApiLink>false</detectJavaApiLink> <!-- Temporary fix for https://stackoverflow.com/questions/58836862/jdk-11-and-javadoc -->
                         <notimestamp>true</notimestamp>
+                        <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
                     </configuration>
                     <executions>
                         <execution>
@@ -416,10 +415,12 @@
                 <plugin>
                       <groupId>org.apache.maven.plugins</groupId>
                       <artifactId>maven-javadoc-plugin</artifactId>
+                      <version>${maven-javadoc-plugin.version}</version>
                  </plugin>
                  <plugin>
                       <groupId>org.apache.maven.plugins</groupId>
                       <artifactId>maven-source-plugin</artifactId>
+                      <version>${maven-source-plugin.version}</version>
                  </plugin>
           </plugins>
     </build>
