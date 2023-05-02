@@ -25,6 +25,7 @@ Changes to JGraphT in each version:
     - Added callback API to `DirectedSimpleCycles` interface (contributed by Sérgio Faria)
     - Upgraded commons-text to 1.10.0 and antlr4-runtime to 4.10.1 (contributed by Rene Leonhardt)
     - Centralized dependency version declarations (contributed by Rene Leonhardt)
+    - Updated all dependencies pre-release (contributed by Rene Leonhardt)
     - Prevented XEE in `SimpleGEXFEventDrivenImporter` (contributed by DelfinSR)
 
 - **version 1.5.1** (18-Mar-2021)
