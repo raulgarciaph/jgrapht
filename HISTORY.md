@@ -3,7 +3,8 @@
 Changes to JGraphT in each version:
 
 - **version 1.5.3** (Under development)
-
+    - Updated dependencies (contributed by Joris Kinable)
+    - Fixed a bug in `DOTExporter` causing graph attributes not to be exported correctly. (contributed by vab2048)
 
 - **version 1.5.2** (2-May-2023)
     - Prepared release cycle 1.5.2: removed deprecated code, updated dependencies (contributed by Joris Kinable)
