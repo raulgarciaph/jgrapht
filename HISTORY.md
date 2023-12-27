@@ -7,6 +7,7 @@ Changes to JGraphT in each version:
     - Fixed a bug in `DOTExporter` causing graph attributes not to be exported correctly. (contributed by vab2048)
     - Removed `Deque` interface from `DoublyLinkedList` as it collided with the List interface when compiling with Java 21 (reported by Liam Miller-Cushon, contributed by Dimitrios Michail)
     - Fixed a bug in `GmlExporter` to use system line separator consistently (contributed by Sung Ho Yoon)
+    - Migrated to JUnit 5 (contributed by Sung Ho Yoon)
 
 - **version 1.5.2** (2-May-2023)
     - Prepared release cycle 1.5.2: removed deprecated code, updated dependencies (contributed by Joris Kinable)
