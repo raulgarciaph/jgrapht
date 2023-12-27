@@ -18,16 +18,15 @@
 package org.jgrapht.util;
 
 import org.jgrapht.util.DoublyLinkedList.*;
-import org.junit.*;
-import org.junit.runner.*;
-import org.junit.runners.*;
-import org.junit.runners.Parameterized.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.*;
 
 import java.util.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.abort;
 
 /**
  * Tests for {@link DoublyLinkedList}.
@@ -35,63 +34,52 @@ import static org.junit.Assert.*;
  * @author Hannes Wellmann
  *
  */
-@RunWith(Parameterized.class)
 public class DoublyLinkedListTest
 {
     private static final int MAX_LIST_SIZE = 8;
 
-    @Parameters(name = "List with size {0}")
-    public static Object[] getListSizes()
+    public static Object[][] getListSizes()
     {
         Object[][] parameterSets = new Object[MAX_LIST_SIZE + 1][];
         for (int size = 0; size < MAX_LIST_SIZE + 1; size++) {
 
-            List<Object> elements = new ArrayList<>(size);
+            List<String> elements = new ArrayList<>(size);
             for (int i = 0; i < size; i++) {
                 elements.add("obj" + i);
             }
             if (size >= 6) { // make two elements equal
                 elements.set(3, new String("obj2")); // create equal new String-object
             }
-            parameterSets[size] = new Object[] { size, Collections.unmodifiableList(elements) };
+            parameterSets[size] = new Object[] { size, Collections.unmodifiableList(elements), createDoublyLinkedList(elements) };
         }
         return parameterSets;
-    }
-
-    @Parameterized.Parameter(0)
-    public int size;
-    @Parameterized.Parameter(1)
-    public List<String> expectedElements;
-
-    private DoublyLinkedList<String> list;
-
-    @Before
-    public void setUp()
-    {
-        list = createDoublyLinkedList(expectedElements);
     }
 
     // ------------------------------------------------------------------------
     // test cases
 
     /** Test for {@link DoublyLinkedList#isEmpty()}. */
-    @Test
-    public void testIsEmpty()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testIsEmpty(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         assertThat(list.isEmpty(), is(equalTo(size == 0)));
     }
 
     /** Test for {@link DoublyLinkedList#size()}. */
-    @Test
-    public void testSize()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testSize(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         assertThat(list.size(), is(equalTo(size)));
     }
 
     /** Test for {@link DoublyLinkedList#clear()}. */
-    @Test
-    public void testClear()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testClear(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
+
         List<ListNode<String>> allNodes = getListNodesOfList(list);
 
         list.clear();
@@ -107,8 +95,9 @@ public class DoublyLinkedListTest
     // test ListNode methods
 
     /** Test for {@link DoublyLinkedList#addNodeFirst(DoublyLinkedList.ListNode)}. */
-    @Test
-    public void testAddNodeFirst_freeNode_nodeAddedToList()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddNodeFirst_freeNode_nodeAddedToList(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String element = "another";
         List<String> expectedList = new ArrayList<>(expectedElements);
@@ -122,28 +111,34 @@ public class DoublyLinkedListTest
         assertSameContent(list, expectedList);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testAddNodeFirst_nodeInOtherList_IllegalArgumentException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddNodeFirst_nodeInOtherList_IllegalArgumentException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
-        ListNode<String> node = createListNodeInOtherList();
+        assertThrows(IllegalArgumentException.class, () -> {
+            ListNode<String> node = createListNodeInOtherList();
 
-        list.addNodeFirst(node);
+            list.addNodeFirst(node);
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testAddNodeFirst_nodeOfThisList_IllegalArgumentException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddNodeFirst_nodeOfThisList_IllegalArgumentException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
-        if (size == 0) {
-            throw new IllegalArgumentException(); // throw expected exception to skip for empty list
-        }
-        ListNode<String> node = list.getNode(size / 2);
+        if (size == 0)
+            abort(); // skip for empty list
+        assertThrows(IllegalArgumentException.class, () -> {
+            ListNode<String> node = list.getNode(size / 2);
 
-        list.addNodeFirst(node);
+            list.addNodeFirst(node);
+        });
     }
 
     /** Test for {@link DoublyLinkedList#addNodeLast(DoublyLinkedList.ListNode)}. */
-    @Test
-    public void testAddNodeLast_freeNode_nodeAddedToList()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddNodeLast_freeNode_nodeAddedToList(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String element = "another";
         List<String> expectedList = new ArrayList<>(expectedElements);
@@ -157,28 +152,35 @@ public class DoublyLinkedListTest
         assertSameContent(list, expectedList);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testAddNodeLast_nodeInOtherList_IllegalArgumentException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddNodeLast_nodeInOtherList_IllegalArgumentException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
-        ListNode<String> node = createListNodeInOtherList();
+        assertThrows(IllegalArgumentException.class, () -> {
+            ListNode<String> node = createListNodeInOtherList();
 
-        list.addNodeLast(node);
+            list.addNodeLast(node);
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testAddNodeLast_nodeOfThisList_IllegalArgumentException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddNodeLast_nodeOfThisList_IllegalArgumentException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
-            throw new IllegalArgumentException(); // throw expected exception to skip for empty list
+            abort(); // skip for empty list
         }
-        ListNode<String> node = list.getNode(size / 2);
+        assertThrows(IllegalArgumentException.class, () -> {
+            ListNode<String> node = list.getNode(size / 2);
 
-        list.addNodeLast(node);
+            list.addNodeLast(node);
+        });
     }
 
     /** Test for {@link DoublyLinkedList#addNode(int, DoublyLinkedList.ListNode)}. */
-    @Test
-    public void testAddNode_freeNode_nodeAddedToList()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddNode_freeNode_nodeAddedToList(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String element = "another";
         int index = size / 2;
@@ -192,34 +194,41 @@ public class DoublyLinkedListTest
         assertSameContent(list, expectedList);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testAddNode_nodeInOtherList_IllegalArgumentException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddNode_nodeInOtherList_IllegalArgumentException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
-        ListNode<String> node = createListNodeInOtherList();
+        assertThrows(IllegalArgumentException.class, () -> {
+            ListNode<String> node = createListNodeInOtherList();
 
-        list.addNode(size / 2, node);
+            list.addNode(size / 2, node);
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testAddNode_nodeOfThisList_IllegalArgumentException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddNode_nodeOfThisList_IllegalArgumentException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
-            throw new IllegalArgumentException(); // throw expected exception to skip for empty list
+            abort(); // skip for empty list
         }
-        ListNode<String> node = list.getLastNode();
+        assertThrows(IllegalArgumentException.class, () -> {
+            ListNode<String> node = list.getLastNode();
 
-        list.addNode(size / 2, node);
+            list.addNode(size / 2, node);
+        });
     }
 
     /**
      * Test for
      * {@link DoublyLinkedList#addNodeBefore(DoublyLinkedList.ListNode, DoublyLinkedList.ListNode)}.
      */
-    @Test
-    public void testAddNodeBefore_freeNodeBeforeNodeInList_nodeAddedToList()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddNodeBefore_freeNodeBeforeNodeInList_nodeAddedToList(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
-            return;
+            abort();
         }
         String element = "another";
         int index = size / 2;
@@ -234,51 +243,63 @@ public class DoublyLinkedListTest
         assertSameContent(list, expectedList);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testAddNodeBefore_freeNodeBeforeNodeInOtherList_IllegalArgumentException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddNodeBefore_freeNodeBeforeNodeInOtherList_IllegalArgumentException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
-        ListNode<String> node = createFreeListNode("another");
-        ListNode<String> beforeNode = createListNodeInOtherList();
+        assertThrows(IllegalArgumentException.class, () -> {
+            ListNode<String> node = createFreeListNode("another");
+            ListNode<String> beforeNode = createListNodeInOtherList();
 
-        list.addNodeBefore(node, beforeNode);
+            list.addNodeBefore(node, beforeNode);
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testAddNodeBefore_freeNodeBeforeFreeNode_IllegalArgumentException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddNodeBefore_freeNodeBeforeFreeNode_IllegalArgumentException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
-        ListNode<String> node = createFreeListNode("another");
-        ListNode<String> beforeNode = createFreeListNode("another");
+        assertThrows(IllegalArgumentException.class, () -> {
+            ListNode<String> node = createFreeListNode("another");
+            ListNode<String> beforeNode = createFreeListNode("another");
 
-        list.addNodeBefore(node, beforeNode);
+            list.addNodeBefore(node, beforeNode);
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testAddNodeBefore_nodeInOtherListBeforeNodeOfList_IllegalArgumentException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddNodeBefore_nodeInOtherListBeforeNodeOfList_IllegalArgumentException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
+    {
+        if (size == 0)
+            abort(); // skip for empty list
+        assertThrows(IllegalArgumentException.class, () -> {
+            ListNode<String> node = createListNodeInOtherList();
+            ListNode<String> beforeNode = list.getNode(size / 2);
+
+            list.addNodeBefore(node, beforeNode);
+        });
+    }
+
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddNodeBefore_nodeInThisListBeforeNodeOfList_IllegalArgumentException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
-            throw new IllegalArgumentException(); // throw expected exception to skip for empty list
+            return; // skip for empty list
         }
-        ListNode<String> node = createListNodeInOtherList();
-        ListNode<String> beforeNode = list.getNode(size / 2);
+        assertThrows(IllegalArgumentException.class, () -> {
+            ListNode<String> node = list.getFirstNode();
+            ListNode<String> beforeNode = list.getNode(size / 2);
 
-        list.addNodeBefore(node, beforeNode);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testAddNodeBefore_nodeInThisListBeforeNodeOfList_IllegalArgumentException()
-    {
-        if (size == 0) {
-            throw new IllegalArgumentException(); // throw expected exception to skip for empty list
-        }
-        ListNode<String> node = list.getFirstNode();
-        ListNode<String> beforeNode = list.getNode(size / 2);
-
-        list.addNodeBefore(node, beforeNode);
+            list.addNodeBefore(node, beforeNode);
+        });
     }
 
     /** Test for {@link DoublyLinkedList#getFirstNode()}. */
-    @Test
-    public void testGetFirstNode()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testGetFirstNode(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             assertThrows(NoSuchElementException.class, () -> list.getFirstNode());
@@ -292,8 +313,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#getLastNode()}. */
-    @Test
-    public void testGetLastNode()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testGetLastNode(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             assertThrows(NoSuchElementException.class, () -> list.getLastNode());
@@ -307,8 +329,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#getNode(int)}. */
-    @Test
-    public void testGetNode()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testGetNode(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         for (int i = 0; i < size; i++) {
             String expectedElement = expectedElements.get(i);
@@ -319,21 +342,24 @@ public class DoublyLinkedListTest
         }
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
-    public void testGetNode_indexSize_IndexOutOfBoundsException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testGetNode_indexSize_IndexOutOfBoundsException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
-        list.getNode(size);
+        assertThrows(IndexOutOfBoundsException.class, () -> list.getNode(size));
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
-    public void testGetNode_indexNegative_IndexOutOfBoundsException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testGetNode_indexNegative_IndexOutOfBoundsException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
-        list.getNode(-1);
+        assertThrows(IndexOutOfBoundsException.class, () -> list.getNode(-1));
     }
 
     /** Test for {@link DoublyLinkedList#indexOfNode(DoublyLinkedList.ListNode)}. */
-    @Test
-    public void testIndexOfNode_nodeInList_indexOfNode()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testIndexOfNode_nodeInList_indexOfNode(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             return;
@@ -350,8 +376,9 @@ public class DoublyLinkedListTest
         assertThat(indexOfNode, is(equalTo(index)));
     }
 
-    @Test
-    public void testIndexOfNode_nodeInOtherList_minusOne()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testIndexOfNode_nodeInOtherList_minusOne(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         ListNode<String> node = createListNodeInOtherList();
 
@@ -360,8 +387,9 @@ public class DoublyLinkedListTest
         assertThat(indexOfNode, is(equalTo(-1)));
     }
 
-    @Test
-    public void testIndexOfNode_nodeInNoList_minusOne()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testIndexOfNode_nodeInNoList_minusOne(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         ListNode<String> node = createFreeListNode("another");
 
@@ -371,8 +399,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#containsNode(DoublyLinkedList.ListNode)}. */
-    @Test
-    public void testContainsNode_nodeInList_true()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testContainsNode_nodeInList_true(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             return;
@@ -384,8 +413,9 @@ public class DoublyLinkedListTest
         assertTrue(contains);
     }
 
-    @Test
-    public void testContainsNode_nodeInOtherList_false()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testContainsNode_nodeInOtherList_false(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         ListNode<String> node = createListNodeInOtherList();
 
@@ -394,8 +424,9 @@ public class DoublyLinkedListTest
         assertFalse(contains);
     }
 
-    @Test
-    public void testContainsNode_nodeInNoList_false()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testContainsNode_nodeInNoList_false(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         ListNode<String> node = createFreeListNode("another");
 
@@ -407,11 +438,12 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#removeNode(DoublyLinkedList.ListNode)}.
      */
-    @Test
-    public void testRemoveNode_nodeInList_nodeRemoved()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testRemoveNode_nodeInList_nodeRemoved(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
-            return;
+            abort();
         }
         int index = size / 2;
         List<String> expectedList = new ArrayList<>(expectedElements);
@@ -428,8 +460,9 @@ public class DoublyLinkedListTest
         }
     }
 
-    @Test
-    public void testRemoveNode_nodeNotInList_listUnchanged()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testRemoveNode_nodeNotInList_listUnchanged(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         ListNode<String> nodeNotInList = createListNodeInOtherList();
 
@@ -439,8 +472,9 @@ public class DoublyLinkedListTest
         assertSameContent(list, expectedElements); // ensure list did not change
     }
 
-    @Test
-    public void testRemoveNode_removeAllNodesInListFromFront_emptyList()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testRemoveNode_removeAllNodesInListFromFront_emptyList(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         List<ListNode<String>> allNodes = getListNodesOfList(list);
 
@@ -460,8 +494,9 @@ public class DoublyLinkedListTest
         assertTrue(list.isEmpty());
     }
 
-    @Test
-    public void testRemoveNode_removeAllNodesInListFromEnd_emptyList()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testRemoveNode_removeAllNodesInListFromEnd_emptyList(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         List<ListNode<String>> allNodes = getListNodesOfList(list);
 
@@ -481,11 +516,12 @@ public class DoublyLinkedListTest
         assertTrue(list.isEmpty());
     }
 
-    @Test
-    public void testRemoveNode_removeAllNodesInListFromMiddle_emptyList()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testRemoveNode_removeAllNodesInListFromMiddle_emptyList(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
-            return;
+            abort();
         }
         List<ListNode<String>> allNodes = getListNodesOfList(list);
 
@@ -519,8 +555,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#nodeOf(Object)}. */
-    @Test
-    public void testNodeOf_elementInList_nodeOfElement()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testNodeOf_elementInList_nodeOfElement(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String obj2 = "obj2"; // equal String occurs twice in larger lists
         ListNode<String> expectedNode = size <= 2 ? null : list.getNode(2);
@@ -533,9 +570,11 @@ public class DoublyLinkedListTest
         }
     }
 
-    @Test
-    public void testNodeOf_elementNotInList_null()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testNodeOf_elementNotInList_null(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
+
         String otherElement = "another";
 
         ListNode<String> nodeOfElement = list.nodeOf(otherElement);
@@ -544,8 +583,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#lastNodeOf(Object)}. */
-    @Test
-    public void testLastNodeOf()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testLastNodeOf(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String obj2 = "obj2"; // equal String occurs twice in larger lists
         ListNode<String> expectedNode;
@@ -565,8 +605,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#addElementFirst(Object)}. */
-    @Test
-    public void testAddElementFirst_nonNullValue_valueAdded()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddElementFirst_nonNullValue_valueAdded(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String another = "another";
 
@@ -581,8 +622,9 @@ public class DoublyLinkedListTest
         assertSameContent(list, expectedList);
     }
 
-    @Test
-    public void testAddElementFirst_nullValue_valueAdded()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddElementFirst_nullValue_valueAdded(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     { // checks actually only ListNode-constructor, no need to test other addElementX()-methods
         String another = null;
 
@@ -598,8 +640,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#addElementLast(Object)}. */
-    @Test
-    public void testAddElementLast()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddElementLast(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String another = "another";
 
@@ -617,8 +660,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#addElementBeforeNode(DoublyLinkedList.ListNode, Object)}.
      */
-    @Test
-    public void testAddElementBeforeNode_sucessorInList_ElementAdded()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddElementBeforeNode_sucessorInList_ElementAdded(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             ListNode<String> nodeBefore = null;
@@ -643,29 +687,36 @@ public class DoublyLinkedListTest
         assertSameContent(list, expectedList);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testAddElementBeforeNode_sucessorInOtherList_IllegalStateException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddElementBeforeNode_sucessorInOtherList_IllegalStateException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
-        String another = "another";
+        assertThrows(IllegalArgumentException.class, () -> {
+            String another = "another";
 
-        ListNode<String> nodeBefore = createListNodeInOtherList();
-        list.addElementBeforeNode(nodeBefore, another);
+            ListNode<String> nodeBefore = createListNodeInOtherList();
+            list.addElementBeforeNode(nodeBefore, another);
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testAddElementBeforeNode_sucessorInNoList_IllegalStateException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddElementBeforeNode_sucessorInNoList_IllegalStateException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
-        String another = "another";
+        assertThrows(IllegalArgumentException.class, () -> {
+            String another = "another";
 
-        ListNode<String> nodeBefore = createFreeListNode("another");
-        list.addElementBeforeNode(nodeBefore, another);
+            ListNode<String> nodeBefore = createFreeListNode("another");
+            list.addElementBeforeNode(nodeBefore, another);
+        });
     }
 
     // test List methods
 
     /** Test for {@link DoublyLinkedList#add(int, Object)}. */
-    @Test
-    public void testAddInt_atIndex0()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddInt_atIndex0(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String anotherString = "another";
 
@@ -678,8 +729,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#add(int, Object)}. */
-    @Test
-    public void testAddInt_inTheMiddle()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddInt_inTheMiddle(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String anotherString = "another";
 
@@ -692,8 +744,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#add(int, Object)}. */
-    @Test
-    public void testAddInt_atIndexSize()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddInt_atIndexSize(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String anotherString = "another";
 
@@ -706,8 +759,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#get(int)}. */
-    @Test
-    public void testGetInt()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testGetInt(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         for (int i = 0; i < size; i++) {
             String expectedElement = expectedElements.get(i);
@@ -719,8 +773,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#remove(int)}. */
-    @Test
-    public void testRemoveInt_atIndex0()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testRemoveInt_atIndex0(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             assertThrows(IndexOutOfBoundsException.class, () -> list.remove(0));
@@ -736,8 +791,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#remove(int)}. */
-    @Test
-    public void testRemoveInt_inTheMiddle()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testRemoveInt_inTheMiddle(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             assertThrows(IndexOutOfBoundsException.class, () -> list.remove(size / 2));
@@ -753,8 +809,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#remove(int)}. */
-    @Test
-    public void testRemoveInt_atIndexSizeMinusOne()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testRemoveInt_atIndexSizeMinusOne(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             assertThrows(IndexOutOfBoundsException.class, () -> list.remove(size - 1));
@@ -774,8 +831,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#addFirst(Object)}.
      */
-    @Test
-    public void testAddFirst()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddFirst(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String anotherString = "another";
 
@@ -790,8 +848,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#addLast(Object)}.
      */
-    @Test
-    public void testAddLast()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAddLast(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String anotherString = "another";
 
@@ -806,8 +865,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#offerFirst(Object)}.
      */
-    @Test
-    public void testOfferFirst()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testOfferFirst(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String anotherString = "another";
 
@@ -822,8 +882,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#offerLast(Object)}.
      */
-    @Test
-    public void testOfferLast()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testOfferLast(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String anotherString = "another";
 
@@ -838,8 +899,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#removeFirst()}.
      */
-    @Test
-    public void testRemoveFirst()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testRemoveFirst(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             assertThrows(NoSuchElementException.class, () -> list.removeFirst());
@@ -857,8 +919,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#removeLast()}.
      */
-    @Test
-    public void testRemoveLast()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testRemoveLast(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             assertThrows(NoSuchElementException.class, () -> list.removeLast());
@@ -876,8 +939,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#pollFirst()}.
      */
-    @Test
-    public void testPollFirst()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testPollFirst(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         List<String> expectedList = new ArrayList<>(expectedElements);
         String expectedFirst = size > 0 ? expectedList.remove(0) : null;
@@ -891,8 +955,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#pollLast()}.
      */
-    @Test
-    public void testPollLast()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testPollLast(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         List<String> expectedList = new ArrayList<>(expectedElements);
         String expectedLast = size > 0 ? expectedList.remove(size - 1) : null;
@@ -906,8 +971,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#getFirst()}.
      */
-    @Test
-    public void testGetFirst()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testGetFirst(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             assertThrows(NoSuchElementException.class, () -> list.getFirst());
@@ -922,8 +988,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#getLast()}.
      */
-    @Test
-    public void testGetLast()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testGetLast(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             assertThrows(NoSuchElementException.class, () -> list.getLast());
@@ -936,8 +1003,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#peekFirst()}. */
-    @Test
-    public void testPeekFirst()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testPeekFirst(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String expectedFirst = size > 0 ? expectedElements.get(0) : null;
 
@@ -948,8 +1016,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#peekLast()}. */
-    @Test
-    public void testPeekLast()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testPeekLast(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String expectedLast = size > 0 ? expectedElements.get(size - 1) : null;
 
@@ -960,8 +1029,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#removeFirstOccurrence(Object)}. */
-    @Test
-    public void testRemoveFirstOccurrence()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testRemoveFirstOccurrence(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         boolean expectedRemoved = size >= 3;
         List<String> expectedList = new ArrayList<>(expectedElements);
@@ -976,8 +1046,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#removeLastOccurrence(Object)}. */
-    @Test
-    public void testRemoveLastOccurrence()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testRemoveLastOccurrence(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         boolean expectedRemoved = size >= 3;
         List<String> expectedList = new ArrayList<>(expectedElements);
@@ -998,8 +1069,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#offer(Object)}.
      */
-    @Test
-    public void testOffer()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testOffer(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String anotherString = "another";
 
@@ -1014,8 +1086,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#remove()}.
      */
-    @Test
-    public void testRemove()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testRemove(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             assertThrows(NoSuchElementException.class, () -> list.remove());
@@ -1033,8 +1106,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#poll()}.
      */
-    @Test
-    public void testPoll()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testPoll(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         List<String> expectedList = new ArrayList<>(expectedElements);
         String expectedFirst = size > 0 ? expectedList.remove(0) : null;
@@ -1048,8 +1122,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#element()}.
      */
-    @Test
-    public void testElement()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testElement(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             assertThrows(NoSuchElementException.class, () -> list.element());
@@ -1064,8 +1139,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#peek()}.
      */
-    @Test
-    public void testPeek()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testPeek(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String expectedFirst = size > 0 ? expectedElements.get(0) : null;
 
@@ -1078,8 +1154,9 @@ public class DoublyLinkedListTest
     // test Stack methods
 
     /** Test for {@link DoublyLinkedList#push(Object)}. */
-    @Test
-    public void testPush()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testPush(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         String anotherString = "another";
 
@@ -1094,8 +1171,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#pop()}.
      */
-    @Test
-    public void testPop()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testPop(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             assertThrows(NoSuchElementException.class, () -> list.pop());
@@ -1115,8 +1193,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#invert()}.
      */
-    @Test
-    public void testInvert()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testInvert(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         list.invert();
 
@@ -1129,8 +1208,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#moveFrom(int, DoublyLinkedList)}.
      */
-    @Test
-    public void testMoveFrom()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testMoveFrom(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         int index = size / 3;
         List<String> other = size < 4 ? Collections.singletonList("another1")
@@ -1151,8 +1231,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#append(DoublyLinkedList)}.
      */
-    @Test
-    public void testAppend()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testAppend(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         List<String> other = size < 4 ? Collections.singletonList("another1")
             : Arrays.asList("another1", "another2");
@@ -1170,8 +1251,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#prepend(DoublyLinkedList)}. */
-    @Test
-    public void testPrepend()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testPrepend(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         List<String> other = size < 4 ? Collections.singletonList("another1")
             : Arrays.asList("another1", "another2");
@@ -1194,8 +1276,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#circularIterator(Object)}.
      */
-    @Test
-    public void testCircularIterator()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testCircularIterator(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             assertThrows(NoSuchElementException.class, () -> list.circularIterator("anything"));
@@ -1219,8 +1302,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#reverseCircularIterator(Object)}.
      */
-    @Test
-    public void testReverseCircularIterator()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testReverseCircularIterator(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             assertThrows(
@@ -1247,8 +1331,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#descendingIterator()}.
      */
-    @Test
-    public void testDescendingIterator()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testDescendingIterator(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         NodeIterator<String> iterator = list.descendingIterator();
         for (int i = size - 1; i >= 0; i--) {
@@ -1260,8 +1345,9 @@ public class DoublyLinkedListTest
     /**
      * Test for {@link DoublyLinkedList#iterator()}.
      */
-    @Test
-    public void testIterator()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testIterator(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         NodeIterator<String> iterator = list.iterator();
         for (int i = 0; i < size; i++) {
@@ -1271,8 +1357,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#listIterator(Object)}. */
-    @Test
-    public void testListIteratorE()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorE(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     { // test only if returned ListIterator starts expected position beginning.
         if (size == 0) {
             assertThrows(NoSuchElementException.class, () -> list.listIterator(null));
@@ -1288,8 +1375,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList#listIterator(int)}. */
-    @Test
-    public void testListIteratorInt_indexInTheMiddle_iteratorAtCorrectIndex()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorInt_indexInTheMiddle_iteratorAtCorrectIndex(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     { // test only if returned ListIterator starts at the correct position.
         int index = size / 2;
 
@@ -1305,8 +1393,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList.ListNodeIterator#nextNode()}. */
-    @Test
-    public void testListIteratorNext_iterateForwardTroughCompleteList_ListNodesInOrder()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorNext_iterateForwardTroughCompleteList_ListNodesInOrder(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     { // test only if returned ListIterator starts at the beginning.
         ListNodeIterator<String> listIterator = list.listIterator();
         List<ListNode<String>> listNodes = getListNodesOfList(list);
@@ -1326,8 +1415,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList.ListNodeIterator#previousNode()}. */
-    @Test
-    public void testListIteratorPrevious_iterateBackwardTroughCompleteList_ListNodesInOrder()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorPrevious_iterateBackwardTroughCompleteList_ListNodesInOrder(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     { // test only if returned ListIterator starts at the beginning.
         ListNodeIterator<String> listIterator = list.listIterator(size);
         List<ListNode<String>> listNodes = getListNodesOfList(list);
@@ -1346,8 +1436,9 @@ public class DoublyLinkedListTest
         assertThat(listIterator.previousIndex(), is(equalTo(-1)));
     }
 
-    @Test
-    public void testListIteratorNextPrevious_forwardBackwardPattern_correctElements()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorNextPrevious_forwardBackwardPattern_correctElements(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         int index = size / 3;
         ListNodeIterator<String> listIterator = list.listIterator(index);
@@ -1371,8 +1462,9 @@ public class DoublyLinkedListTest
         assertThat(listIterator.nextIndex(), is(equalTo(size)));
     }
 
-    @Test
-    public void testListIterator_iterateBehindTail()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIterator_iterateBehindTail(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         ListNodeIterator<String> iterator = list.listIterator();
         for (int i = 0; i < size; i++) {
@@ -1382,8 +1474,9 @@ public class DoublyLinkedListTest
         assertThrows(NoSuchElementException.class, () -> iterator.next());
     }
 
-    @Test
-    public void testListIterator_iterateBeforeHead()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIterator_iterateBeforeHead(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         ListNodeIterator<String> iterator = list.listIterator(size);
         for (int i = 0; i < size; i++) {
@@ -1393,21 +1486,25 @@ public class DoublyLinkedListTest
         assertThrows(NoSuchElementException.class, () -> iterator.previous());
     }
 
-    @Test(expected = ConcurrentModificationException.class)
-    public void testListIterator_concurrentAdd_ConcurrentModificationException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIterator_concurrentAdd_ConcurrentModificationException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
-        ListNodeIterator<String> listIterator = list.listIterator();
+        assertThrows(ConcurrentModificationException.class, () -> {
+            ListNodeIterator<String> listIterator = list.listIterator();
 
-        list.add("another");
+            list.add("another");
 
-        listIterator.next();
+            listIterator.next();
+        });
     }
 
-    @Test
-    public void testListIterator_concurrentRemove_ConcurrentModificationException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIterator_concurrentRemove_ConcurrentModificationException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
-            return;
+            abort();
         }
 
         ListNodeIterator<String> listIterator = list.listIterator();
@@ -1417,8 +1514,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList.ListNodeIterator#remove()}. */
-    @Test
-    public void testListIteratorRemove_clearListFromTheFront_emptyList()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorRemove_clearListFromTheFront_emptyList(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         List<ListNode<String>> listNodes = getListNodesOfList(list);
         ListNodeIterator<String> listIterator = list.listIterator();
@@ -1433,8 +1531,9 @@ public class DoublyLinkedListTest
         assertTrue(list.isEmpty());
     }
 
-    @Test
-    public void testListIteratorRemove_clearListFromTheMiddle_emptyList()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorRemove_clearListFromTheMiddle_emptyList(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         List<ListNode<String>> listNodes = getListNodesOfList(list);
         ListNodeIterator<String> listIterator = list.listIterator();
@@ -1449,8 +1548,9 @@ public class DoublyLinkedListTest
         assertTrue(list.isEmpty());
     }
 
-    @Test
-    public void testListIteratorRemove_clearListFromTheEnd_emptyList()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorRemove_clearListFromTheEnd_emptyList(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         List<ListNode<String>> listNodes = getListNodesOfList(list);
         ListNodeIterator<String> listIterator = list.listIterator(size);
@@ -1465,17 +1565,19 @@ public class DoublyLinkedListTest
         assertTrue(list.isEmpty());
     }
 
-    @Test(expected = IllegalStateException.class)
-    public void testListIteratorRemove_notMovedListIterator_IllegalStateException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorRemove_notMovedListIterator_IllegalStateException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
-        list.listIterator().remove();
+        assertThrows(IllegalStateException.class, () -> list.listIterator().remove());
     }
 
-    @Test
-    public void testListIteratorRemove_removeTwiceAfterNext_IllegalStateException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorRemove_removeTwiceAfterNext_IllegalStateException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
-            return;
+            abort();
         }
         ListNodeIterator<String> listIterator = list.listIterator();
         listIterator.next();
@@ -1486,8 +1588,9 @@ public class DoublyLinkedListTest
         assertThrows(IllegalStateException.class, () -> listIterator.remove());
     }
 
-    @Test
-    public void testListIteratorRemove_removeAfterAdd_IllegalStateException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorRemove_removeAfterAdd_IllegalStateException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
             return;
@@ -1502,8 +1605,9 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList.ListNodeIterator#add(Object)}. */
-    @Test
-    public void testListIteratorAdd_addElementsAtFront_listWithAdditionalElements()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorAdd_addElementsAtFront_listWithAdditionalElements(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         List<String> toAdd = Arrays.asList("another1", "two", "three", "four");
         List<String> expectedList = new ArrayList<>(expectedElements);
@@ -1518,8 +1622,9 @@ public class DoublyLinkedListTest
         }
     }
 
-    @Test
-    public void testListIteratorAdd_addElementsInTheMiddle_listWithAdditionalElements()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorAdd_addElementsInTheMiddle_listWithAdditionalElements(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         List<String> toAdd = Arrays.asList("another1", "two", "three", "four");
         List<String> expectedList = new ArrayList<>(expectedElements);
@@ -1535,8 +1640,9 @@ public class DoublyLinkedListTest
         }
     }
 
-    @Test
-    public void testListIteratorAdd_addElementsAtEnd_listWithAdditionalElements()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorAdd_addElementsAtEnd_listWithAdditionalElements(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
 
         List<String> toAdd = Arrays.asList("another1", "two", "three", "four");
@@ -1552,11 +1658,12 @@ public class DoublyLinkedListTest
         }
     }
 
-    @Test
-    public void testListIteratorAdd_addElementBeforeEnd_listWithAdditionalElements()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorAdd_addElementBeforeEnd_listWithAdditionalElements(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
-            return;
+            abort();
         }
 
         String element = "another";
@@ -1571,11 +1678,12 @@ public class DoublyLinkedListTest
     }
 
     /** Test for {@link DoublyLinkedList.ListNodeIterator#set(Object)}. */
-    @Test
-    public void testListIteratorSet_replaceElementInTheMiddle_listWithReplacedElement()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorSet_replaceElementInTheMiddle_listWithReplacedElement(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
-            return;
+            abort();
         }
         int index = size / 2;
         String element = "another";
@@ -1589,11 +1697,12 @@ public class DoublyLinkedListTest
         assertSameContent(list, expectedList);
     }
 
-    @Test
-    public void testListIteratorSet_replaceElementAtFront_listWithReplacedElement()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorSet_replaceElementAtFront_listWithReplacedElement(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
-            return;
+            abort();
         }
         String element = "another";
         List<String> expectedList = new ArrayList<>(expectedElements);
@@ -1606,11 +1715,12 @@ public class DoublyLinkedListTest
         assertSameContent(list, expectedList);
     }
 
-    @Test
-    public void testListIteratorSet_replaceElementInAtEnd_listWithReplacedElement()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorSet_replaceElementInAtEnd_listWithReplacedElement(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
-            return;
+            abort();
         }
         String element = "another";
         List<String> expectedList = new ArrayList<>(expectedElements);
@@ -1623,9 +1733,11 @@ public class DoublyLinkedListTest
         assertSameContent(list, expectedList);
     }
 
-    @Test
-    public void testListIteratorSet_setElementWithSubsequentRemove_listWithReplacedElement()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorSet_setElementWithSubsequentRemove_listWithReplacedElement(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     { // check if the last node of the iterator is configured right
+
         if (size == 0) {
             return;
         }
@@ -1644,11 +1756,13 @@ public class DoublyLinkedListTest
         assertSameContent(list, expectedList);
     }
 
-    @Test
-    public void testListIteratorSet_setTwice_listWithReplacedElement()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorSet_setTwice_listWithReplacedElement(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
+
         if (size == 0) {
-            return;
+            abort();
         }
         int index = size / 2;
         String element = "another";
@@ -1664,26 +1778,33 @@ public class DoublyLinkedListTest
         assertSameContent(list, expectedList);
     }
 
-    @Test(expected = IllegalStateException.class)
-    public void testListIteratorSet_NotMovedListIterator_IllegalstateException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorSet_NotMovedListIterator_IllegalstateException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
-        ListNodeIterator<String> listIterator = list.listIterator();
-        listIterator.set("another");
+        assertThrows(IllegalStateException.class, () -> {
+            ListNodeIterator<String> listIterator = list.listIterator();
+            listIterator.set("another");
+        });
     }
 
-    @Test(expected = IllegalStateException.class)
-    public void testListIteratorSet_setAfterAdd_IllegalstateException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorSet_setAfterAdd_IllegalstateException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
-        ListNodeIterator<String> listIterator = list.listIterator();
-        listIterator.add("another");
-        listIterator.set("another");
+        assertThrows(IllegalStateException.class, () -> {
+            ListNodeIterator<String> listIterator = list.listIterator();
+            listIterator.add("another");
+            listIterator.set("another");
+        });
     }
 
-    @Test
-    public void testListIteratorSet_setAfterRemove_IllegalstateException()
+    @ParameterizedTest(name = "List with size {0}")
+    @MethodSource("getListSizes")
+    public void testListIteratorSet_setAfterRemove_IllegalstateException(int size, List<String> expectedElements, DoublyLinkedList<String> list)
     {
         if (size == 0) {
-            return;
+            abort();
         }
         ListNodeIterator<String> listIterator = list.listIterator();
         listIterator.next();
