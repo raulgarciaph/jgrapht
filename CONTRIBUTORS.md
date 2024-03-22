@@ -155,6 +155,7 @@ JGraphT wouldn't be the library it is today without the source contributions and
 - [vab2048](https://github.com/vab2048)
 - [Sung Ho Yoon](https://github.com/syoon2)
 - [Albgarsan](https://github.com/Albgarsan)
+- [J. Alejandro Cornejo-Acosta](https://github.com/alex-cornejo)
 
 (If we have missed your name on this list, please email us to get it fixed.)
 
