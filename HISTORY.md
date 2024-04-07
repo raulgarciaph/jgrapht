@@ -8,7 +8,7 @@ Changes to JGraphT in each version:
     - Fixed `DoublyLinkedList` for compatibility with Java 21 (reported by Liam Miller-Cushon, contributed by Sung Ho Yoon)
     - Fixed a bug in `GmlExporter` to use system line separator consistently (contributed by Sung Ho Yoon)
     - Migrated to JUnit 5 (contributed by Sung Ho Yoon)
-    - Javadoc and CI maintenance (contributed by Sung Ho Yoon)
+    - Javadoc, Maven and CI maintenance (contributed by Sung Ho Yoon)
     - Added matrix build (Ubuntu, MacOS, Windows) to CI (contributed by Sung Ho Yoon)
     - Tidied up logging in `VF2SubgraphIsomorphismState` (contributed by Albgarsan)
     - Added `FarthestInsertionHeuristicTSP` algorithm (contributed by J. Alejandro Cornejo-Acosta)
