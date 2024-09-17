@@ -14,6 +14,7 @@ Changes to JGraphT in each version:
     - Added `FarthestInsertionHeuristicTSP` algorithm (contributed by J. Alejandro Cornejo-Acosta)
     - Prevent edge weight modification in `AsUnmodifiableGraph` and add tests (contributed by Sung Ho Yoon)
     - Rename `SorensenIndexLinkPrediction` to remove non-ASCII characters (contributed by Feng Wenhan)
+    - Fixed backslashing interpretation in `DOTEventDrivenImporter` (contributed by Feng Wenhan)
 
 - **version 1.5.2** (2-May-2023)
     - Prepared release cycle 1.5.2: removed deprecated code, updated dependencies (contributed by Joris Kinable)
