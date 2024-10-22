@@ -17,6 +17,7 @@ Changes to JGraphT in each version:
     - Prevent edge weight modification in `AsUnmodifiableGraph` and add tests (contributed by Sung Ho Yoon)
     - Rename `SorensenIndexLinkPrediction` to remove non-ASCII characters (contributed by Feng Wenhan)
     - Fixed backslashing interpretation in `DOTEventDrivenImporter` (contributed by Feng Wenhan)
+    - Fixed `SuurballeKDisjointShortestPaths` modified weight calculation (contributed by Yuri Bilyarov)
 
 - **version 1.5.2** (2-May-2023)
     - Prepared release cycle 1.5.2: removed deprecated code, updated dependencies (contributed by Joris Kinable)
