@@ -18,6 +18,8 @@ Changes to JGraphT in each version:
     - Rename `SorensenIndexLinkPrediction` to remove non-ASCII characters (contributed by Feng Wenhan)
     - Fixed backslashing interpretation in `DOTEventDrivenImporter` (contributed by Feng Wenhan)
     - Fixed `SuurballeKDisjointShortestPaths` modified weight calculation (contributed by Yuri Bilyarov)
+    - Added `KouMarkowskyBermanAlgorithm` implementation of `SteinerTreeAlgorithm` (contributed by Lena Büttel and Dimitrios Michail)
+    - Added `GreedyModularityAlgorithm` and `NaiveGreedyModularityAlgorithm` (contributed by Antonia Tsiftsi and Dimitrios Michail)
 
 - **version 1.5.2** (2-May-2023)
     - Prepared release cycle 1.5.2: removed deprecated code, updated dependencies (contributed by Joris Kinable)
