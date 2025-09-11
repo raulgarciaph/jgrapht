@@ -20,6 +20,7 @@ Changes to JGraphT in each version:
     - Fixed `SuurballeKDisjointShortestPaths` modified weight calculation (contributed by Yuri Bilyarov)
     - Added `KouMarkowskyBermanAlgorithm` implementation of `SteinerTreeAlgorithm` (contributed by Lena Büttel and Dimitrios Michail)
     - Added `GreedyModularityAlgorithm` and `NaiveGreedyModularityAlgorithm` (contributed by Antonia Tsiftsi and Dimitrios Michail)
+    - Improved performance of filtered `AsSubgraph` creation (contributed by Kirill A. Korinsky)
 
 - **version 1.5.2** (2-May-2023)
     - Prepared release cycle 1.5.2: removed deprecated code, updated dependencies (contributed by Joris Kinable)
