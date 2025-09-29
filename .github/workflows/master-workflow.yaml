@@ -69,8 +69,8 @@ jobs:
 
       - name: Deploy snapshot to Sonatype
         env:
-          SONATYPE_USER: ${{ secrets.CI_DEPLOY_USERNAME }}
-          SONATYPE_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
+          CENTRAL_USER: ${{ secrets.CI_DEPLOY_USERNAME }}
+          CENTRAL_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
         run: mvn deploy -DskipTests=true --settings etc/snapshot-settings.xml
         shell: bash
 
