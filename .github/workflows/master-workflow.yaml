@@ -71,7 +71,7 @@ jobs:
         env:
           CENTRAL_USER: ${{ secrets.CI_DEPLOY_USERNAME }}
           CENTRAL_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
-        run: mvn package org.sonatype.central:central-publishing-mvaen-plugin:publish -DskipTests=true --settings etc/snapshot-settings.xml
+        run: mvn package org.sonatype.central:central-publishing-maven-plugin:publish -DskipTests=true --settings etc/snapshot-settings.xml
         shell: bash
 
       - name: Publish Github Pages
